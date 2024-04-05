@@ -1,19 +1,24 @@
 import GitHubProvider from "next-auth/providers/github"
 import GoogleProvider from "next-auth/providers/google"
 
+import { PrismaAdapter } from "@auth/prisma-adapter"
+import { PrismaClient } from "@prisma/client"  
+
+const prisma = new PrismaClient();
+
 export const options = {
-    provider : [
+    adapter:PrismaAdapter(prisma),
+    providers : [
         GitHubProvider({
             profile(profile){
                 console.log("Profile GitHub:", profile)
-
-                let userRole = "GitHub User"
-                if(profile?.email == "dazwei@live.cn"){
-                    userRole = "admin"
-                }
                 return {
-                    ...profile,
-                    role: userRole,
+                    id: profile.id,
+                    image : profile.avatar_url,
+                    name: profile.name,
+                    email : profile.email,
+                    accounts : profile.accounts,
+                    sessions : profile.sessions
                 }
             },
             clientId: process.env.GITHUB_ID,
@@ -22,15 +27,14 @@ export const options = {
         GoogleProvider({
             profile(profile){
                 console.log("Profile Google:", profile)
-
-                let userRole = "Google User"
-                if(profile?.email == "dazwei@live.cn"){
-                    userRole = "admin"
-                }
+                const sub = profile.sub
                 return {
-                    ...profile,
-                    id: profile.sub,
-                    role: userRole,
+                    id: sub,
+                    image : profile.picture,
+                    name: profile.name,
+                    email : profile.email,
+                    accounts : profile.accounts,
+                    sessions : profile.sessions
                 }
             },
             clientId: process.env.GOOGLE_ID,
@@ -38,14 +42,14 @@ export const options = {
         })
 
     ],
-    callbacks:{
-        async jwt({token, user}){
-            if(user) token.role = user.role
-            return token;
-        },
-        async session({session, token}){
-            if(session?.user) session.user.role = token.role
-            return session;
-        }
-    }
+    // callbacks:{
+    //     async jwt({token, user}){
+    //         if(user) token.role = user.role
+    //         return token;
+    //     },
+    //     async session({session, token}){
+    //         if(session?.user) session.user.role = token.role
+    //         return session;
+    //     }
+    // }
 }
