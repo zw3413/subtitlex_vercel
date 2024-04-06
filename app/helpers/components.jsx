@@ -16,9 +16,8 @@ export const StripePricingTable_Weekly = () => {
     }, []);
   
     return createElement("stripe-pricing-table", {
-      "pricing-table-id": "prctbl_1P282BLch9pwz6rlr6UsLcpV",
-      "publishable-key":
-        "pk_test_51OuR0WLch9pwz6rliCx2ggwyBH3ujiNTDzWuWtZXQy9ZqEkoiOD06RZUJ1vxxRyt2J5qb2gtoQ8y4dnaJCdpigmK00AgjgO7TE",
+      "pricing-table-id": process.env.STRIPE_PRICETABLE_WEEKLY_ID,
+      "publishable-key":process.env.STRIPE_PUBLISHABLE_KEY,
     });
   
   };
@@ -36,9 +35,8 @@ export const StripePricingTable_Weekly = () => {
     }, []);
   
     return createElement("stripe-pricing-table", {
-      "pricing-table-id": "prctbl_1P28CfLch9pwz6rlATUnPLPC",
-      "publishable-key":
-        "pk_test_51OuR0WLch9pwz6rliCx2ggwyBH3ujiNTDzWuWtZXQy9ZqEkoiOD06RZUJ1vxxRyt2J5qb2gtoQ8y4dnaJCdpigmK00AgjgO7TE",
+      "pricing-table-id": process.env.STRIPE_PRICETABLE_MONTHLY_ID,
+      "publishable-key": process.env.STRIPE_PUBLISHABLE_KEY,
     });
   
   };
