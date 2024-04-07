@@ -1,7 +1,6 @@
 import { getServerSession } from "next-auth";
 import { options } from "../api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
-import { StripePricingTable, StripePricingTable_Monthly, StripePricingTable_Weekly } from "../helpers/components";
 import {
   createCheckoutLink,
   createCustomerIfNull,
@@ -39,7 +38,7 @@ async function Member() {
   );
 
   const hasSub = await hasSubscription();
-
+  const checkout_link = await createCheckoutLink(user?.stripe_customer_id);
 
   return (
     <div className="max-w-4xl m-auto w-full px-4">
@@ -60,13 +59,16 @@ async function Member() {
               Subscribed
             </div>
           ) : (
-              <>
             <div className="p-6 round-md border-zinc-400 shadow-sm font-medium flex items-center gap-2">
               Free plan
+
+              <Link
+                className="bg-white ml-auto text-black rounded-md px-2 py-1"
+                href={checkout_link}
+              >
+                Subscribe
+              </Link>
             </div>
-              <StripePricingTable_Weekly/>
-              <StripePricingTable_Monthly/>
-              </>
           )}
         </div>
       </div>
