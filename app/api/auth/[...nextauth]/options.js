@@ -19,7 +19,7 @@ export const options = {
                     email : profile.email,
                     accounts : profile.accounts,
                     sessions : profile.sessions,
-                    stripe_customer_id : profile.id
+                    //stripe_customer_id : profile.id
                 }
             },
             clientId: process.env.GITHUB_ID,
@@ -36,7 +36,7 @@ export const options = {
                     email : profile.email,
                     accounts : profile.accounts,
                     sessions : profile.sessions,
-                    stripe_customer_id : sub
+                    //stripe_customer_id : sub
                 }
             },
             clientId: process.env.GOOGLE_ID,
