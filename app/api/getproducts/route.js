@@ -4,7 +4,8 @@ import {NextResponse} from "next/server"
 export async function GET(request){
     const stripe = new Stripe(process.env.STRIPE_SECRET)
     const prices = await stripe.prices.list({
-        limit : 4
+        limit : 4, 
+        query :{active: true}
     })
     return NextResponse.json(prices.data.reverse())
 }
