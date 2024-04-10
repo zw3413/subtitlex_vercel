@@ -7,11 +7,11 @@ const PricingCard = ({ price, stripeObj }) => {
 
   const dynamicSubtitle = (price) => {
     if (price.nickname === "One Week") {
-      return <p className="text-[#20e4ff] mt-1">7-day subscription</p>;
+      return <p className="text-[#20e4ff] mt-1">Jable-Helper 7-day subscription</p>;
     }
 
     if (price.nickname === "One Month") {
-      return <p className="text-[#20e4ff] mt-1">30-day subscription</p>;
+      return <p className="text-[#20e4ff] mt-1">Jable-Helper 30-day subscription</p>;
     }
   };
 
