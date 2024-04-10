@@ -64,7 +64,9 @@ async function Member() {
     ).toLocaleString();
 
     new Date(1713235507000).toLocaleString("en-US", { type: "" });
-  }
+  }else {
+
+
   const stripe_customer_id = user?.stripe_customer_id;
 
   // const hasSub = false;
@@ -84,11 +86,12 @@ async function Member() {
     stripe_customer_id
   );
 
-  const stripeObj = {
+  var stripeObj = {
     stripe_customer_id: stripe_customer_id,
     checkOutLink_Week: checkOutLink_Week,
     checkOutLink_Month: checkOutLink_Month,
   };
+}
 
   return (
     <div className="max-w-4xl m-auto w-full px-4">
@@ -114,13 +117,13 @@ async function Member() {
 
         {hasSub ? (
           <>
-            <p>You have subscribed successfully.</p>
-            <p>
-              The subscription will be available from <b> {start_date} </b> to <b>
+            <p className="py-4">Subscription is success!</p>
+            <p className="py-4">
+              The subscription will be available from <b className="text-[#20e4ff]"> {start_date} </b> to <b className="text-[#20e4ff]">
               {end_date}</b>.
             </p>
-            <p>
-              Any questions or suggestions, subtitlex.xyz@gmail.com, thanks.
+            <p className="py-4">
+              Any questions or suggestions,
             </p>
             <p className="py-4">Please feedback or
               contact {process.env.CONTACT_EMAIL}</p>
