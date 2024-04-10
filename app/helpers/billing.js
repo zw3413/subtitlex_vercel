@@ -49,7 +49,7 @@ export async function createCheckoutLink_Monthly(customer) {
         customer: customer,
         line_items: [
             {
-                price: 'price_1P18e6Lch9pwz6rlZD12GhRl',
+                price: process.env.STRIPE_PRODUCT_MONTHLY_ID,
                 quantity:1
                 //price: 'price_1P12o6Lch9pwz6rlVLVCPysi'
             }
