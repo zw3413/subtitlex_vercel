@@ -8,7 +8,7 @@ export const stripe = new Stripe(String(process.env.STRIPE_SECRET), {
   apiVersion: "2023-08-16",
 });
 
-export async function hasSubscription() {
+export async function getSubscription() {
     const session = await getServerSession(options);
 
     if (session) {
@@ -18,7 +18,7 @@ export async function hasSubscription() {
             customer :user?.stripe_customer_id
         })
 
-        return subscriptions.data.length > 0;
+        return subscriptions;
     }
 
     return false;
