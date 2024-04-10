@@ -19,6 +19,16 @@ const PricingCard = ({ price, stripeObj }) => {
     if (price.nickname === "One Week") {
       return (
         <div className="mt-6 space-x-3">
+           <div className="border" />
+          <div className="flex space-x-3">
+            <AiFillCheckCircle
+              className="h-5 w-5 flex-shrink-0 text-[#20e4ff] ml-2"
+              aria-hidden="true"
+            />
+            <h2 className="text-sm text-grep-100 text-white">
+              Support jable.tv ...
+            </h2>
+          </div>
           <div className="border" />
           <div className="flex space-x-3">
             <AiFillCheckCircle
@@ -66,6 +76,16 @@ const PricingCard = ({ price, stripeObj }) => {
     if (price.nickname === "One Month") {
       return (
         <div className="mt-6 space-x-3">
+                <div className="border" />
+          <div className="flex space-x-3">
+            <AiFillCheckCircle
+              className="h-5 w-5 flex-shrink-0 text-[#20e4ff] ml-2"
+              aria-hidden="true"
+            />
+            <h2 className="text-sm text-grep-100 text-white">
+              Support jable.tv ...
+            </h2>
+          </div>
           <div className="border" />
 
           <div className="flex space-x-3">
