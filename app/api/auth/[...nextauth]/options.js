@@ -11,7 +11,6 @@ const prisma = new PrismaClient();
 export const options = {
     adapter:PrismaAdapter(prisma),
     providers : [
-
         GoogleProvider({
             profile(profile){
                 console.log("Profile Google:", profile)
@@ -98,4 +97,5 @@ export const options = {
     //         return session;
     //     }
     // }
+ 
 }

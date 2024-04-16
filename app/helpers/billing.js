@@ -20,7 +20,6 @@ export async function getSubscription() {
 
         return subscriptions;
     }
-
     return false;
 }
 

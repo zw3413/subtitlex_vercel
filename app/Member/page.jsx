@@ -1,3 +1,5 @@
+
+
 import { getServerSession } from "next-auth";
 import { options } from "../api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
@@ -17,6 +19,7 @@ import Link from "next/link";
 
 import FeedbackWidget from "../(components)/feedbackWidget.jsx";
 import PriceTables from "../(components)/priceTables.jsx";
+import SendMessage from "../(components)/sendMessage.jsx";
 
 import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
@@ -56,42 +59,49 @@ async function Member() {
   const hasSub = subscriptions?.data?.length > 0;
   if (hasSub) {
     var start_date = new Date(
-      subscriptions?.data[0].current_period_start *1000
+      subscriptions?.data[0].current_period_start * 1000
     ).toLocaleString();
     var status = subscriptions?.data[0].status;
     var end_date = new Date(
-      subscriptions?.data[0].current_period_end *1000
+      subscriptions?.data[0].current_period_end * 1000
     ).toLocaleString();
 
     new Date(1713235507000).toLocaleString("en-US", { type: "" });
-  }else {
+  } else {
+    const stripe_customer_id = user?.stripe_customer_id;
 
+    // const hasSub = false;
+    // const manage_link = "";
+    // const session = {
+    //   user: {
+    //     name: "Wei Zhang",
+    //     email: "zhangweicalm@gmail.com",
+    //     image:
+    //       "https://lh3.googleusercontent.com/a/ACg8ocJyZpFrAHxNEDJ1iq6KU8vmehCs2I1PK7l56FjZbbCxLerRK7s_=s96-c",
+    //   },
+    // };
+    // const stripe_customer_id = "cus_PszMYkiTERe0iy";
 
-  const stripe_customer_id = user?.stripe_customer_id;
+    const checkOutLink_Week = await createCheckoutLink_Weekly(
+      stripe_customer_id
+    );
+    const checkOutLink_Month = await createCheckoutLink_Monthly(
+      stripe_customer_id
+    );
 
-  // const hasSub = false;
-  // const manage_link = "";
-  // const session = {
-  //   user: {
-  //     name: "Wei Zhang",
-  //     email: "zhangweicalm@gmail.com",
-  //     image:
-  //       "https://lh3.googleusercontent.com/a/ACg8ocJyZpFrAHxNEDJ1iq6KU8vmehCs2I1PK7l56FjZbbCxLerRK7s_=s96-c",
-  //   },
-  // };
-  // const stripe_customer_id = "cus_PszMYkiTERe0iy";
+    var stripeObj = {
+      stripe_customer_id: stripe_customer_id,
+      checkOutLink_Week: checkOutLink_Week,
+      checkOutLink_Month: checkOutLink_Month,
+    };
+  }
 
-  const checkOutLink_Week = await createCheckoutLink_Weekly(stripe_customer_id);
-  const checkOutLink_Month = await createCheckoutLink_Monthly(
-    stripe_customer_id
-  );
-
-  var stripeObj = {
-    stripe_customer_id: stripe_customer_id,
-    checkOutLink_Week: checkOutLink_Week,
-    checkOutLink_Month: checkOutLink_Month,
-  };
-}
+  const userInfo = {
+    email: user.email,
+    name: user.name,
+    hasSub: hasSub,
+    expireDate: hasSub?subscriptions?.data[0].current_period_end:null
+  }
 
   return (
     <div className="max-w-4xl m-auto w-full px-4">
@@ -114,19 +124,20 @@ async function Member() {
             Manage billing
           </Link>
         </div>
+        <SendMessage user= {userInfo}></SendMessage>
 
         {hasSub ? (
           <>
             <p className="py-4">Subscription is success!</p>
             <p className="py-4">
-              The subscription will be available from <b className="text-[#20e4ff]"> {start_date} </b> to <b className="text-[#20e4ff]">
-              {end_date}</b>.
+              The subscription will be available from{" "}
+              <b className="text-[#20e4ff]"> {start_date} </b> to{" "}
+              <b className="text-[#20e4ff]">{end_date}</b>.
             </p>
+            <p className="py-4">Any questions or suggestions,</p>
             <p className="py-4">
-              Any questions or suggestions,
+              Please feedback or contact {process.env.CONTACT_EMAIL}
             </p>
-            <p className="py-4">Please feedback or
-              contact {process.env.CONTACT_EMAIL}</p>
           </>
         ) : (
           <div className="min-h-350">
