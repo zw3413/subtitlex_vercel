@@ -4,31 +4,28 @@ import Link from "next/link";
 import { AiFillCheckCircle } from "react-icons/ai";
 
 const PricingCard = ({ price, stripeObj }) => {
-
   const dynamicSubtitle = (price) => {
     if (price.nickname === "One Week") {
-      return <span className="text-[#20e4ff] mt-1">Jable-Helper 7-day subscription</span>;
+      return (
+        <span className="text-[#20e4ff] mt-1">
+          Jable-Helper 7-day subscription
+        </span>
+      );
     }
 
     if (price.nickname === "One Month") {
-      return <span className="text-[#20e4ff] mt-1">Jable-Helper 30-day subscription</span>;
+      return (
+        <span className="text-[#20e4ff] mt-1">
+          Jable-Helper 30-day subscription
+        </span>
+      );
     }
   };
 
   const dynamicDescription = (price) => {
     if (price.nickname === "One Week") {
       return (
-        <div className="mt-6 space-x-3">
-           <div className="border" />
-          <div className="flex space-x-3">
-            <AiFillCheckCircle
-              className="h-5 w-5 flex-shrink-0 text-[#20e4ff] ml-2"
-              aria-hidden="true"
-            />
-            <h2 className="text-sm text-grep-100 text-white">
-              Support jable.tv ...
-            </h2>
-          </div>
+        <div className="mt-6 ">
           <div className="border" />
           <div className="flex space-x-3">
             <AiFillCheckCircle
@@ -36,7 +33,7 @@ const PricingCard = ({ price, stripeObj }) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Pure subtitles with no promts
+              Millions of JAV subtitles
             </h2>
           </div>
           <div className="border" />
@@ -56,7 +53,7 @@ const PricingCard = ({ price, stripeObj }) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              7 days of service
+              Immersive enjoyable
             </h2>
           </div>
           <div className="border" />
@@ -75,26 +72,15 @@ const PricingCard = ({ price, stripeObj }) => {
     }
     if (price.nickname === "One Month") {
       return (
-        <div className="mt-6 space-x-3">
-                <div className="border" />
-          <div className="flex space-x-3">
-            <AiFillCheckCircle
-              className="h-5 w-5 flex-shrink-0 text-[#20e4ff] ml-2"
-              aria-hidden="true"
-            />
-            <h2 className="text-sm text-grep-100 text-white">
-              Support jable.tv ...
-            </h2>
-          </div>
+        <div className="mt-6 ">
           <div className="border" />
-
           <div className="flex space-x-3">
             <AiFillCheckCircle
               className="h-5 w-5 flex-shrink-0 text-[#20e4ff] ml-2"
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Pure subtitles with no promts
+              Millions of JAV subtitles
             </h2>
           </div>
           <div className="border" />
@@ -114,7 +100,7 @@ const PricingCard = ({ price, stripeObj }) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              30 days of service
+              Immersive enjoyable
             </h2>
           </div>
           <div className="border" />
@@ -172,10 +158,12 @@ const PricingCard = ({ price, stripeObj }) => {
   return (
     <div className="border-grey-100 shadow-2xl border-4 text-center mt-10 max-w-[1040px]">
       <div>
-        <div className="bg-grey-100 h-28 items-center font-bold">
-          <h4 className="text-3xl font-bold">{price.nickname}</h4>
-          <p>{dynamicSubtitle(price)}</p>
-          <h3>Multilingual subtitles</h3>
+        <div className="bg-grey-100 h-12 items-center font-bold">
+          <h4 className="text-3xl font-bold text-[#20e4ff] mt-1">
+            {price.nickname}
+          </h4>
+          {/* <p>{dynamicSubtitle(price)}</p>
+          <h3>Multilingual subtitles</h3> */}
         </div>
         <div>
           <div className="flex flex-col items-center justify-center pt-4">

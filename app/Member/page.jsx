@@ -1,5 +1,3 @@
-
-
 import { getServerSession } from "next-auth";
 import { options } from "../api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
@@ -100,8 +98,8 @@ async function Member() {
     email: user.email,
     name: user.name,
     hasSub: hasSub,
-    expireDate: hasSub?subscriptions?.data[0].current_period_end:null
-  }
+    expireDate: hasSub ? subscriptions?.data[0].current_period_end : null,
+  };
 
   return (
     <div className="max-w-4xl m-auto w-full px-4">
@@ -124,7 +122,29 @@ async function Member() {
             Manage billing
           </Link>
         </div>
-        <SendMessage user= {userInfo}></SendMessage>
+        <SendMessage user={userInfo}></SendMessage>
+
+        <div className="my-8">
+          <h3 className="text-lg font-bold">
+            <a href="#SupportedWebsites">Supported Websites:</a>
+          </h3>
+          <ul>
+            <li>
+              <a target="_blank" className="underline" href="https://jable.tv">
+                https://jable.tv
+              </a>
+            </li>
+            <li>
+              <a
+                target="_blank"
+                className="underline"
+                href="https://missav.com"
+              >
+                https://missav.com
+              </a>
+            </li>
+          </ul>
+        </div>
 
         {hasSub ? (
           <>
@@ -133,10 +153,6 @@ async function Member() {
               The subscription will be available from{" "}
               <b className="text-[#20e4ff]"> {start_date} </b> to{" "}
               <b className="text-[#20e4ff]">{end_date}</b>.
-            </p>
-            <p className="py-4">Any questions or suggestions,</p>
-            <p className="py-4">
-              Please feedback or contact {process.env.CONTACT_EMAIL}
             </p>
           </>
         ) : (

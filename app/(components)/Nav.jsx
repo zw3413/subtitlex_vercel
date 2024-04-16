@@ -13,6 +13,9 @@ const Nav = async () => {
         {/* <Link href="/CreateUser">CreateUser</Link> */}
         {/* <Link href="/ClientMember">ClientMember</Link> */}
         <Link href="/Member">Member</Link>
+      <Link href="https://subtitlex.canny.io/" target="_blank">Request Feature</Link>
+        
+
         {/* <Link href="/Subscription">Subscription</Link> */}
         {session ? (
           <Link href="/api/auth/signout?callbackUrl=/Jable-Helper">Logout</Link>) : (

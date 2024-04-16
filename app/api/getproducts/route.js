@@ -7,5 +7,5 @@ export async function GET(request){
       limit:4,
       active:true
     })
-    return NextResponse.json(prices.data.reverse())
+    return NextResponse.json(prices.data)
 }
