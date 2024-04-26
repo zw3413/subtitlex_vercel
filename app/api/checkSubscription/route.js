@@ -14,7 +14,7 @@ export async function GET(request) {
     },
   });
 
-  let userInfo 
+  let userInfo = {}
   if(user){
     const subscriptions = await stripe.subscriptions.list({
         customer :user?.stripe_customer_id
