@@ -31,6 +31,6 @@ export async function POST(request) {
 }
 
 
-export async function OPTIONS(req, res){
-  return NextResponse({}, 200, "OPTIONS")
+export async function OPTIONS(reqquest){
+  return NextResponse.json({})
 }
