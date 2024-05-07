@@ -29,3 +29,8 @@ export async function POST(request) {
   }
   return NextResponse.json(userInfo);
 }
+
+
+export async function OPTIONS(req, res){
+  return NextResponse({}, 200, "OPTIONS")
+}
