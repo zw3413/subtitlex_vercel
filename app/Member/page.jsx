@@ -148,9 +148,9 @@ async function Member() {
 
         {hasSub ? (
           <>
-            <p className="py-4">Subscription is success!</p>
+            <p className="py-4">Refresh the opened page to reload subtitles.</p>
             <p className="py-4">
-              The subscription will be available from{" "}
+              Your subscription is valid from{" "}
               <b className="text-[#20e4ff]"> {start_date} </b> to{" "}
               <b className="text-[#20e4ff]">{end_date}</b>.
             </p>
