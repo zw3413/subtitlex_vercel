@@ -15,12 +15,12 @@ export default function home() {
               of Service, please pause, grab a cup of coffee and carefully read
               the following pages. It will take you approximately 20 minutes.
               These Terms of Service (“Terms”, “Terms of Service”) govern your
-              use of our web pages located at{" "}
-              <a href="https://www.subtitlex.xyz/Jable-Helper">https://www.subtitlex.xyz/Jable-Helper</a>{" "}
+              use of our web pages located at 
+              <a href="https://www.subtitlex.xyz/Jable-Helper">https://www.subtitlex.xyz/Jable-Helper</a> 
               operated by SubtitleX team
               Our Privacy Policy also governs your use of our Service and
               explains how we collect, safeguard and disclose information that
-              results from your use of our web pages. Please read it here{" "}
+              results from your use of our web pages. Please read it here 
               <a href="https://www.subtitle.xyz/Jable-Helper/privacy-policy">
               https://www.subtitle.xyz/Jable-Helper/privacy-policy
               </a>
@@ -28,7 +28,7 @@ export default function home() {
               Policy (“Agreements”). You acknowledge that you have read and
               understood Agreements, and agree to be bound of them. If you do
               not agree with (or cannot comply with) Agreements, then you may
-              not use the Service, but please let us know by emailing at{" "}
+              not use the Service, but please let us know by emailing at 
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a> so we
               can try to find a solution. These Terms apply to all visitors,
               users and others who wish to access or use Service. Thank you for
@@ -42,7 +42,7 @@ export default function home() {
               newsletters, marketing or promotional materials and other
               information we may send. However, you may opt out of receiving
               any, or all, of these communications from us by following the
-              unsubscribe link or by emailing at{" "}
+              unsubscribe link or by emailing at 
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a>.
             </div>
           </div>
@@ -163,11 +163,11 @@ export default function home() {
               or in any way is illegal, threatening, fraudulent, or harmful, or
               in connection with any unlawful, illegal, fraudulent, or harmful
               purpose or activity. (f) To engage in any other conduct that
-              restricts or inhibits anyone's use or enjoyment of Service or
+              restricts or inhibits anyone&#39;s use or enjoyment of Service or
               which, as determined by us, may harm or offend Company or users of
               Service or expose them to liability. Additionally, you agree not
               to: (a) Use Service in any manner that could disable, overburden,
-              damage, or impair Service or interfere with any other party's use
+              damage, or impair Service or interfere with any other party&#39;s use
               of Service, including their ability to engage in real time
               activities through Service. (b) Use any robot, spider, or other
               automatic device, process, or means to access Service for any
@@ -198,12 +198,12 @@ export default function home() {
               Google services. Google may use the collected data to
               contextualise and personalise the ads of its own advertising
               network. For more information on the privacy practices of Google,
-              please visit the Google Privacy Terms web page:{" "}
+              please visit the Google Privacy Terms web page: 
               <a href="https://policies.google.com/privacy?hl=en">
                 https://policies.google.com/privacy?hl=en
-              </a>{" "}
-              We also encourage you to review the Google's policy for
-              safeguarding your data:{" "}
+              </a> 
+              We also encourage you to review the Google&#39;s policy for
+              safeguarding your data: 
               <a href="https://support.google.com/analytics/answer/6004245">
                 https://support.google.com/analytics/answer/6004245
               </a>
@@ -267,13 +267,13 @@ export default function home() {
               (“Infringement”) of any person or entity. If you are a copyright
               owner, or authorized on behalf of one, and you believe that the
               copyrighted work has been copied in a way that constitutes
-              copyright infringement, please submit your claim via email to{" "}
+              copyright infringement, please submit your claim via email to 
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a>, with
               the subject line: “Copyright infringement” and include in your
               claim a detailed description of the alleged Infringement as
-              detailed below, under "DMCA Notice and Procedure for Copyright
-              Infringement Claims". You may be held accountable for damages
-              (including costs and attorneys' fees) for misrepresentation or
+              detailed below, under &#34;DMCA Notice and Procedure for Copyright
+              Infringement Claims&#34;. You may be held accountable for damages
+              (including costs and attorneys&#39; fees) for misrepresentation or
               bad-faith claims on the infringement of any Content found on
               and/or through Service on your copyright.
             </div>
@@ -288,7 +288,7 @@ export default function home() {
               following information in writing (see 17 U.S.C 512(c)(3) for
               further detail): (a) an electronic or physical signature of the
               person authorized to act on behalf of the owner of the copyright
-              's interest; (b) a description of the copyrighted work that you
+              &#39;s interest; (b) a description of the copyrighted work that you
               claim has been infringed, including the URL (i.e., web page
               address) of the location where the copyrighted work exists or a
               copy of the copyrighted work; (c) identification of the URL or
@@ -299,7 +299,7 @@ export default function home() {
               copyright owner, its agent, or the law; (f) a statement by you,
               made under penalty of perjury, that the above information in your
               notice is accurate and that you are the copyright owner or
-              authorized to act on the copyright owner's behalf. You can contact
+              authorized to act on the copyright owner&#39;s behalf. You can contact
               our Copyright Agent via email at subtitlex.xyz@gmail.com
             </div>
           </div>
@@ -308,7 +308,7 @@ export default function home() {
               17. Error Reporting and Feedback
             </h2>
             <div class="text-lg sm:pl-10 ">
-              You may provide us either directly at{" "}
+              You may provide us either directly at 
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a> or
               via third party sites and tools with information and feedback
               concerning errors, suggestions for improvements, ideas, problems,
@@ -381,7 +381,7 @@ export default function home() {
               EXCEPT AS PROHIBITED BY LAW, YOU WILL HOLD US AND OUR OFFICERS,
               DIRECTORS, EMPLOYEES, AND AGENTS HARMLESS FOR ANY INDIRECT,
               PUNITIVE, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGE, HOWEVER IT
-              ARISES (INCLUDING ATTORNEYS' FEES AND ALL RELATED COSTS AND
+              ARISES (INCLUDING ATTORNEYS&#39; FEES AND ALL RELATED COSTS AND
               EXPENSES OF LITIGATION AND ARBITRATION, OR AT TRIAL OR ON APPEAL,
               IF ANY, WHETHER OR NOT LITIGATION OR ARBITRATION IS INSTITUTED),
               WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE, OR OTHER TORTIOUS
@@ -479,7 +479,7 @@ export default function home() {
             <h2 class="text-3xl font-bold mb-2">27. Contact Us</h2>
             <div class="text-lg sm:pl-10 ">
               Please send your feedback, comments, requests for technical
-              support: By email:{" "}
+              support: By email: 
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a>.
             </div>
           </div>

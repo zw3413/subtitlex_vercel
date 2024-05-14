@@ -14,7 +14,7 @@ export default function Home() {
 
           We use Your Personal data to provide and improve the Service. By using
           the Service, You agree to the collection and use of information in
-          accordance with this Privacy Policy.{" "}
+          accordance with this Privacy Policy.  
         </p>
         <h2 class="text-3xl font-bold mb-2">1. Interpretation and Definitions</h2>
         <h3 className="text-lg font-bold mt-2">Interpretation</h3>
@@ -109,7 +109,7 @@ export default function Home() {
         <h4 className="font-bold mt-1">b. Usage Data</h4>
         <p class="text-lg sm:pl-10">Usage Data is collected automatically when using the Service.</p>
         <p class="text-lg sm:pl-10">
-          Usage Data may include information such as Your Device's Internet
+          Usage Data may include information such as Your Device&#39;s Internet
           Protocol address (e.g. IP address), browser type, browser version, the
           pages of our Service that You visit, the time and date of Your visit,
           the time spent on those pages, unique device identifiers and other
@@ -187,7 +187,7 @@ export default function Home() {
         <h3 className="text-lg font-bold mt-2">Transfer of Your Personal Data</h3>
         <p class="text-lg sm:pl-10">
           Your information, including Personal Data, is processed at the
-          Developer's operating offices and in any other places where the parties
+          Developer&#39;s operating offices and in any other places where the parties
           involved in the processing are located. It means that this information
           may be transferred to — and maintained on — computers located outside
           of Your state, province, country or other governmental jurisdiction
@@ -260,7 +260,7 @@ export default function Home() {
           acceptable means to protect Your Personal Data, We cannot guarantee
           its absolute security.
         </p>
-        <h2 class="text-3xl font-bold mb-2">3. Children's Privacy</h2>
+        <h2 class="text-3xl font-bold mb-2">3. Children&#39;s Privacy</h2>
         <p class="text-lg sm:pl-10">
          This service is not intending to serve children.
           If We become aware that We have collected Personal Data from anyone
@@ -294,7 +294,7 @@ export default function Home() {
           </li>
           <li>
             <p class="text-lg sm:pl-10">
-              By visiting this page on our website:{" "}
+              By visiting this page on our website:  
               <a
                 href="https://www.subtitlex.xyz/Memeber"
                 rel="external nofollow noopener"

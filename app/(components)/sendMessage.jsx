@@ -23,7 +23,7 @@ function SendMessage(user) {
   const extensionId = "hjmipcbcoljkhcjbmccggahbgfkbogkh";
   useEffect(() => {
     sendTokenToChromeExtension({ extensionId, user });
-  }, []);
+  }, [user]);
 }
 
 export default SendMessage;
