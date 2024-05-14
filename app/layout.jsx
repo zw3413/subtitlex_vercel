@@ -19,7 +19,7 @@ export default function RootLayout({ children }) {
       <AuthProvider>
         <body className={inter.className}>
           <main className="flex min-h-screen flex-col items-center justify-between ">
-            <div className="z-10  w-full items-center justify-between font-sans text-sm lg:flex bg-[#03194f]">
+            <div className="z-10  w-full items-center justify-between font-bold text-sm lg:flex bg-[#03194f]">
               <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
                 <Link href={process.env.DOMAIN_NAME + "/Jable-Helper"}>
                   <Image
@@ -46,7 +46,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
             {children}
-            <footer className="flex p-4 h-12 w-full justify-left bg-[#03194f]">© 2024 SubtitleX Jable-Helper</footer>
+            <footer className="flex p-4 h-12 w-full justify-end bg-[#03194f]"><span>© 2024 SubtitleX Jable-Helper</span></footer>
           </main>
         </body>
       </AuthProvider>
