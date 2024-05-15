@@ -167,7 +167,7 @@ async function Member() {
           <FeedbackWidget
             showOnInitial={true}
             title={"Hi 👋"}
-            description={"Have feedback? We'd love to hear it"}
+            description={"Have feedback? We&#39;d love to hear it"}
             type={"full"}
             themeColor={"#20e4ff"}
             textColor={"#000000"}

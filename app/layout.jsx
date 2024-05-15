@@ -1,6 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Image from "next/image";
+
 import Nav from "./(components)/Nav";
 
 import AuthProvider from "./(components)/AuthProvider";
@@ -19,34 +19,19 @@ export default function RootLayout({ children }) {
       <AuthProvider>
         <body className={inter.className}>
           <main className="flex min-h-screen flex-col items-center justify-between ">
-            <div className="z-10  w-full items-center justify-between font-bold text-sm lg:flex bg-[#03194f]">
-              <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-                <Link href={process.env.DOMAIN_NAME + "/Jable-Helper"}>
-                  <Image
-                    src="/jable_helper_icon.png"
-                    alt="Jable-Helper Logo"
-                    width={36}
-                    height={36}
-                    priority
-                  />
-                </Link>
-              </p>
-
+            <header className="sticky top-0 bg-black z-10  w-full items-center justify-between font-bold text-sm lg:flex 
+            
+            ">
+              <Link href="https://www.subtitlex.xyz">
+              <p className="text-2xl px-4 unde text-slate-400">
+                SubtitleX
+              </p></Link>
               <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
                 <Nav />
-                {/* <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            >
-            By{" "} <b>SubtitleX</b>
-          
-            </a> */}
               </div>
-            </div>
+            </header>
             {children}
-            <footer className="flex p-4 h-12 w-full justify-end bg-[#03194f]"><span>© 2024 SubtitleX Jable-Helper</span></footer>
+            <footer className="flex p-4 h-12 w-full justify-end text-slate-400"><span>© 2024 SubtitleX</span></footer>
           </main>
         </body>
       </AuthProvider>
