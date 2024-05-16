@@ -24,8 +24,7 @@ export default function Home() {
           <h1 className="text-2xl ml-2"> Jable-Helper</h1>
         </div>
         <h1 className="text-center font-semibold text-7xl mx-auto ">
-      
-          Immersive multilingual subtitles for JAV websites. 
+          Immersive multilingual subtitles for JAV websites.
         </h1>
       </div>
 
@@ -119,8 +118,8 @@ export default function Home() {
         </h2>
       </div>
 
-      <div className="my-12" id = "SupportedWebsites">
-        <h1 className="text-center font-semibold text-3xl mx-auto "> 
+      <div className="my-12" id="SupportedWebsites">
+        <h1 className="text-center font-semibold text-3xl mx-auto ">
           Current adapt to below free and fast
           <span className="text-color-jable">JAV</span> Websites
         </h1>
@@ -135,8 +134,11 @@ export default function Home() {
       </div>
 
       {/* carousel */}
-      <div className="flex-wrap my-12 max-w-[1000px]" >
-        <h1 className="text-center font-semibold text-5xl mx-auto mb-12" id = "Help">
+      <div className="flex-wrap my-12 max-w-[1000px]">
+        <h1
+          className="text-center font-semibold text-5xl mx-auto mb-12"
+          id="Help"
+        >
           Install and Enjoy Now !
         </h1>
         <div className="flex my-4 ">
@@ -171,19 +173,62 @@ export default function Home() {
             width={480}
           />
           <div className="flex-wrap mt-28 ml-4">
-          <h1 className="text-xl font-thin  wrap">
-            3. If no subtitle available, you could search and download it from
-            internet, and then load it.
-          </h1>
-          <h1 className="font-thin text-base pt-4 wrap">Great websites to download subtitles:</h1>
-          <svg className="w-[20px] h-[20px] text-white inline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg>
-
-            <Link className="underline text-slate-400 hover:text-white" target="_blank" href="https://subtitlecat.com/">SUBTITLE CAT</Link> <br/>
-            <svg className="w-[20px] h-[20px] text-white inline" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
-</svg>        <Link className="underline text-slate-400 hover:text-white" target="_blank" href="https://www.opensubtitles.org/en/search">OPENSUBTITLES.ORG</Link>
+            <h1 className="text-xl font-thin  wrap">
+              3. If no subtitle available, you could search and download it from
+              internet, and then load it.
+            </h1>
+            <h1 className="font-thin text-base pt-4 wrap">
+              Great websites to download subtitles:
+            </h1>
+            <svg
+              className="w-[20px] h-[20px] text-white inline"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"
+              />
+            </svg>
+            <Link
+              className="underline text-slate-400 hover:text-white"
+              target="_blank"
+              href="https://subtitlecat.com/"
+            >
+              SUBTITLE CAT
+            </Link>{" "}
+            <br />
+            <svg
+              className="w-[20px] h-[20px] text-white inline"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              fill="none"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"
+              />
+            </svg>{" "}
+            <Link
+              className="underline text-slate-400 hover:text-white"
+              target="_blank"
+              href="https://www.opensubtitles.org/en/search"
+            >
+              OPENSUBTITLES.ORG
+            </Link>
           </div>
         </div>
       </div>
@@ -191,12 +236,13 @@ export default function Home() {
       {/* subscribe */}
       <div className="my-12">
         <h1 className="text-center font-semibold text-5xl mx-auto mb-12">
-        <Link
-          className="bg-[#20e4ff] text-black hover:text-white font-bold py-2 px-4 rounded z-50"
-          href="/Member"
-        >
-          Subscribe
-        </Link> to Enjoy More
+          <Link
+            className="bg-[#20e4ff] text-black hover:text-white font-bold py-2 px-4 rounded z-50"
+            href="/Member"
+          >
+            Subscribe
+          </Link>{" "}
+          to Enjoy More
         </h1>
 
         <div className="flex justify-between my-12 gap-20">
@@ -210,14 +256,46 @@ export default function Home() {
               src="/images/noneuser.png"
             />
 
-            <h2 className="text-sm font-light"> <svg className="w-[20px] h-[20px] text-white inline mr-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 11.917 9.724 16.5 19 7.5"/>
-</svg>
+            <h2 className="text-sm font-light">
+              {" "}
+              <svg
+                className="w-[20px] h-[20px] text-white inline mr-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 11.917 9.724 16.5 19 7.5"
+                />
+              </svg>
               3 subtitles per hour from subtitlex database
             </h2>
-            <h2 className="text-sm font-light"> <svg className="w-[20px] h-[20px] text-white inline mr-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 11.917 9.724 16.5 19 7.5"/>
-</svg>
+            <h2 className="text-sm font-light">
+              {" "}
+              <svg
+                className="w-[20px] h-[20px] text-white inline mr-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 11.917 9.724 16.5 19 7.5"
+                />
+              </svg>
               Unlimited loading local srt file
             </h2>
           </div>
@@ -232,29 +310,89 @@ export default function Home() {
               height={268}
               src="/images/loginuser.png"
             />
-                    <h2 className="text-sm font-light ">
-                    <svg className="w-[20px] h-[20px] text-white inline mr-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 11.917 9.724 16.5 19 7.5"/>
-</svg>
-<span className="text-color-jable">60 subtitles</span> per day from subtitlex database
+            <h2 className="text-sm font-light ">
+              <svg
+                className="w-[20px] h-[20px] text-white inline mr-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 11.917 9.724 16.5 19 7.5"
+                />
+              </svg>
+              <span className="text-color-jable">60 subtitles</span> per day
+              from subtitlex database
             </h2>
-            <h2 className="text-sm font-light"> <svg className="w-[20px] h-[20px] text-white inline mr-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 11.917 9.724 16.5 19 7.5"/>
-</svg>
+            <h2 className="text-sm font-light">
+              {" "}
+              <svg
+                className="w-[20px] h-[20px] text-white inline mr-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 11.917 9.724 16.5 19 7.5"
+                />
+              </svg>
               Unlimited loading local srt file
             </h2>
-            <h2 className="text-sm font-light"> <svg className="w-[20px] h-[20px] text-white inline mr-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
-  <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 11.917 9.724 16.5 19 7.5"/>
-</svg>
+            <h2 className="text-sm font-light">
+              {" "}
+              <svg
+                className="w-[20px] h-[20px] text-white inline mr-4"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M5 11.917 9.724 16.5 19 7.5"
+                />
+              </svg>
               Contact with developer directly
             </h2>
           </div>
         </div>
       </div>
 
-      <div >
-       <Link target="_blank" href="https://www.subtitlex.xyz/Jable-Helper/privacy-policy"> Privacy Policy</Link> | 
-       <Link target="_blank" href="https://www.subtitlex.xyz/Jable-Helper/terms-of-service"> Terms of Service</Link> 
+      <div>
+        <Link
+          target="_blank"
+          href="https://www.subtitlex.xyz/Jable-Helper/privacy-policy"
+        >
+          {" "}
+          Privacy Policy
+        </Link>{" "}
+        |
+        <Link
+          target="_blank"
+          href="https://www.subtitlex.xyz/Jable-Helper/terms-of-service"
+        >
+          {" "}
+          Terms of Service
+        </Link>
         <br />
         <br />
       </div>

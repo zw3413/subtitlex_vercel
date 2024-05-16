@@ -19,11 +19,11 @@ const Nav = async () => {
 
           {/* <Link href="/Subscription">Subscription</Link> */}
           {session ? (
-            <Link href="/api/auth/signout?callbackUrl=/Jable-Helper" className="hover:text-white">
+            <Link href="/api/auth/signout?callbackUrl=/Member" className="hover:text-white">
               Logout
             </Link>
           ) : (
-            <Link href="/api/auth/signin?callbackUrl=/Jable-Helper" className="hover:text-white">Login</Link>
+            <Link href="/api/auth/signin?callbackUrl=/Member" className="hover:text-white">Login</Link>
           )}
         </div>
       </nav>

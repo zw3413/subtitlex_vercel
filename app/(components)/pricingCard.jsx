@@ -3,9 +3,9 @@ import axios from "axios";
 import Link from "next/link";
 import { AiFillCheckCircle } from "react-icons/ai";
 
-const PricingCard = ({ price, stripeObj }) => {
-  const dynamicSubtitle = (price) => {
-    if (price.nickname === "One Week") {
+const PricingCard = ({ priceObj}) => {
+  const dynamicSubtitle = (priceObj) => {
+    if (priceObj.nickname === "One Week") {
       return (
         <span className="text-[#20e4ff] mt-1">
           Jable-Helper 7-day subscription
@@ -13,7 +13,7 @@ const PricingCard = ({ price, stripeObj }) => {
       );
     }
 
-    if (price.nickname === "One Month") {
+    if (priceObj.nickname === "One Month") {
       return (
         <span className="text-[#20e4ff] mt-1">
           Jable-Helper 30-day subscription
@@ -22,8 +22,8 @@ const PricingCard = ({ price, stripeObj }) => {
     }
   };
 
-  const dynamicDescription = (price) => {
-    if (price.nickname === "One Week") {
+  const dynamicDescription = (priceObj) => {
+    if (priceObj.nickname === "One Week") {
       return (
         <div className="mt-6 ">
           <div className="border" />
@@ -70,7 +70,7 @@ const PricingCard = ({ price, stripeObj }) => {
         </div>
       );
     }
-    if (price.nickname === "One Month") {
+    if (priceObj.nickname === "One Month") {
       return (
         <div className="mt-6 ">
           <div className="border" />
@@ -119,66 +119,51 @@ const PricingCard = ({ price, stripeObj }) => {
     }
   };
 
-  const dynamicButton = (price) => {
-    if (price.nickname === "One Week") {
+  const dynamicButton = (priceObj) => {
+    if (priceObj.nickname === "One Week") {
       return (
         <Link
           className="mt-8 flex w-full justify-center rounded-md border border-transparent bg-[#20e4ff] py-2 px-4 text-sm font-medium text-black shadow-sm"
-          href={"" + stripeObj.checkOutLink_Week}
+          href={"" + priceObj.checkOutLink}
         >
           Subscribe Now
         </Link>
       );
     }
-    if (price.nickname === "One Month") {
+    if (priceObj.nickname === "One Month") {
       return (
         <Link
           className="mt-8 flex w-full justify-center rounded-md border border-transparent bg-[#20e4ff] py-2 px-4 text-sm font-medium text-black shadow-sm"
-          href={"" + stripeObj.checkOutLink_Month}
+          href={"" + priceObj.checkOutLink}
         >
           Subscribe Now
         </Link>
       );
     }
   };
-
-  // const handleSubscription = async (price)=>{
-  //   e.preventDefault();
-  //   const {data} = await axios.post('/api/payment',{
-  //     priceId: price.id,
-  //   },{
-  //     headers: {
-  //       "Content-Type":"application/json",
-  //     },
-  //   });
-
-  //   window.location.assign(data)
-  // }
 
   return (
-    <div className="border-grey-100 shadow-2xl border-4 text-center mt-10 max-w-[1040px]">
+    <div className="shadow-sm hover:shadow-lg border border-slate-400 rounded-lg p-6  shadow-gray-100 hover:shadow-gray-100 mb-4 text-center mt-10 max-w-[1040px]">
       <div>
         <div className="bg-grey-100 h-12 items-center font-bold">
-          <h4 className="text-3xl font-bold text-[#20e4ff] mt-1">
-            {price.nickname}
+          <h4 className="text-xl font-semibold text-slate-300 mt-1">
+            {priceObj.nickname}
           </h4>
-          {/* <p>{dynamicSubtitle(price)}</p>
-          <h3>Multilingual subtitles</h3> */}
         </div>
         <div>
-          <div className="flex flex-col items-center justify-center pt-4">
-            <h1 className="text-5xl font-bold">
-              {(price.unit_amount / 100).toLocaleString("en-US", {
+          <div className="flex flex-col items-center justify-center pt-2">
+            <h1 className="text-2xl font-thin text-white">
+              {(priceObj.unit_amount / 100).toLocaleString("en-US", {
                 style: "currency",
                 currency: "USD",
               })}
             </h1>
             <h3></h3>
           </div>
-          <ul className="flex justify-center">
-            <li className="text-xl font-bold">{dynamicDescription(price)}</li>
-          </ul>
-          {dynamicButton(price)}
+          {/* <ul className="flex justify-center">
+            <li className="text-xl font-bold">{dynamicDescription(priceObj)}</li>
+          </ul> */}
+          {dynamicButton(priceObj)}
         </div>
       </div>
     </div>

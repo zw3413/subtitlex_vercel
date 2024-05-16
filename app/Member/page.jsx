@@ -67,19 +67,6 @@ async function Member() {
     new Date(1713235507000).toLocaleString("en-US", { type: "" });
   } else {
     const stripe_customer_id = user?.stripe_customer_id;
-
-    // const hasSub = false;
-    // const manage_link = "";
-    // const session = {
-    //   user: {
-    //     name: "Wei Zhang",
-    //     email: "zhangweicalm@gmail.com",
-    //     image:
-    //       "https://lh3.googleusercontent.com/a/ACg8ocJyZpFrAHxNEDJ1iq6KU8vmehCs2I1PK7l56FjZbbCxLerRK7s_=s96-c",
-    //   },
-    // };
-    // const stripe_customer_id = "cus_PszMYkiTERe0iy";
-
     const checkOutLink_Week = await createCheckoutLink_Weekly(
       stripe_customer_id
     );
@@ -89,8 +76,18 @@ async function Member() {
 
     var stripeObj = {
       stripe_customer_id: stripe_customer_id,
-      checkOutLink_Week: checkOutLink_Week,
-      checkOutLink_Month: checkOutLink_Month,
+      weekly: {
+        checkOutLink: checkOutLink_Week,
+        price_id: process.env.STRIPE_PRODUCT_WEEKLY_ID,
+        nickname: "One Week",
+        unit_amount: 500,
+      },
+      monthly: {
+        checkOutLink: checkOutLink_Month,
+        price_id: process.env.STRIPE_PRODUCT_MONTHLY_ID,
+        nickname: "One Month",
+        unit_amount: 1000,
+      },
     };
   }
 
@@ -100,19 +97,24 @@ async function Member() {
     hasSub: hasSub,
     expireDate: hasSub ? subscriptions?.data[0].current_period_end : null,
   };
+  //用当前时间和subscription的current_period_end对比，看订阅是否还有效
+  const current_time = new Date().getTime() / 1000;
+  const expire_time = hasSub ? subscriptions?.data[0].current_period_end : null;
+  const is_expired = expire_time ? current_time > expire_time : false;
 
   return (
-    <div className="max-w-4xl m-auto w-full px-4">
+    <div className="max-w-[1100px] min-w-[1000px] place-content-left ml-20">
       <div className="flex flex-col">
+        {/* greeting start */}
         <div className="py-10  mb-18">
-          <p className="text-2xl font-medium inline">
+          <p className="text-2xl font-medium inline mr-8">
             Welcome,{" "}
             {session.user.name ? session.user.name : session.user.email}{" "}
-            {hasSub ? (
+            {/* {hasSub ? (
               <span className="p-6 text-base font-medium">Subscribed</span>
             ) : (
               <span className="p-6 text-base font-medium"></span>
-            )}
+            )} */}
           </p>
 
           <Link
@@ -123,51 +125,70 @@ async function Member() {
           </Link>
         </div>
         <SendMessage user={userInfo}></SendMessage>
+        {/* greeting end */}
 
-        <div className="my-8">
-          <h3 className="text-lg font-bold">
-            <a href="#SupportedWebsites">Supported Websites:</a>
-          </h3>
-          <ul>
-            <li>
-              <a target="_blank" className="underline" href="https://jable.tv">
-                https://jable.tv
-              </a>
-            </li>
-            <li>
-              <a
-                target="_blank"
-                className="underline"
-                href="https://missav.com"
-              >
-                https://missav.com
-              </a>
-            </li>
-          </ul>
-        </div>
-
-        {hasSub ? (
-          <>
-            <p className="py-4">Refresh the opened page to reload subtitles.</p>
-            <p className="py-4">
-              Your subscription is valid from{" "}
+        {hasSub && !is_expired ? (
+          // for subscribed user
+          <div className="h-[420px]">
+            <h1 className="max-w-[1000px] text-color-jable">
+              Subscription is Valid.
+            </h1>
+            <h2 className="mt-6">
+              You have login successfully, <br />
+              <br />
+              <span className="underline text-2xl">
+                Refresh the video page to show the subtitle.
+              </span>
+              <br />
+              <br />
+              Contact with the developer, we&#39;d love to hear your feedback.
+              <br />
+              <br />
+              Subscription is valid from{" "}
               <b className="text-[#20e4ff]"> {start_date} </b> to{" "}
               <b className="text-[#20e4ff]">{end_date}</b>.
-            </p>
-          </>
+            </h2>
+          </div>
         ) : (
-          <div className="min-h-350">
-            <div className="mb-20 text-center flex">
-              <PriceTables stripeObj={stripeObj}></PriceTables>
+          // for none-subscribed user
+          <div className="h-[420px]">
+            <h1 className="max-w-[1000px]">Subscription is Invalid.</h1>
+            <h2 className="mt-2">
+              <span className="text-color-jable">60 subtitles per day </span>{" "}
+              will be offered with a valid subscription.
+              <br />
+              Contact with the developer, we&#39;d love to hear your feedback.
+            </h2>
+            <div className="min-h-300">
+              <div className="mb-10 text-center flex">
+                <PriceTables stripeObj={stripeObj}></PriceTables>
+              </div>
             </div>
           </div>
         )}
 
-        <div className="py-4 text-black">
+        <div className="mt-12">
+          <Link
+            target="_blank"
+            href="https://www.subtitlex.xyz/Jable-Helper/privacy-policy"
+          >
+            {" "}
+            Privacy Policy
+          </Link>{" "}
+          |
+          <Link
+            target="_blank"
+            href="https://www.subtitlex.xyz/Jable-Helper/terms-of-service"
+          >
+            {" "}
+            Terms of Service
+          </Link>
+        </div>
+        <div className=" text-black">
           <FeedbackWidget
             showOnInitial={true}
             title={"Hi 👋"}
-            description={"Have feedback? We&#39;d love to hear it"}
+            description={"Have feedback? We'd love to hear it"}
             type={"full"}
             themeColor={"#20e4ff"}
             textColor={"#000000"}
