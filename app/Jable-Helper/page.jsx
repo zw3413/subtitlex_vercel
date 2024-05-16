@@ -104,7 +104,7 @@ export default function Home() {
           </svg>
           Time offset adjustment
         </h2>
-        <h2 className="my-2">
+        <h2 className="my-2" id="SupportedWebsites">
           <svg
             className="w-9 h-9 text-white inline mr-8"
             aria-hidden="true"
@@ -118,12 +118,12 @@ export default function Home() {
         </h2>
       </div>
 
-      <div className="my-12" id="SupportedWebsites">
+      <div className="my-12" >
         <h1 className="text-center font-semibold text-3xl mx-auto ">
           Current adapt to below free and fast
           <span className="text-color-jable">JAV</span> Websites
         </h1>
-        <div className="flex justify-center gap-20 my-10">
+        <div className="flex justify-center gap-20 my-10"     id="Help">
           <Link href="https://jable.tv/" target="_blank">
             <Image width={300} height={100} src="/images/jable.png" />
           </Link>
@@ -137,7 +137,7 @@ export default function Home() {
       <div className="flex-wrap my-12 max-w-[1000px]">
         <h1
           className="text-center font-semibold text-5xl mx-auto mb-12"
-          id="Help"
+      
         >
           Install and Enjoy Now !
         </h1>
