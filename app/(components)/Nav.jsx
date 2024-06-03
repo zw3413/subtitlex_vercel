@@ -19,7 +19,7 @@ const Nav = async () => {
 
           {/* <Link href="/Subscription">Subscription</Link> */}
           {session ? (
-            <Link href="/api/auth/signout?callbackUrl=/Member" className="hover:text-white">
+            <Link href="/api/auth/signout?callbackUrl=/" className="hover:text-white">
               Logout
             </Link>
           ) : (
