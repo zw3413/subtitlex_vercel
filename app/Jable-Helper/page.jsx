@@ -125,10 +125,10 @@ export default function Home() {
         </h1>
         <div className="flex justify-center gap-20 my-10"     id="Help">
           <Link href="https://jable.tv/" target="_blank">
-            <Image width={300} height={100} src="/images/jable.png" />
+            <Image alt="SubtitleX" width={300} height={100} src="/images/jable.png" />
           </Link>
           <Link href="https://missav.com/" target="_blank">
-            <Image width={300} height={100} src="/images/missav.png" />
+            <Image alt="SubtitleX" width={300} height={100} src="/images/missav.png" />
           </Link>
         </div>
       </div>
@@ -142,7 +142,7 @@ export default function Home() {
           Install and Enjoy Now !
         </h1>
         <div className="flex my-4 ">
-          <Image
+          <Image alt="SubtitleX"
             className="rounded-lg mx-4"
             src="/images/1_pin_the_extension.png"
             height={300}
@@ -157,7 +157,7 @@ export default function Home() {
           <h1 className="text-xl font-thin mt-28">
             2. Select the language or subtitle in your favour
           </h1>
-          <Image
+          <Image alt="SubtitleX"
             className="rounded-lg mx-4"
             src="/images/2_select_language_or_subtitle_you_prefer.png"
             height={300}
@@ -166,7 +166,7 @@ export default function Home() {
         </div>
 
         <div className="flex my-4 w-full  ">
-          <Image
+          <Image alt="SubtitleX"
             className="rounded-lg mx-4"
             src="/images/3_load_subtitle_from_your_local.png"
             height={300}
@@ -249,7 +249,7 @@ export default function Home() {
           <div>
             <h1 className="text-2xl">Free Tier</h1>
 
-            <Image
+            <Image alt="SubtitleX"
               className="shadow-lg shadow-gray-100 mb-8"
               width={256}
               height={268}
@@ -304,7 +304,7 @@ export default function Home() {
             <div className="flex-wrap">
               <h1 className="text-2xl ">Subscribed Tier</h1>
             </div>
-            <Image
+            <Image alt="SubtitleX"
               className="shadow-lg shadow-gray-100 mb-8"
               width={256}
               height={268}

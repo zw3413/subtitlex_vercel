@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import SearchForm from "../(components)/searchForm";
 import { remoteCall } from "../common";
 import { useSession } from "next-auth/react";
-import { updateAndGetUser } from "../common";
+import { UpdateAndGetUser } from "../common";
 import SearchList from "../(components)/searchList";
 import SearchDetail from "../(components)/searchDetail";
 const searchSubtitle = async (hint) => {
@@ -26,7 +26,7 @@ export default function Result(context) {
   const [seeds, setSeeds] = useState([]);
   const [seed, setSeed] = useState(null);
   const [isDetail, setIsDetail] = useState(false);
-  updateAndGetUser(useSession());
+  UpdateAndGetUser(useSession());
   useEffect(() => {
     async function fetchData() {
       const result = await searchSubtitle(hint);
@@ -35,7 +35,7 @@ export default function Result(context) {
       }
     }
     fetchData();
-  }, []);
+  }, [hint]);
 
   return (
     <div className=" container min-h-dvh">
@@ -50,7 +50,7 @@ export default function Result(context) {
         <div className="col-span-3">
           {!isDetail ? (
             <>
-              <h1 className="mb-10">Result of searching "{hint}"</h1>
+              <h1 className="mb-10">Result of searching &quot;{hint}&quot;</h1>
               <SearchList
                 seeds={seeds}
                 setSeed={setSeed}

@@ -5,7 +5,7 @@ const subtitleXserverApi = "https://api.subtitlex.xyz";
 
 export const fetchTextFromURL = async (subtitleId) => {
   const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
-  const user = await updateAndGetUser();
+  const user = await UpdateAndGetUser();
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -34,7 +34,7 @@ export const fetchTextFromURL = async (subtitleId) => {
 export const remoteCall = async (f, pl) => {
   let response;
   try {
-    const user = await updateAndGetUser();
+    const user = await UpdateAndGetUser();
     console.log("subtitlex: about to cal the remotecall with user ");
     console.log(user);
     if (!user.uuid) {
@@ -81,7 +81,7 @@ export const UUID = async () => {
   }
 };
 
-export const updateAndGetUser = async (session) => {
+export const UpdateAndGetUser = async (session) => {
   const [setItem, getItem, removeItem] = useLocalStorage("user");
   let user = getItem();
   if (!user) {
@@ -100,4 +100,4 @@ export const updateAndGetUser = async (session) => {
   return user;
 };
 
-updateAndGetUser();
+UpdateAndGetUser();

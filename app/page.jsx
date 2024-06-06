@@ -6,7 +6,7 @@ import {useSession} from "next-auth/react"
 import {updateAndGetUser} from "./common"
 
 
-export default function home() {
+export default function Home() {
   const session = useSession()
   updateAndGetUser(session)
 
