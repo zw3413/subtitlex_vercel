@@ -3,12 +3,12 @@
 import Image from "next/image";
 import SearchForm from "./(components)/searchForm";
 import {useSession} from "next-auth/react"
-import {updateAndGetUser} from "./common"
+import {UpdateAndGetUser} from "./common"
 
 
 export default function Home() {
   const session = useSession()
-  updateAndGetUser(session)
+  UpdateAndGetUser(session)
 
   return (
     <div className="container mb-40">
