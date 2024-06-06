@@ -1,4 +1,9 @@
+export const metadata ={
+  title: 'Privacy Policy',
+  description: 'Privacy Policy for SubtitleX',
+}
 export default function Home() {
+  
   return (
     <>
       <div class="max-w-[1000px] min-h-screen mx-auto py-20 px-4">
