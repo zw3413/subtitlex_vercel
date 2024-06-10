@@ -376,26 +376,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-
-      <div>
-        <Link
-          target="_blank"
-          href="https://www.subtitlex.xyz/Jable-Helper/privacy-policy"
-        >
-          {" "}
-          Privacy Policy
-        </Link>{" "}
-        |
-        <Link
-          target="_blank"
-          href="https://www.subtitlex.xyz/Jable-Helper/terms-of-service"
-        >
-          {" "}
-          Terms of Service
-        </Link>
-        <br />
-        <br />
-      </div>
     </>
   );
 }

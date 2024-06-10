@@ -167,23 +167,7 @@ async function Member() {
           </div>
         )}
 
-        <div className="mt-12">
-          <Link
-            target="_blank"
-            href="https://www.subtitlex.xyz/Jable-Helper/privacy-policy"
-          >
-            {" "}
-            Privacy Policy
-          </Link>{" "}
-          |
-          <Link
-            target="_blank"
-            href="https://www.subtitlex.xyz/Jable-Helper/terms-of-service"
-          >
-            {" "}
-            Terms of Service
-          </Link>
-        </div>
+        
         <div className=" text-black">
           <FeedbackWidget
             showOnInitial={true}
