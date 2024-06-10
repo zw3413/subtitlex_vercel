@@ -20,7 +20,7 @@ const sendTokenToChromeExtension = ({ extensionId, user }) => {
 };
 
 function SendMessage(user) {
-  const extensionId = "hjmipcbcoljkhcjbmccggahbgfkbogkh";
+  const extensionId = "jleagfpeiplocfdkajcpgcadnpipmkcl";
   useEffect(() => {
     try{
     sendTokenToChromeExtension({ extensionId, user });
