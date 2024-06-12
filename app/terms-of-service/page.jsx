@@ -1,3 +1,7 @@
+export const metadata ={
+  title: 'Term of Service',
+  description: 'Term of Service for SubtitleX',
+}
 export default function home() {
   return (
     <>

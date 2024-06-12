@@ -13,7 +13,7 @@ export const metadata = {
     default:"SubtitleX",
     template: "%s | SubtitleX",
   },
-  description: "Subtitle in every Language.",
+  description: "Subtitle in every Language."
 };
 
 export default function RootLayout({ children }) {
@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
 
             {children}
 
-            <footer className=" p-4 h-12 w-full justify-between text-slate-400 bg-[#1f1f1f] hidden lg:flex">
+            <footer className=" p-4 h-12 w-full justify-between text-slate-400 bg-[#1f1f1f] hidden lg:flex bottom-0 sticky ">
               <div className="mx-4 w-[250px] flex justify-between">
                 <Link
                 href="/terms-of-service"> Term of Service

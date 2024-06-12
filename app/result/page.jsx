@@ -36,19 +36,25 @@ export default function Result(context) {
     }
     fetchData();
   }, [hint]);
+  useEffect(()=>{
+
+    if(seed ){
+      console.log(seed);
+      const url = `/result/detail/${seed.uuid}`;
+      window.open(url, '_blank');
+    }
+  },[seed])
 
   return (
     <div className=" container min-h-dvh">
-    
-        <div className="my-10">
-          <SearchForm inHint={hint} setIsDetail={setIsDetail}/>
-        </div>
-    
+      <div className="my-10">
+        <SearchForm inHint={hint} setIsDetail={setIsDetail} />
+      </div>
 
       <div className="grid gap-2 grid-cols-5">
         <div className=" "></div>
         <div className="col-span-3">
-          {!isDetail ? (
+          {!false ? (
             <>
               <h1 className="mb-10">Result of searching &quot;{hint}&quot;</h1>
               <SearchList

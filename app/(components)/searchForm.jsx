@@ -1,7 +1,11 @@
+'use client'
 import { useState } from "react";
 export default function SearchForm({ inHint, setIsDetail }) {
   if (!inHint) {
     inHint = "";
+  }
+  if(!setIsDetail){
+    setIsDetail = ()=>{};
   }
   const [hint, setHint] = useState(inHint);
   const [isError, setIsError] = useState(false);
