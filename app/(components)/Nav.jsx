@@ -9,7 +9,7 @@ const Nav = async () => {
       <nav className="flex justify-between items-center w-full px-10 py-4">
         {/* <div>SubtitleX</div> */}
         <div className="flex gap-8 text-lg  underline text-slate-400 ">
-          <Link href="/extension" className="hover:text-white"> <svg
+          <Link href="/Extension" className="hover:text-white"> <svg
           className="inline-flex"
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
