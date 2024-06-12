@@ -291,7 +291,7 @@ export default function Home() {
             width={480}
           />
           <h1 className="text-xl font-thin mt-28">
-            1. Icon of SubtitleX will show on the control bar of video after the page loaded. If you didn't see it please reload the page or contact with developer.
+            1. Icon of SubtitleX will show on the control bar of video after the page loaded. If you didn&apos;t see it please reload the page or contact with developer.
           </h1>
         </div>
 
