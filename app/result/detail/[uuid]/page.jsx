@@ -47,7 +47,7 @@ export default async function SearchDetailServer(context) {
   };
   await downloadSubtitle();
   return (
-    <div className=" container min-h-dvh overflow-y-hidden">
+    <div className=" container ">
       <div className="my-10">
         <SearchForm />
       </div>
