@@ -53,8 +53,8 @@ export default function Home() {
               y2="29.195"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#bac1c6"></stop>
-              <stop offset=".703" stop-color="#9ca5ad"></stop>
+              <stop offset="0" stopColor="#bac1c6"></stop>
+              <stop offset=".703" stopColor="#9ca5ad"></stop>
             </linearGradient>
             <polygon
               fill="url(#s1KY5cWnBSx6qWb48gxgFa_GsBZ74FbIf7a_gr1)"
@@ -68,8 +68,8 @@ export default function Home() {
               y2="11.251"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset=".117" stop-color="#889097"></stop>
-              <stop offset=".465" stop-color="#64717c"></stop>
+              <stop offset=".117" stopColor="#889097"></stop>
+              <stop offset=".465" stopColor="#64717c"></stop>
             </linearGradient>
             <rect
               width="11"
@@ -94,13 +94,13 @@ export default function Home() {
               y2="38.803"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#4caf50"></stop>
-              <stop offset=".489" stop-color="#4aaf50"></stop>
-              <stop offset=".665" stop-color="#43ad50"></stop>
-              <stop offset=".79" stop-color="#38aa50"></stop>
-              <stop offset=".892" stop-color="#27a550"></stop>
-              <stop offset=".978" stop-color="#11a050"></stop>
-              <stop offset="1" stop-color="#0a9e50"></stop>
+              <stop offset="0" stopColor="#4caf50"></stop>
+              <stop offset=".489" stopColor="#4aaf50"></stop>
+              <stop offset=".665" stopColor="#43ad50"></stop>
+              <stop offset=".79" stopColor="#38aa50"></stop>
+              <stop offset=".892" stopColor="#27a550"></stop>
+              <stop offset=".978" stopColor="#11a050"></stop>
+              <stop offset="1" stopColor="#0a9e50"></stop>
             </linearGradient>
             <path
               fill="url(#s1KY5cWnBSx6qWb48gxgFc_GsBZ74FbIf7a_gr3)"
@@ -114,13 +114,13 @@ export default function Home() {
               y2="26.321"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#ffd747"></stop>
-              <stop offset=".482" stop-color="#ffd645"></stop>
-              <stop offset=".655" stop-color="#fed43e"></stop>
-              <stop offset=".779" stop-color="#fccf33"></stop>
-              <stop offset=".879" stop-color="#fac922"></stop>
-              <stop offset=".964" stop-color="#f7c10c"></stop>
-              <stop offset="1" stop-color="#f5bc00"></stop>
+              <stop offset="0" stopColor="#ffd747"></stop>
+              <stop offset=".482" stopColor="#ffd645"></stop>
+              <stop offset=".655" stopColor="#fed43e"></stop>
+              <stop offset=".779" stopColor="#fccf33"></stop>
+              <stop offset=".879" stopColor="#fac922"></stop>
+              <stop offset=".964" stopColor="#f7c10c"></stop>
+              <stop offset="1" stopColor="#f5bc00"></stop>
             </linearGradient>
             <path
               fill="url(#s1KY5cWnBSx6qWb48gxgFd_GsBZ74FbIf7a_gr4)"
@@ -134,8 +134,8 @@ export default function Home() {
               y2="40.811"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#2aa4f4"></stop>
-              <stop offset="1" stop-color="#007ad9"></stop>
+              <stop offset="0" stopColor="#2aa4f4"></stop>
+              <stop offset="1" stopColor="#007ad9"></stop>
             </linearGradient>
             <path
               fill="url(#s1KY5cWnBSx6qWb48gxgFe_GsBZ74FbIf7a_gr5)"
@@ -149,12 +149,12 @@ export default function Home() {
               y2="39.801"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#f7572f"></stop>
-              <stop offset=".523" stop-color="#f7552d"></stop>
-              <stop offset=".712" stop-color="#f75026"></stop>
-              <stop offset=".846" stop-color="#f7461b"></stop>
-              <stop offset=".954" stop-color="#f7390a"></stop>
-              <stop offset="1" stop-color="#f73100"></stop>
+              <stop offset="0" stopColor="#f7572f"></stop>
+              <stop offset=".523" stopColor="#f7552d"></stop>
+              <stop offset=".712" stopColor="#f75026"></stop>
+              <stop offset=".846" stopColor="#f7461b"></stop>
+              <stop offset=".954" stopColor="#f7390a"></stop>
+              <stop offset="1" stopColor="#f73100"></stop>
             </linearGradient>
             <path
               fill="url(#s1KY5cWnBSx6qWb48gxgFf_GsBZ74FbIf7a_gr6)"
@@ -168,12 +168,12 @@ export default function Home() {
               y2="34.631"
               gradientUnits="userSpaceOnUse"
             >
-              <stop offset="0" stop-color="#f7572f"></stop>
-              <stop offset=".523" stop-color="#f7552d"></stop>
-              <stop offset=".712" stop-color="#f75026"></stop>
-              <stop offset=".846" stop-color="#f7461b"></stop>
-              <stop offset=".954" stop-color="#f7390a"></stop>
-              <stop offset="1" stop-color="#f73100"></stop>
+              <stop offset="0" stopColor="#f7572f"></stop>
+              <stop offset=".523" stopColor="#f7552d"></stop>
+              <stop offset=".712" stopColor="#f75026"></stop>
+              <stop offset=".846" stopColor="#f7461b"></stop>
+              <stop offset=".954" stopColor="#f7390a"></stop>
+              <stop offset="1" stopColor="#f73100"></stop>
             </linearGradient>
             <path
               fill="url(#s1KY5cWnBSx6qWb48gxgFg_GsBZ74FbIf7a_gr7)"

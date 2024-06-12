@@ -15,6 +15,14 @@ const nextConfig = {
             }
         ]
     },
+    async rewrites(){
+        return [
+            {
+                source: "/extension",
+                destination: "/Extension"
+            }
+        ]
+    },
     reactStrictMode: false,
 };
 
