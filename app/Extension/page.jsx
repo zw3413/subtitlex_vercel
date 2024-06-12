@@ -1,7 +1,12 @@
+'use client'
 import Link from "next/link";
 import Image from "next/image";
 import "flowbite";
 export default function Home() {
+
+  function handleInstallClick(){
+    window.open('https://chromewebstore.google.com/detail/subtitlex/jleagfpeiplocfdkajcpgcadnpipmkcl','_blank')
+  }
   return (
     <>
       <div
@@ -30,6 +35,7 @@ export default function Home() {
         </h1>
         <div className="flex content-center mt-8">
         <button
+          onClick={handleInstallClick}
           type="button"
           className="  border focus:ring-4 focus:outline-none  font-medium rounded-lg text-xl px-5 py-2.5 text-center inline-flex items-center focus:ring-gray-600 bg-gray-800 border-gray-700 text-color-jable hover:bg-gray-700 mb-8 mx-auto"
         >

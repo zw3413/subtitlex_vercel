@@ -25,6 +25,7 @@ export async function generateMetadata(context) {
   if (seed) {
     return {
       title: seed.video_name,
+      description: `subtitle of ${seed.video_name} in language of ${seed.language} in format of ${seed.format}`
     };
   } else {
     return {};
@@ -46,7 +47,7 @@ export default async function SearchDetailServer(context) {
   };
   await downloadSubtitle();
   return (
-    <div className=" container min-h-dvh">
+    <div className=" container min-h-dvh overflow-y-hidden">
       <div className="my-10">
         <SearchForm />
       </div>
