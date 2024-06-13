@@ -1,7 +1,7 @@
 'use client'
 export default function InstallChromeExtensionButton(){
     function handleInstallClick(){
-        window.open('https://chromewebstore.google.com/detail/subtitlex/jleagfpeiplocfdkajcpgcadnpipmkcl','_blank')
+        window.open('/Extension','_blank')
       }
     return (
         <button

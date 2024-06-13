@@ -29,7 +29,7 @@ export default function Home() {
           <h1 className="text-2xl ml-2"> SubtitleX</h1>
           
         </div>
-        <h1 className="text-center font-semibold text-7xl mx-auto ">
+        <h1 className="text-center font-semibold text-5xl mx-auto ">
           Immersive multilingual subtitles for online videos, such as Disney,
           Netflix, YouTube and many more!
         </h1>
