@@ -17,6 +17,7 @@ export default function Home() {
         max-w-[1000px]
         "
       >
+        
         <div className="flex justify-center my-8 ">
           <h1 className="text-2xl font-light mr-6">Welcome to use</h1>
           <Image
@@ -29,10 +30,6 @@ export default function Home() {
           <h1 className="text-2xl ml-2"> SubtitleX</h1>
           
         </div>
-        <h1 className="text-center font-semibold text-5xl mx-auto ">
-          Immersive multilingual subtitles for online videos, such as Disney,
-          Netflix, YouTube and many more!
-        </h1>
         <div className="flex content-center mt-8">
         <button
           onClick={handleInstallClick}
@@ -189,6 +186,11 @@ export default function Home() {
           Install Chrome extension
         </button>
         </div>
+        <h1 className="text-center font-semibold text-5xl mx-auto ">
+          Immersive multilingual subtitles for online videos, such as Disney,
+          Netflix, YouTube and many more!
+        </h1>
+     
       </div>
 
       {/* product instruction */}
