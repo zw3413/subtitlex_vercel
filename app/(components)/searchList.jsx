@@ -15,7 +15,7 @@ export default function SearchList({ seeds, setSeed, setIsDetail }) {
     });
     setLanguageArray(arr);
     setLang(arr)
-  },[seeds])
+  },[])
   
   useEffect(() => {
     setSeedList(seeds.filter((seed) => lang.includes(seed.language)));
@@ -29,7 +29,7 @@ export default function SearchList({ seeds, setSeed, setIsDetail }) {
       >
         {languageArray.map((language) => {
           return (
-            <button
+            <button key={language}
               onClick={() => {
                 if (lang.includes(language)) {
                   setLang(lang.filter((l) => l !== language));
