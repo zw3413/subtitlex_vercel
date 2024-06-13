@@ -2,6 +2,29 @@ import { useLocalStorage } from "../customHook/useLocalStorage";
 
 const subtitleXserverApi = "https://api.subtitlex.xyz";
 
+export const languageArray = [
+  {name :"All", code:""},
+  { name: "English", code: "eng" },
+  { name: "Traditional Chinese", code: "cmn_Hant" },
+  { name: "Simplified Chinese", code: "cmn" },
+  { name: "Spanish", code: "spa" },
+  { name: "Portuguese", code: "por" },
+  { name: "Swedish", code: "swe" },
+  { name: "Germ", code: "deu" },
+  { name: "Arabic", code: "arb" },
+  { name: "Russian", code: "rus" },
+  { name: "Franch", code: "fra" },
+  { name: "Japanese", code: "jpn" },
+  { name: "Korean", code: "kor" },
+  { name: "Italian", code: "ita" },
+  { name: "Polish", code: "pol" },
+  { name: "Turkish", code: "tur" },
+  { name: "Vietnamese", code: "vie" },
+  { name: "Thai", code: "tha" },
+  { name: "Hindi", code: "hin" },
+  { name: "Malay", code: "msa" },
+  { name: "Indonesian", code: "ind" }
+];
 
 export const fetchTextFromURL = async (subtitleId) => {
   const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
@@ -25,9 +48,7 @@ export const fetchTextFromURL = async (subtitleId) => {
     const text = await response.text();
     return text;
   } catch (error) {
-    console.log(
-      " fetch subtitle failed, contact administrator." + error
-    );
+    console.log(" fetch subtitle failed, contact administrator." + error);
   }
 };
 

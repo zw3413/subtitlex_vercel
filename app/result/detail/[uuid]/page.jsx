@@ -5,6 +5,9 @@ import {
 } from "../../../common_server";
 import SearchForm from "../../../(components)/searchForm";
 import SubtitleRating from "../../../(components)/subtitleRating";
+import InstallChromeExtensionButton from "../../../(components)/installChromeExtensionButton";
+import ResultDetailDownloadButton from "../../../(components)/resultDetailDownloadButton";
+import ResultDetailSubscribeInstruct from "../../../(components)/resultDetailSubscribeInstruct";
 import { notFound, redirect } from "next/navigation";
 import { MdDescription } from "react-icons/md";
 import { cache } from "react";
@@ -12,7 +15,7 @@ import { cache } from "react";
 const getSeed = cache(async (uuid) => {
   const result = await searchSubtitleByUUID(uuid);
   if (result && result.length > 0) {
-    const  seed = result[0];
+    const seed = result[0];
     return seed;
   } else {
     return null;
@@ -25,7 +28,7 @@ export async function generateMetadata(context) {
   if (seed) {
     return {
       title: seed.video_name,
-      description: `subtitle of ${seed.video_name} in language of ${seed.language} in format of ${seed.format}`
+      description: `subtitle of ${seed.video_name} in language of ${seed.language} in format of ${seed.format}`,
     };
   } else {
     return {};
@@ -39,19 +42,20 @@ export default async function SearchDetailServer(context) {
   //获取seed信息
   const seed = await getSeed(uuid);
   if (!seed) {
-    notFound()
+    notFound();
   }
   const downloadSubtitle = async () => {
     const text = await fetchTextFromURLServerSide(uuid);
     subText = text;
   };
+
   await downloadSubtitle();
   return (
     <div className=" container ">
-      <div className="my-10">
+      <div className="">
         <SearchForm />
       </div>
-      <div className="grid gap-2 grid-cols-5">
+      <div className="grid gap-2 grid-cols-5 mt-20">
         <div className=" "></div>
 
         <div className="col-span-3">
@@ -69,22 +73,32 @@ export default async function SearchDetailServer(context) {
             <p>{seed.video_description}</p>
           </div>
 
-          <div className="my-4">
-            <button
-              type="button"
-              className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
-              Download
-            </button>
+       
 
-            <button
-              type="button"
-              className="py-2.5 px-5 me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
-            >
-              Report Issue
-            </button>
+          <div className="my-4 flex justify-between">
+            <div className="inline-flex">
+              <ResultDetailDownloadButton
+                subText={subText}
+                language={seed.language}
+                name={seed.video_name}
+                format={seed.format}
+              ></ResultDetailDownloadButton>
+
+              <button
+                type="button"
+                className=" text-base px-5 py-1 mx-2 font-medium rounded-lg border border-gray-200 text-gray-900 focus:outline-none bg-white  hover:bg-gray-100 hover:text-blue-700 "
+              >
+                Report Issue
+              </button>
+            </div>
+
+            <div className="inline-flex">
+              <InstallChromeExtensionButton></InstallChromeExtensionButton>
+            </div>
           </div>
-
+          <div className="my-2 mx-auto">
+            <ResultDetailSubscribeInstruct subText={subText}></ResultDetailSubscribeInstruct>
+          </div>
           <textarea
             value={subText}
             readOnly

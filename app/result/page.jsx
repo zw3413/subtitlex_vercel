@@ -37,7 +37,6 @@ export default function Result(context) {
     fetchData();
   }, [hint]);
   useEffect(()=>{
-
     if(seed ){
       console.log(seed);
       const url = `/result/detail/${seed.uuid}`;
@@ -57,11 +56,12 @@ export default function Result(context) {
           {!false ? (
             <>
               <h1 className="mb-10">Result of searching &quot;{hint}&quot;</h1>
+              {seeds&&seeds.length>0 ? 
               <SearchList
                 seeds={seeds}
                 setSeed={setSeed}
                 setIsDetail={setIsDetail}
-              />{" "}
+              />:<div className="flex place-content-center"> Searching... </div>}
             </>
           ) : (
             <>

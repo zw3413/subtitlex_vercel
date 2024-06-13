@@ -1,14 +1,17 @@
-'use client'
+"use client";
 import { useState } from "react";
+import "flowbite";
+import { languageArray } from "../common";
 export default function SearchForm({ inHint, setIsDetail }) {
   if (!inHint) {
     inHint = "";
   }
-  if(!setIsDetail){
-    setIsDetail = ()=>{};
+  if (!setIsDetail) {
+    setIsDetail = () => {};
   }
   const [hint, setHint] = useState(inHint);
   const [isError, setIsError] = useState(false);
+  const [lang, setLang] = useState('');
   const validateForm = (e) => {
     e.preventDefault();
     if (hint.length >= 4) {
@@ -20,53 +23,96 @@ export default function SearchForm({ inHint, setIsDetail }) {
     }
   };
   return (
-    <form
-      className="w-[500px] mx-auto"
-      action={"/result"}
-      method="get"
-      onSubmit={validateForm}
-    >
-      <div className="relative">
-        <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-          <svg
-            className="w-4 h-4 text-gray-500 dark:text-gray-400"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 20 20"
+    <>
+      <form
+        className="max-w-md mx-auto"
+        action={"/result"}
+        method="get"
+        onSubmit={validateForm}
+      >
+          <div className="flex">
+        {/* <label
+          for="default-search"
+          className="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white"
+        ></label>
+      
+          <button
+            id="dropdown-button-2"
+            data-dropdown-toggle="dropdown-search-language"
+            className="flex-shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-500 bg-white border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100  "
+            type="button"
           >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
+            Language
+            <svg
+              className="w-2.5 h-2.5 ms-2.5"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 10 6"
+            >
+              <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="m1 1 4 4 4-4"
+              />
+            </svg>
+          </button>
+          <div
+            id="dropdown-search-language"
+            className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 "
+          >
+            <ul
+              className="py-2 text-sm text-gray-700 dark:text-gray-200"
+              aria-labelledby="dropdown-button-2"
+            >
+              {languageArray.map((lang,index)=>{
+                return(
+                  <li key={lang.code}>
+                  <button
+                    type="button"
+                    className="inline-flex w-full px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-600 dark:hover:text-white"
+                    role="menuitem"
+                    onClick={()=>{setLang(lang.code)}}
+                  >
+                    <div className="inline-flex items-center">
+                      {lang.name}
+                    </div>
+                  </button>
+                </li>  
+
+                )
+              })}
+            </ul>
+          </div> */}
+
+          <div className="relative w-full">
+            <input
+              data-tooltip-target="tooltip-default"
+              type="search"
+              name="hint"
+              id="default-search"
+              className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search Subtitles"
+              required
+              value={hint}
+              onChange={(e) => setHint(e.target.value)}
             />
-          </svg>
+            <button
+              type="submit"
+              className="text-white absolute end-2.5 bottom-2.5 bg-[#262626] hover:text-[#20e4ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Search
+            </button>
+          </div>
         </div>
-        <input
-          data-tooltip-target="tooltip-default"
-          type="search"
-          name="hint"
-          id="default-search"
-          className="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Search Subtitles"
-          required
-          value={hint}
-          onChange={(e) => setHint(e.target.value)}
-        />
-        <button
-          type="submit"
-          className="text-white absolute end-2.5 bottom-2.5 bg-[#262626] hover:text-[#20e4ff] focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Search
-        </button>
-      </div>
-      {isError && (
-        <p className="mt-2 text-xs text-red-600 dark:text-red-400">
-          <span className="font-medium">At lease 4 characters !</span>
-        </p>
-      )}
-    </form>
+        {isError && (
+          <p className="mt-2 text-xs text-red-600 dark:text-red-400">
+            <span className="font-medium">At lease 4 characters !</span>
+          </p>
+        )}
+      </form>
+    </>
   );
 }

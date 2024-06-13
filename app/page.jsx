@@ -4,6 +4,7 @@ import Image from "next/image";
 import SearchForm from "./(components)/searchForm";
 import {useSession} from "next-auth/react"
 import {UpdateAndGetUser} from "./common"
+import InstallChromeExtensionButton from "./(components)/installChromeExtensionButton";
 
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
   UpdateAndGetUser(session)
 
   return (
-    <div className="container mb-40">
+    <div className="container my-40">
             <Image
             alt="subtitlex"
           className="mx-auto"
@@ -20,6 +21,8 @@ export default function Home() {
           height={250}
         />
      <SearchForm/>
+     <div className="flex place-content-center mt-20">    <InstallChromeExtensionButton></InstallChromeExtensionButton></div>
+ 
     </div>
   );
 }

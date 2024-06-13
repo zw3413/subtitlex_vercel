@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 
 import Nav from "./(components)/Nav";
+import Image from "next/image";
 
 import AuthProvider from "./(components)/AuthProvider";
 import Link from "next/link";
@@ -10,10 +11,10 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: {
-    default:"SubtitleX",
+    default: "SubtitleX",
     template: "%s | SubtitleX",
   },
-  description: "Subtitle in every Language."
+  description: "Subtitle in every Language.",
 };
 
 export default function RootLayout({ children }) {
@@ -27,7 +28,16 @@ export default function RootLayout({ children }) {
             "
             >
               <Link href="/">
-                <p className="text-2xl px-4 unde text-slate-400">SubtitleX</p>
+                <p className="text-3xl px-4 unde text-slate-400 inline-flex align-bottom">
+                  <Image
+                    alt="subtitlex"
+                    className="mx-1"
+                    src="/images/subtitlex-512-transparent.png"
+                    width={30}
+                    height={30}
+                  />
+                  SubtitleX
+                </p>
               </Link>
               <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center  lg:static lg:h-auto lg:w-auto lg:bg-none">
                 <Nav />
@@ -38,12 +48,9 @@ export default function RootLayout({ children }) {
 
             <footer className=" p-4 h-12 w-full justify-between text-slate-400 bg-[#1f1f1f] hidden lg:flex bottom-0 sticky ">
               <div className="mx-4 w-[250px] flex justify-between">
-                <Link
-                href="/terms-of-service"> Term of Service
-                </Link>
+                <Link href="/terms-of-service"> Term of Service</Link>
 
-                <Link href="/privacy-policy"> Privacy Policy
-                </Link>
+                <Link href="/privacy-policy"> Privacy Policy</Link>
               </div>
 
               <span>© 2024 SubtitleX</span>
