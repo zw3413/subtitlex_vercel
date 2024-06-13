@@ -15,7 +15,7 @@ export default function SearchList({ seeds, setSeed, setIsDetail }) {
     });
     setLanguageArray(arr);
     setLang(arr)
-  },[])
+  },[seeds])
   
   useEffect(() => {
     setSeedList(seeds.filter((seed) => lang.includes(seed.language)));
