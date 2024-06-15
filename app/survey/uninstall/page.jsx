@@ -14,7 +14,7 @@ export default function UninstallSurvey() {
   };
   return (
     <div className="container text-lg">
-      <h2 className="my-4 text-2xl">We're Sorry to See You Go!</h2>
+      <h2 className="my-4 text-2xl">We&apos;re Sorry to See You Go!</h2>
       <p>
         Thank you for using our browser extension. To help us improve, we would
         appreciate it if you could take a moment to tell us about your
