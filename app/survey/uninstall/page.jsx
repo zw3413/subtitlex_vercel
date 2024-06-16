@@ -11,6 +11,7 @@ export default function UninstallSurvey() {
     }
     var json = JSON.stringify(object);
     const response = await remoteCall('3688217c-38f7-4970-85c6-dc857e865d63',[json])
+    window.close()
   };
   return (
     <div className="container text-lg">
