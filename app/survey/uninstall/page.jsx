@@ -1,7 +1,10 @@
 "use client";
+import { useState } from "react";
 import { remoteCall } from "../../common";
 export default function UninstallSurvey() {
+  const [thanks, setThanks] = useState(false)
   const handleFormSubmit = async (event) => {
+
     //alert(JSON.stringify(event));
     event.preventDefault();
     const formData = new FormData(document.querySelector("form"));
@@ -11,10 +14,12 @@ export default function UninstallSurvey() {
     }
     var json = JSON.stringify(object);
     const response = await remoteCall('3688217c-38f7-4970-85c6-dc857e865d63',[json])
-    window.close()
+    setThanks(true)
   };
   return (
     <div className="container text-lg">
+      {thanks  ?  <div>      <h2 className="my-4 text-2xl">Thanks !</h2></div>
+        :<>
       <h2 className="my-4 text-2xl">We&apos;re Sorry to See You Go!</h2>
       <p>
         Thank you for using our browser extension. To help us improve, we would
@@ -204,6 +209,7 @@ export default function UninstallSurvey() {
           Submit Feedback
         </button>
       </form>
+      </>}
     </div>
   );
 }
