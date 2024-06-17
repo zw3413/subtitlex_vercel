@@ -313,7 +313,7 @@ export default function Home() {
           <div>
             <h1 className="text-xl font-thin mt-20">
             1. Icon of SubtitleX will show on the control bar of video after the
-            page loaded. If you didn&apos;t see it please reload the page or
+            page loaded( might delay a few seconds impacted by internet speed). If you didn&apos;t see it please reload the page or
             contact with developer.</h1>
             <h1 className="font-thin text-base pt-4 wrap">
               * if the icon{" "}
@@ -748,7 +748,7 @@ export default function Home() {
         </div>
 
         <div className="flex mt-8 justify-around  max-w-[1000px]" id="feedback">
-        <Link href="https://www.youtube.com/channel/UC8Vx81PczyWmAm41l9piHOg">
+        <Link href="https://www.youtube.com/channel/UC8Vx81PczyWmAm41l9piHOg" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -765,7 +765,7 @@ export default function Home() {
           </svg>
         </Link>
 
-        <Link href="https://subtitlex.slack.com/archives/C06SQJ5AMHD">
+        <Link href="https://subtitlex.slack.com/archives/C06SQJ5AMHD" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -818,7 +818,7 @@ export default function Home() {
           </svg>
         </Link>
 
-        <Link href="mailto:subtitlex.xyz@gmail.com">
+        <Link href="mailto:subtitlex.xyz@gmail.com" target="_blank">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -849,6 +849,10 @@ export default function Home() {
             ></path>
           </svg>
         </Link>
+        <Link href={"https://x.com/subtitlex_xyz"} target="_blank" >
+        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0 0 50 50">
+<path d="M 11 4 C 7.134 4 4 7.134 4 11 L 4 39 C 4 42.866 7.134 46 11 46 L 39 46 C 42.866 46 46 42.866 46 39 L 46 11 C 46 7.134 42.866 4 39 4 L 11 4 z M 13.085938 13 L 21.023438 13 L 26.660156 21.009766 L 33.5 13 L 36 13 L 27.789062 22.613281 L 37.914062 37 L 29.978516 37 L 23.4375 27.707031 L 15.5 37 L 13 37 L 22.308594 26.103516 L 13.085938 13 z M 16.914062 15 L 31.021484 35 L 34.085938 35 L 19.978516 15 L 16.914062 15 z"></path>
+</svg></Link>
       </div>
       </div>
     </>
