@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import Link from "next/link";
 import Image from "next/image";
 import "flowbite";
@@ -289,12 +290,14 @@ export default function Home() {
         <div className="flex my-4 place-content-center">
           <Image
             src="/images/icon/hand-down-1-96.png"
+            alt="hand"
             width={60}
             height={30}
           ></Image>
           <h2 className="text-4xl my-4 mx-12">IT IS SUPER EASY TO USE</h2>
           <Image
             src="/images/icon/hand-down-1-96.png"
+            alt="hand"
             width={60}
             height={30}
           ></Image>
@@ -307,10 +310,11 @@ export default function Home() {
             height={300}
             width={480}
           />
-          <h1 className="text-xl font-thin mt-20">
+          <div>
+            <h1 className="text-xl font-thin mt-20">
             1. Icon of SubtitleX will show on the control bar of video after the
             page loaded. If you didn&apos;t see it please reload the page or
-            contact with developer.
+            contact with developer.</h1>
             <h1 className="font-thin text-base pt-4 wrap">
               * if the icon{" "}
               <Image
@@ -318,10 +322,11 @@ export default function Home() {
                 src="/images/subtitlex-512-transparent.png"
                 height={30}
                 width={30}
+                alt="icon"
               ></Image>{" "}
               is not showing, please try to reload the page or feedback to us.
             </h1>
-          </h1>
+          </div>
         </div>
 
         <div className="flex my-4  ">
@@ -338,7 +343,7 @@ export default function Home() {
           />
         </div>
 
-        <div className="flex my-4 w-full  ">
+        <div className="flex my-4 w-full"  id="websites">
           <Image
             alt="SubtitleX"
             className="rounded-lg mx-4"
