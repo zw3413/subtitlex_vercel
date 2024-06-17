@@ -850,7 +850,7 @@ export default function Home() {
           </svg>
         </Link>
         <Link href={"https://x.com/subtitlex_xyz"} target="_blank" >
-        <svg xmlns="http://www.w3.org/2000/svg"    xmlns="http://www.w3.org/2000/svg"
+        <svg xmlns="http://www.w3.org/2000/svg"   
             x="0px"
             y="0px"
             width="50"
