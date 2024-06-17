@@ -12,7 +12,7 @@ export default function Home() {
   UpdateAndGetUser(session)
 
   return (
-    <div className="container my-40">
+    <div className="container">
             <Image
             alt="subtitlex"
           className="mx-auto"
