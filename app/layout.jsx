@@ -6,6 +6,7 @@ import Image from "next/image";
 
 import AuthProvider from "./(components)/AuthProvider";
 import Link from "next/link";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -21,6 +22,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <AuthProvider>
+        <head>
+          <Script
+            src={"https://www.googletagmanager.com/gtag/js?id=G-KTQBF80NQT"}
+            strategy="afterInteractive"
+          />
+          <Script id="google-analytics" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-KTQBF80NQT');
+            `}
+          </Script>
+        </head>
         <body className={inter.className}>
           <main className="flex min-h-screen bg-[#262626] flex-col items-center justify-between ">
             <header
