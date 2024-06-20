@@ -23,7 +23,7 @@ const searchSubtitle = async (hint) => {
 
 export default function Result(context) {
   const hint = context.searchParams.hint;
-  const [seeds, setSeeds] = useState([]);
+  const [seeds, setSeeds] = useState(null);
   const [seed, setSeed] = useState(null);
   const [isDetail, setIsDetail] = useState(false);
   UpdateAndGetUser(useSession());
@@ -56,7 +56,7 @@ export default function Result(context) {
           {!false ? (
             <>
               <h1 className="mb-10">Result of searching &quot;{hint}&quot;</h1>
-              {seeds&&seeds.length>0 ? 
+              {seeds ? 
               <SearchList
                 seeds={seeds}
                 setSeed={setSeed}

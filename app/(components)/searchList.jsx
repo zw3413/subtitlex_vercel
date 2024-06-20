@@ -23,6 +23,7 @@ export default function SearchList({ seeds, setSeed, setIsDetail }) {
 
   return (
     <div>
+      {seeds?.length == 0 ? (<div className="flex place-content-center">No result found</div>) : (<>
       <div
         className="flex rounded-md shadow-sm my-2 leading-tight w-full flex-wrap"
         role="group"
@@ -84,7 +85,7 @@ export default function SearchList({ seeds, setSeed, setIsDetail }) {
             );
           })}
         </tbody>
-      </table>
+      </table></>)}
     </div>
   );
 }
