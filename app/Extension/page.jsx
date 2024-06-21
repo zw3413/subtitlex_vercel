@@ -6,7 +6,7 @@ export async function generateMetadata(context) {
     title: "Chome Extension",
     description: `Chrome Extension provide the function of load subtitles from user local and SubtitleX library`,
     alternates: {
-      canonical: `https://www.subtitlex.xyz/Extension`,
+      canonical: `https://www.subtitlex.xyz/extension`,
     },
   };
 }
