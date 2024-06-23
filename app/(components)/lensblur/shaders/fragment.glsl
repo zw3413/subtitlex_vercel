@@ -80,7 +80,7 @@ void main() {
     /* sdf (Round Rect) params */
     float size = 1.7;
     float roundness = 0.4;
-    float borderSize = 0.05;
+    float borderSize = 0.005;
     
     /* sdf Circle params */
     float circleSize = 0.3;
