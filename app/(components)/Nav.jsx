@@ -9,7 +9,7 @@ const Nav = async () => {
       <nav className="flex justify-between items-center w-full px-10 py-4">
         {/* <div>SubtitleX</div> */}
         <div className="flex gap-8 text-lg  underline text-slate-400 ">
-          <Link href="/Extension" className="hover:text-white">Extension</Link> 
+          <Link href="/Extension" className="hover:text-white">Chrome Extension</Link> 
           {/* <Link href="/Jable-Helper" className="hover:text-white">Jable-Helper</Link> */}
           {/* <Link href="/CreateUser">CreateUser</Link> */}
           {/* <Link href="/ClientMember">ClientMember</Link> */}
