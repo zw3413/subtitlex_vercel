@@ -4,7 +4,9 @@ export async function generateMetadata(context) {
     title:
       "Enhance Your Viewing Experience with Subtitlex : A Community-Driven Subtitle Solution",
     description: `Chrome Extension provide the function of load subtitles from user local and SubtitleX library`,
-    image: "https://www.subtitlex.xyz/images/blog/img1.png",
+    openGraph: {
+      images: ["https://www.subtitlex.xyz/images/blog/img1.png"],
+    },
     twitter: {
       card: "summary_large_image",
       creator: "@SubtitleX",
