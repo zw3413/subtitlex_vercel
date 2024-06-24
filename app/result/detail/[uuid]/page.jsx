@@ -52,10 +52,10 @@ export default async function SearchDetailServer(context) {
   await downloadSubtitle();
   return (
     <div className=" container ">
-      <div className="">
+      <div className="pt-10">
         <SearchForm />
       </div>
-      <div className="grid gap-2 grid-cols-5 mt-20">
+      <div className="grid gap-2 grid-cols-5 mt-10">
         <div className=" "></div>
 
         <div className="col-span-3">
