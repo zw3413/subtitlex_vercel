@@ -9,7 +9,10 @@ export async function generateMetadata(context) {
     },
     twitter: {
       card: "summary_large_image",
-      creator: "@SubtitleX",
+      creator: "@subtitlex_xyz",
+      site:"https://www.subtitlex.xyz",
+      account_id: "1295910283341254657",
+      image:"https://www.subtitlex.xyz/images/blog/img1.png"
     },
   };
 }
