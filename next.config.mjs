@@ -1,6 +1,9 @@
 import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import createMDX from "@next/mdx";
+
+
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
@@ -30,18 +33,14 @@ const nextConfig = {
       {
         source: "/Extension",
         destination: "/extension",
-      },
-      {
-        source: "/",
-        has: [
-          {
-            type: "host",
-            value: "jav.subtitlex.xyz"
-          }
-        ],
-        destination: "www.subtitlex.xyz/jav"
       }
     ];
+  },
+  middleware(next) {
+    if (request.url.hostname === 'jav.subtitlex.xyz') {
+      return redirect('www.subtitlex.xyz/jav');
+    }
+    return next();
   },
   reactStrictMode: false,
   // i18n: {
