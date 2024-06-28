@@ -1,8 +1,21 @@
 import { useEffect, useState } from "react";
-
+import LanguageSelect from "./LanguageSelect";
 export default function SearchList({ seeds, setSeed, setIsDetail }) {
   const [languageArray, setLanguageArray] = useState([]);
-  const [lang, setLang] = useState(languageArray);
+
+  const [lang, setLang] = useState(()=>{
+    try{
+      if(!window || !window.localStorage) return languageArray;
+      const lang = window.localStorage.getItem("lang");
+      if(lang){
+        console.log("load lang from storage",lang)
+      }
+      return lang? JSON.parse(lang): languageArray;
+    }catch (e){ 
+      console.warn("load lang from storage error",e)
+      return languageArray;
+    }
+  });
   const [seedList, setSeedList] = useState(seeds);
 
   useEffect(()=>{
@@ -14,11 +27,20 @@ export default function SearchList({ seeds, setSeed, setIsDetail }) {
       arr.push(seed.language);
     });
     setLanguageArray(arr);
-    setLang(arr)
+
   },[seeds])
   
   useEffect(() => {
+
     setSeedList(seeds.filter((seed) => lang.includes(seed.language)));
+    try{
+      window?.localStorage.setItem("lang", JSON.stringify(lang));
+      console.log("save lang to storage",lang);
+    }catch(e){
+      console.warn("save lang to storage error",e);
+    }
+    // const arr = languageArray
+    // setLanguageArray(arr)
   }, [lang]);
 
   return (
@@ -28,28 +50,7 @@ export default function SearchList({ seeds, setSeed, setIsDetail }) {
         className="flex rounded-md shadow-sm my-2 leading-tight w-full flex-wrap"
         role="group"
       >
-        {languageArray.map((language) => {
-          return (
-            <button key={language}
-              onClick={() => {
-                if (lang.includes(language)) {
-                  setLang(lang.filter((l) => l !== language));
-                  return;
-                } else {
-                  setLang([...lang, language]);
-                }
-              }}
-              type="switch"
-              className={`flex px-2 py-1 text-xs font-small text-gray-300 bg-transparent border border-gray-300 hover:bg-gray-800 hover:text-grey-100 ${
-                lang.includes(language)
-                  ? "ring-2 ring-white bg-gray-900 text-white"
-                  : ""
-              } `}
-            >
-              {language}
-            </button>
-          );
-        })}
+        <LanguageSelect languageArray={languageArray} lang={lang} setLang={setLang}></LanguageSelect>
       </div>
       <table className="text-sm text-left rtl:text-right text-gray-400 ">
         <thead className="text-xs  uppercase bg-gray-700 text-gray-400">

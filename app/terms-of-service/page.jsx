@@ -5,15 +5,15 @@ export const metadata ={
 export default function home() {
   return (
     <>
-      <div class="max-w-[1000px] min-h-screen mx-auto py-20 px-4">
-        <h2 class="text-xl font-semibold mb-4 text-red-500">
+      <div className="max-w-[1000px] min-h-screen mx-auto py-20 px-4">
+        <h2 className="text-xl font-semibold mb-4 text-red-500">
           Last Updated : May 14, 2024
         </h2>
-        <h1 class="text-5xl font-bold mb-10">Terms of Service</h1>
-        <div class="flex flex-col gap-10">
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">1. Introduction</h2>
-            <div class="text-lg sm:pl-10 ">
+        <h1 className="text-5xl font-bold mb-10">Terms of Service</h1>
+        <div className="flex flex-col gap-10">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">1. Introduction</h2>
+            <div className="text-lg sm:pl-10 ">
               Welcome to SubtitleX
               (Developer, “we”, “our”, “us”)! As you have just clicked our Terms
               of Service, please pause, grab a cup of coffee and carefully read
@@ -39,9 +39,9 @@ export default function home() {
               being responsible.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">2. Communications</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">2. Communications</h2>
+            <div className="text-lg sm:pl-10 ">
               By creating an Account on our Service, you agree to subscribe to
               newsletters, marketing or promotional materials and other
               information we may send. However, you may opt out of receiving
@@ -50,9 +50,9 @@ export default function home() {
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a>.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">3. Purchases</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">3. Purchases</h2>
+            <div className="text-lg sm:pl-10 ">
               If you wish to purchase any product or service made available
               through Service (“Purchase”), you may be asked to supply certain
               information relevant to your Purchase including, without
@@ -74,11 +74,11 @@ export default function home() {
               suspected.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">
               4. Contests, Sweepstakes and Promotions
             </h2>
-            <div class="text-lg sm:pl-10 ">
+            <div className="text-lg sm:pl-10 ">
               Any contests, sweepstakes or other promotions (collectively,
               “Promotions”) made available through Service may be governed by
               rules that are separate from these Terms of Service. If you
@@ -87,9 +87,9 @@ export default function home() {
               conflict with these Terms of Service, Promotion rules will apply.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">5. Subscriptions</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">5. Subscriptions</h2>
+            <div className="text-lg sm:pl-10 ">
               Some levels of Service are billed on a subscription basis
               (“Subscription(s)”). You will be billed in advance on a recurring
               and periodic basis (“Billing Cycle”). Billing cycles are set on a
@@ -112,18 +112,18 @@ export default function home() {
               corresponding to the billing period as indicated on the invoice.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">6. Free Level</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">6. Free Level</h2>
+            <div className="text-lg sm:pl-10 ">
               SubtitleX team in its sole
               discretion may offer a level of free service (“Free Level). you will not be charged by SubtitleX team at this level of service. At any time and without notice, SubtitleX team reserves the right to (i) modify Terms
               of Service of Free Level, or (ii) cancel such Free Level
               serivce.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">7. Fee Changes</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">7. Fee Changes</h2>
+            <div className="text-lg sm:pl-10 ">
               SubtitleX team, in its sole
               discretion and at any time, may modify Subscription fees for the
               Subscriptions. Any Subscription fee change will become effective
@@ -135,24 +135,24 @@ export default function home() {
               agreement to pay the modified Subscription fee amount.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">8. Refunds</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">8. Refunds</h2>
+            <div className="text-lg sm:pl-10 ">
               Refund is not available currently once the subscription come to valid, this term may change as long more users come in.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">9. Content</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">9. Content</h2>
+            <div className="text-lg sm:pl-10 ">
               Our Service allows you to use subtitles from your local or download from internet (“Content”). You are responsible for Content that
               you load on or through Service, including its legality,
               reliability, and appropriateness. By load Content on or through
               Service, You will be responsible for any copywrite issue. And we will corporate to delete any Content has copywrite issue.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">10. Prohibited Uses</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">10. Prohibited Uses</h2>
+            <div className="text-lg sm:pl-10 ">
               You may use Service only for lawful purposes and in accordance
               with Terms. You agree not to use Service: (a) In any way that
               violates any applicable national or international law or
@@ -191,9 +191,9 @@ export default function home() {
               the proper working of Service.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">11. Analytics</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">11. Analytics</h2>
+            <div className="text-lg sm:pl-10 ">
               We may use third-party Service Providers to monitor and analyze
               the use of our Service. Google Analytics Google Analytics is a web
               analytics service offered by Google that tracks and reports
@@ -214,9 +214,9 @@ export default function home() {
             
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">12. No Use By Minors</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">12. No Use By Minors</h2>
+            <div className="text-lg sm:pl-10 ">
               Service is intended only for access and use by individuals at
               least eighteen (18) years old. By accessing or using any of
               Company, you warrant and represent that you are at least eighteen
@@ -226,9 +226,9 @@ export default function home() {
               old, you are prohibited from both the access and usage of Service.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">13. Accounts</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">13. Accounts</h2>
+            <div className="text-lg sm:pl-10 ">
               When you create an account with us, you guarantee that you are
               above the age of 18, and that the information you provide us is
               accurate, complete, and current at all times. Inaccurate,
@@ -251,9 +251,9 @@ export default function home() {
               discretion.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">14. Intellectual Property</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">14. Intellectual Property</h2>
+            <div className="text-lg sm:pl-10 ">
               Service and its original content (excluding Content provided by
               users), features and functionality are and will remain the
               exclusive property of SubtitleX team and its licensors. Service is protected by copyright,
@@ -262,9 +262,9 @@ export default function home() {
               service without the prior written consent of SubtitleX team.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">15. Copyright</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">15. Copyright</h2>
+            <div className="text-lg sm:pl-10 ">
               We respect the intellectual property rights of others. It is our
               policy to respond to any claim that Content posted on Service
               infringes on the copyright or other intellectual property rights
@@ -282,11 +282,11 @@ export default function home() {
               and/or through Service on your copyright.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">
               16. DMCA Notice and Procedure for Copyright
             </h2>
-            <div class="text-lg sm:pl-10 ">
+            <div className="text-lg sm:pl-10 ">
               You may submit a notification pursuant to the Digital Millennium
               Copyright Act (DMCA) by providing our Copyright Agent with the
               following information in writing (see 17 U.S.C 512(c)(3) for
@@ -307,11 +307,11 @@ export default function home() {
               our Copyright Agent via email at subtitlex.xyz@gmail.com
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">
               17. Error Reporting and Feedback
             </h2>
-            <div class="text-lg sm:pl-10 ">
+            <div className="text-lg sm:pl-10 ">
               You may provide us either directly at 
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a> or
               via third party sites and tools with information and feedback
@@ -332,11 +332,11 @@ export default function home() {
               commercialize) Feedback in any manner and for any purpose.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">
               18. Links To Other Web Sites
             </h2>
-            <div class="text-lg sm:pl-10 ">
+            <div className="text-lg sm:pl-10 ">
               Our Service may contain links to third party web sites or services
               that are not owned or controlled by SubtitleX team has no control over, and assumes no
               responsibility for the content, privacy policies, or practices of
@@ -351,9 +351,9 @@ export default function home() {
               SITES OR SERVICES THAT YOU VISIT.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">19. Disclaimer Of Warranty</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">19. Disclaimer Of Warranty</h2>
+            <div className="text-lg sm:pl-10 ">
               THESE SERVICES ARE PROVIDED BY COMPANY ON AN “AS IS” AND “AS
               AVAILABLE” BASIS. COMPANY MAKES NO REPRESENTATIONS OR WARRANTIES
               OF ANY KIND, EXPRESS OR IMPLIED, AS TO THE OPERATION OF THEIR
@@ -379,9 +379,9 @@ export default function home() {
               BE EXCLUDED OR LIMITED UNDER APPLICABLE LAW.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">20. Limitation Of Liability</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">20. Limitation Of Liability</h2>
+            <div className="text-lg sm:pl-10 ">
               EXCEPT AS PROHIBITED BY LAW, YOU WILL HOLD US AND OUR OFFICERS,
               DIRECTORS, EMPLOYEES, AND AGENTS HARMLESS FOR ANY INDIRECT,
               PUNITIVE, SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGE, HOWEVER IT
@@ -403,9 +403,9 @@ export default function home() {
               EXCLUSION MAY NOT APPLY TO YOU.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">21. Termination</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">21. Termination</h2>
+            <div className="text-lg sm:pl-10 ">
               We may terminate or suspend your account and bar access to Service
               immediately, without prior notice or liability, under our sole
               discretion, for any reason whatsoever and without limitation,
@@ -417,9 +417,9 @@ export default function home() {
               and limitations of liability.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">22. Governing Law</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">22. Governing Law</h2>
+            <div className="text-lg sm:pl-10 ">
               These Terms shall be governed and construed in accordance with the
               laws of State of Delaware without regard to its conflict of law
               provisions. Our failure to enforce any right or provision of these
@@ -431,9 +431,9 @@ export default function home() {
               agreements we might have had between us regarding Service.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">23. Changes To Service</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">23. Changes To Service</h2>
+            <div className="text-lg sm:pl-10 ">
               We reserve the right to withdraw or amend our Service, and any
               service or material we provide via Service, in our sole discretion
               without notice. We will not be liable if for any reason all or any
@@ -442,9 +442,9 @@ export default function home() {
               the entire Service, to users, including registered users.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">24. Amendments To Terms</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">24. Amendments To Terms</h2>
+            <div className="text-lg sm:pl-10 ">
               We may amend Terms at any time by posting the amended terms on
               this site. It is your responsibility to review these Terms
               periodically. Your continued use of the Platform following the
@@ -456,9 +456,9 @@ export default function home() {
               the new terms, you are no longer authorized to use Service.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">25. Waiver And Severability</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">25. Waiver And Severability</h2>
+            <div className="text-lg sm:pl-10 ">
               No waiver by Company of any term or condition set forth in Terms
               shall be deemed a further or continuing waiver of such term or
               condition or a waiver of any other term or condition, and any
@@ -471,17 +471,17 @@ export default function home() {
               continue in full force and effect.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">26. Acknowledgement</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">26. Acknowledgement</h2>
+            <div className="text-lg sm:pl-10 ">
               BY USING SERVICE OR OTHER SERVICES PROVIDED BY US, YOU ACKNOWLEDGE
               THAT YOU HAVE READ THESE TERMS OF SERVICE AND AGREE TO BE BOUND BY
               THEM.
             </div>
           </div>
-          <div class="">
-            <h2 class="text-3xl font-bold mb-2">27. Contact Us</h2>
-            <div class="text-lg sm:pl-10 ">
+          <div className="">
+            <h2 className="text-3xl font-bold mb-2">27. Contact Us</h2>
+            <div className="text-lg sm:pl-10 ">
               Please send your feedback, comments, requests for technical
               support: By email: 
               <a href="mailto:subtitlex.xyz@gmail.com">subtitlex.xyz@gmail.com</a>.

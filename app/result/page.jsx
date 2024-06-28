@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import { UpdateAndGetUser } from "../common";
 import SearchList from "../(components)/searchList";
 import SearchDetail from "../(components)/searchDetail";
+
 const searchSubtitle = async (hint) => {
   try {
     const f = "7435a7c0-223c-43c7-a256-5d160d58a8f5";

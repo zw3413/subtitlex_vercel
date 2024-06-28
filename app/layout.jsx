@@ -62,10 +62,11 @@ export default function RootLayout({ children }) {
             {children}
 
             <footer className=" p-4 h-12 w-full justify-between text-slate-400 bg-[#1f1f1f] xs:hidden flex bottom-0 sticky ">
-              <div className="mx-4 w-[250px] flex justify-between">
+              <div className="mx-4 w-[350px] flex justify-between">
                 <Link href="/terms-of-service"> Term of Service</Link>
 
                 <Link href="/privacy-policy"> Privacy Policy</Link>
+                <Link href="/about"> About</Link>
               </div>
 
               <span>© 2024 SubtitleX</span>

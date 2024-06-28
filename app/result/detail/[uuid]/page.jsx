@@ -26,9 +26,14 @@ export async function generateMetadata(context) {
   const uuid = context.params.uuid;
   const seed = await getSeed(uuid);
   if (seed) {
+    let jav_description =""
+    if(seed && seed.video_no && seed.video_no.length>0){
+      jav_description = `This subtitle is for the Japanese Adult Video (JAV) with ID ${seed.video_no}.`
+    }
+
     return {
       title: seed.video_name,
-      description: `subtitle of ${seed.video_name} in language of ${seed.language} in format of ${seed.format}`,
+      description: ` subtitle of ${seed.video_name} in language of ${seed.language} in format of ${seed.format} .`+jav_description,
     };
   } else {
     return {};
