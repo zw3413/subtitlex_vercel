@@ -29,19 +29,26 @@ const nextConfig = {
     ];
   },
   async rewrites() {
-    return [
-      {
-        source: "/Extension",
-        destination: "/extension",
-      }
-    ];
+    return {
+      beforeFiles: [
+        {
+          source: "/Extension",
+          destination: "/extension",
+        },
+        {
+          source: '/',
+          has: [
+              {
+                  type: 'host',
+                  value: 'jav.subtitlex.xyz',
+              },
+          ],
+          destination: '/jav',
+      },
+      ]
+    };
   },
-  middleware(next) {
-    if (request.url.hostname === 'jav.subtitlex.xyz') {
-      return redirect('www.subtitlex.xyz/jav');
-    }
-    return next();
-  },
+
   reactStrictMode: false,
   // i18n: {
   //     // These are all the locales you want to support in
