@@ -2,18 +2,41 @@ import { useEffect, useState } from "react";
 import LanguageSelect from "./LanguageSelect";
 export default function SearchList({ seeds, setSeed, setIsDetail }) {
   const [languageArray, setLanguageArray] = useState([]);
-
+  const originalLanguageList =[
+    'English',
+'Traditional Chinese',
+'Simplified Chinese',
+'Spanish',
+'Portuguese',
+'Swedish',
+'Arabic',
+'Russian',
+'Franch',
+'Japanese',
+'Korean',
+'Italian',
+'Polish',
+'Turkish',
+'Vietnamese',
+'Thai',
+'Hindi',
+'Malay',
+'Indonesian',
+'German'
+  ]
   const [lang, setLang] = useState(()=>{
     try{
-      if(!window || !window.localStorage) return languageArray;
+      if(!window || !window.localStorage) return originalLanguageList;
       const lang = window.localStorage.getItem("lang");
-      if(lang){
+      if(lang && lang.length >0){
         console.log("load lang from storage",lang)
+        return JSON.parse(lang);
+      }else {
+        return originalLanguageList
       }
-      return lang? JSON.parse(lang): languageArray;
     }catch (e){ 
       console.warn("load lang from storage error",e)
-      return languageArray;
+      return originalLanguageList;
     }
   });
   const [seedList, setSeedList] = useState(seeds);
