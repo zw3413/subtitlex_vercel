@@ -35,11 +35,11 @@ const nextConfig = {
         source: "/",
         has: [
           {
-            "type": "host",
-            "value": "jav.subtitlex.xyz"
+            type: "host",
+            value: "jav.subtitlex.xyz"
           }
         ],
-        destination: "/jav"
+        destination: "www.subtitlex.xyz/jav"
       }
     ];
   },

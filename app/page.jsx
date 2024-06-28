@@ -9,15 +9,6 @@ import { useEffect } from "react";
 import initLensBlur from "./(components)/lensblur/LensBlur"
 
 export default function Home() {
-
-  //detect the domain, if contains "jav", then redirect to /jav
-
-  const url = window.location;
-  if (url.hostname === 'jav.subtitlex.xyz') {
-    window.location.href = '/jav';
-  }
-
-
   const session = useSession();
   UpdateAndGetUser(session);
 
