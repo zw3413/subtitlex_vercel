@@ -30,7 +30,7 @@ export default function AdultContent() {
             </div>  <p className="text-lg max-w-[900px] text-pink-200 leading-relaxed">
             Search, download, and enjoy using our extensive library with a massive amount of over 150,000 subtitles for more than 30,000 Japanese Adult Videos (JAVs) collected when building the Subtitlex.xyz
             </p><div className="flex content-center"><TelegramJoinPage></TelegramJoinPage></div><p className="text-lg leading-relaxed max-w-[900px] text-gray-800">
-                Subtitlex.xyz is a comprehensive database of subtitles for online videos, curated from the internet and produced with fast-whisper. Our mission is to democratize access to high-quality subtitles, fostering community around sharing, learning, and enjoying JAV content. Join us in our mission to democratize JAV culture!
+                Subtitlex.xyz is a comprehensive database of subtitles for online videos, curated from the internet and produced with fast-whisper. Our mission is to democratize access to high-quality subtitles, fostering community around sharing, learning, and enjoying the video content. Join us in our mission to make intelligent subtitles!
             </p></>
     );
 }
