@@ -29,6 +29,7 @@ export const fetchTextFromURLServerSide = async (subtitleId) => {
     return text;
   } catch (error) {
     console.error(" fetch subtitle failed, contact administrator." + error);
+    return "";
   }
 };
 

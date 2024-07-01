@@ -18,6 +18,7 @@ const getSeed = cache(async (uuid) => {
     const seed = result[0];
     return seed;
   } else {
+    notFound();
     return null;
   }
 });
