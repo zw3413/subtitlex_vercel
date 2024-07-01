@@ -12,7 +12,12 @@ export async function generateMetadata(context) {
         description: `Free searching and download subtitles (captions) in multiple languages for Japanese adult videos (JAV).`,
         keywords: "jav subtitle download,subtitle,captions,download,free,jav,japanese,adult",
         twitter:{
-            card: "summary"
+            card: "summary_large_image",
+            title: "JAV subtitle",
+            description: `Free searching and download subtitles (captions) in multiple languages for Japanese adult videos (JAV).`,
+            creator: "@subtitlex_xyz",
+            site: "https://jav.subtitlex.xyz/",
+            image:  "https://jav.subtitlex.xyz/images/screenshots/jav.png",
         },
         openGraph: {
             title: "JAV subtitle",
