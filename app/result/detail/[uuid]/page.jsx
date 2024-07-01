@@ -28,9 +28,12 @@ export async function generateMetadata(context) {
   if (seed) {
     let jav_description = ""
     let video_no = ""
+    let site = "https://www.subtitlex.xyz"
+    let image = "https://www.subtitlex.xyz/images/subtitlex-512-transparent.png"
     if (seed && seed.video_no && seed.video_no.length > 0) {
       jav_description = `This subtitle is for the Japanese Adult Video (JAV) with ID ${seed.video_no}.`
       video_no = `${seed.video_no}, `
+      site ="https://jav.subtitlex.xyz"
     }
 
     return {
@@ -39,7 +42,15 @@ export async function generateMetadata(context) {
       keywords: video_no + "subtitle,captions,download,free,jav,japanese,adult",
       openGraph: {
         description: `Free download subtitles (captions) of ${seed.video_name} in language of ${seed.language} in format of ${seed.format} .` + jav_description,
-        images: ["https://www.subtitlex.xyz/images/subtitlex-512-transparent.png"],
+        images: [image],
+      },
+      twitter: {
+        card: "summary",
+        title: seed.video_name,
+        description: `Free download subtitles (captions) of ${seed.video_name} in language of ${seed.language} in format of ${seed.format} .` + jav_description,
+        creator: "@subtitlex_xyz",
+        site: site,
+        image: image,
       },
     }
   } else {

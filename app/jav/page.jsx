@@ -17,7 +17,7 @@ export async function generateMetadata(context) {
             url: "https://jav.subtitlex.xyz/",
             site_name: "jav.subtitlex.xyz",
             images: [
-                "https://jav.subtitlex.xyz/images/subtitlex-512-transparent.png"
+                "https://jav.subtitlex.xyz/images/screenshots/jav.png"
             ]
         }
     };
