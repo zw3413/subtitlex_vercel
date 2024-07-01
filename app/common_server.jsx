@@ -79,12 +79,16 @@ export const remoteCall = async (f, pl) => {
 
 export const UUID = async () => {
   try {
-    const response = await fetch(subtitleXserverApi + "/api2", {
+
+    let url = subtitleXserverApi + "/api2"
+   // url = "http://192.168.2.203:12801"+"/api2"
+    console.log(url)
+    const response = await fetch(url, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-    });
+    },5000);
     if (response.status == "200") {
       const result = await response.json();
       if (result.rc == "000") {
@@ -94,6 +98,7 @@ export const UUID = async () => {
     return "xxxx";
   } catch (e) {
     console.error(e);
+    return "xxxx";
   }
 };
 
