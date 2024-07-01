@@ -18,7 +18,7 @@ const searchSubtitle = async (hint) => {
       return [];
     }
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 

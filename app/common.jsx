@@ -48,7 +48,7 @@ export const fetchTextFromURL = async (subtitleId) => {
     const text = await response.text();
     return text;
   } catch (error) {
-    console.log(" fetch subtitle failed, contact administrator." + error);
+    console.error(" fetch subtitle failed, contact administrator." + error);
   }
 };
 
@@ -76,7 +76,7 @@ export const remoteCall = async (f, pl) => {
       }),
     });
   } catch (e) {
-    console.log("subtitlex: remoteCall failed", e);
+    console.error("subtitlex: remoteCall failed", e);
     return null;
   }
   return await response.json();
@@ -98,7 +98,7 @@ export const UUID = async () => {
     }
     return "xxxx";
   } catch (e) {
-    console.log(e);
+    console.error(e);
   }
 };
 

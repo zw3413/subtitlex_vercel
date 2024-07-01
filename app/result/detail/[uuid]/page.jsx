@@ -26,15 +26,22 @@ export async function generateMetadata(context) {
   const uuid = context.params.uuid;
   const seed = await getSeed(uuid);
   if (seed) {
-    let jav_description =""
-    if(seed && seed.video_no && seed.video_no.length>0){
+    let jav_description = ""
+    let video_no = ""
+    if (seed && seed.video_no && seed.video_no.length > 0) {
       jav_description = `This subtitle is for the Japanese Adult Video (JAV) with ID ${seed.video_no}.`
+      video_no = `${seed.video_no}, `
     }
 
     return {
       title: seed.video_name,
-      description: ` subtitle of ${seed.video_name} in language of ${seed.language} in format of ${seed.format} .`+jav_description,
-    };
+      description: `Free download subtitles (captions) of ${seed.video_name} in language of ${seed.language} in format of ${seed.format} .` + jav_description,
+      keywords: video_no + "subtitle,captions,download,free,jav,japanese,adult",
+      openGraph: {
+        description: `Free download subtitles (captions) of ${seed.video_name} in language of ${seed.language} in format of ${seed.format} .` + jav_description,
+        images: ["https://www.subtitlex.xyz/images/subtitlex-512-transparent.png"],
+      },
+    }
   } else {
     return {};
   }
@@ -78,7 +85,7 @@ export default async function SearchDetailServer(context) {
             <p>{seed.video_description}</p>
           </div>
 
-       
+
 
           <div className="my-4 flex justify-between">
             <div className="inline-flex">
