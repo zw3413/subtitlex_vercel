@@ -11,6 +11,9 @@ export async function generateMetadata(context) {
         title: "JAV subtitle",
         description: `Free searching and download subtitles (captions) in multiple languages for Japanese adult videos (JAV).`,
         keywords: "jav subtitle download,subtitle,captions,download,free,jav,japanese,adult",
+        twitter:{
+            card: "summary"
+        },
         openGraph: {
             title: "JAV subtitle",
             type: "website",
