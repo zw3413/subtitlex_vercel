@@ -154,7 +154,7 @@ async function Member() {
           <div className="h-[420px]">
             <h1 className="max-w-[1000px]">Subscription is Invalid.</h1>
             <h2 className="mt-2">
-              <span className="text-color-jable">100 subtitles per day </span>{" "}
+              <span className="text-color-jable">200 subtitles per day </span>{" "}
               will be offered with a valid subscription.
               <br />
               Contact with the developer, we&#39;d love to hear your feedback.
