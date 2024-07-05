@@ -7,9 +7,8 @@ export default function ResultDetailSubscribeInstruct({ subText }) {
     <>
       {subText.includes(tip) ? (
         <div className=" text-red-400">
-          You have request more than 5 subtitles in last hour, please wait for a
-          moment or <Link href="/Member" target="_blank" className="underline text-color-jable text-xl font-sans mx-1">Subscribe</Link> to get a more comfortable experience with 100
-          subtitles per day.
+          You have request more than 20 subtitles today, please <Link href="/Member" target="_blank" className="underline text-color-jable text-xl font-sans mx-1">Subscribe</Link> to unlock the limit up to 200
+          subtitles per day, thanks for your great support  👋
         </div>
       ) : (
         <></>

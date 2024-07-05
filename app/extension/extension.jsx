@@ -490,7 +490,7 @@ export default function Extension() {
                   d="M5 11.917 9.724 16.5 19 7.5"
                 />
               </svg>
-              5 subtitles per hour from subtitlex database
+              20 subtitles per day from subtitlex database
             </h2>
             <h2 className="text-sm font-light">
               {" "}
@@ -544,7 +544,7 @@ export default function Extension() {
                   d="M5 11.917 9.724 16.5 19 7.5"
                 />
               </svg>
-              <span className="text-color-jable">100 subtitles</span> per day
+              <span className="text-color-jable">200 subtitles</span> per day
               from subtitlex database
             </h2>
             <h2 className="text-sm font-light">
