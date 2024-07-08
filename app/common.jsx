@@ -1,7 +1,7 @@
 import { useLocalStorage } from "../customHook/useLocalStorage";
 
-const subtitleXserverApi = "https://api.subtitlex.xyz";
-
+//const subtitleXserverApi = "https://api.subtitlex.xyz";
+const subtitleXserverApi = "http://192.168.2.203:12801";
 export const languageArray = [
   {name :"All", code:""},
   { name: "English", code: "eng" },
@@ -99,6 +99,7 @@ export const UUID = async () => {
     return "xxxx";
   } catch (e) {
     console.error(e);
+    return "xxxx"
   }
 };
 

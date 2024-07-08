@@ -1,10 +1,11 @@
 import { getServerSession } from "next-auth";
 import { PrismaClient } from "@prisma/client";
-import { options } from "./api/auth/[...nextauth]/options";
+import { options } from "./api/auth/[...nextauth]/options.js";
 const prisma = new PrismaClient();
-import { createCustomerIfNull, getSubscription } from "./helpers/billing.js";
+import { createCustomerIfNull, getSubscription } from "./[lng]/helpers/billing.js";
 
-const subtitleXserverApi = "https://api.subtitlex.xyz";
+//const subtitleXserverApi = "https://api.subtitlex.xyz";
+const subtitleXserverApi = "http://192.168.2.203:12801";
 
 export const fetchTextFromURLServerSide = async (subtitleId) => {
   const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;

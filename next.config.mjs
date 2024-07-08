@@ -2,8 +2,6 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import createMDX from "@next/mdx";
 
-
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
@@ -36,16 +34,16 @@ const nextConfig = {
           destination: "/extension",
         },
         {
-          source: '/',
+          source: "/",
           has: [
-              {
-                  type: 'host',
-                  value: 'jav.subtitlex.xyz',
-              },
+            {
+              type: "host",
+              value: "jav.subtitlex.xyz",
+            },
           ],
-          destination: '/jav',
-      },
-      ]
+          destination: "/jav",
+        },
+      ],
     };
   },
 
