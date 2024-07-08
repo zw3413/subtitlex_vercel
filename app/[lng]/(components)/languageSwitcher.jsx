@@ -4,7 +4,7 @@ import { languages } from "../../i18n/settings";
 import "flowbite";
 import styles from "../../../node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect } from "react";
-import { LanguageLi } from "./LanguageLi";
+import { LanguageLi } from "./languageLi";
 
 import {useTranslation} from '../../i18n/client'
 
