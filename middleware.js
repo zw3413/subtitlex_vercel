@@ -25,9 +25,10 @@ export function middleware(req) {
     (req.nextUrl.pathname === "/" ||
       languages.some((loc) => req.nextUrl.pathname === `/${loc}`))
   ) {
-//    const redUrl =req.nextUrl.origin + req.nextUrl.pathname + "/jav"
-      const redUrl =new URL('/jav', req.nextUrl.origin)
-    console.log(redUrl)
+    //    const redUrl =req.nextUrl.origin + req.nextUrl.pathname + "/jav"
+    //      const redUrl =new URL('/jav', req.nextUrl.origin)
+    const redUrl = "/jav";
+    console.log(redUrl);
     redirect(redUrl);
   }
 
