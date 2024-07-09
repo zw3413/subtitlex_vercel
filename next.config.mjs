@@ -33,16 +33,16 @@ const nextConfig = {
           source: "/Extension",
           destination: "/extension",
         },
-        {
-          source: "/",
-          has: [
-            {
-              type: "host",
-              value: "jav.subtitlex.xyz",
-            },
-          ],
-          destination: "/jav",
-        },
+        // {
+        //   source: "/",
+        //   has: [
+        //     {
+        //       type: "host",
+        //       value: "jav.subtitlex.xyz",
+        //     },
+        //   ],
+        //   destination: "/jav",
+        // },
       ],
     };
   },
