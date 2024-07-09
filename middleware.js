@@ -27,9 +27,12 @@ export function middleware(req) {
   ) {
     //    const redUrl =req.nextUrl.origin + req.nextUrl.pathname + "/jav"
     //      const redUrl =new URL('/jav', req.nextUrl.origin)
-    const url = req.nextUrl.clone();
-    url.pathname = "/jav";
-    return NextResponse.redirect(url );
+   
+      const url = req.nextUrl.clone();
+      url.pathname = `/${lng}/jav`;
+      return NextResponse.redirect(url );
+   
+
   }
 
   // Redirect if lng in path is not supported
