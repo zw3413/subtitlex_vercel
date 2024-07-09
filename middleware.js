@@ -2,7 +2,6 @@ import { NextResponse } from "next/server";
 import acceptLanguage from "accept-language";
 import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
 
-
 acceptLanguage.languages(languages);
 
 export const config = {
@@ -20,19 +19,21 @@ export function middleware(req) {
   if (!lng) lng = fallbackLng;
 
   if (
-    (req.nextUrl.origin.includes("jav.") ||
-      req.headers.get("referer")?.includes("jav.")) &&
-    (req.nextUrl.pathname === "/" ||
-      languages.some((loc) => req.nextUrl.pathname === `/${loc}`))
+    req.nextUrl.origin.includes("jav.") ||
+    req.headers.get("referer")?.includes("jav.")
   ) {
     //    const redUrl =req.nextUrl.origin + req.nextUrl.pathname + "/jav"
     //      const redUrl =new URL('/jav', req.nextUrl.origin)
-   
+
+    if (req.nextUrl.pathname === "/") {
       const url = req.nextUrl.clone();
       url.pathname = `/${lng}/jav`;
-      return NextResponse.redirect(url );
-   
-
+      return NextResponse.redirect(url);
+    } else if (languages.some((loc) => req.nextUrl.pathname === `/${loc}`)) {
+      const url = req.nextUrl.clone();
+      url.pathname = url.pathname + `/jav`;
+      return NextResponse.redirect(url);
+    }
   }
 
   // Redirect if lng in path is not supported
