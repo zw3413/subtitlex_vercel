@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import acceptLanguage from "accept-language";
 import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
-import { redirect } from "next/navigation";
+
 
 acceptLanguage.languages(languages);
 
@@ -29,7 +29,8 @@ export function middleware(req) {
     //      const redUrl =new URL('/jav', req.nextUrl.origin)
     const redUrl = "/jav";
     console.log(redUrl);
-    redirect(redUrl);
+    NextResponse.redirect(redUrl,req.URL );
+
   }
 
   // Redirect if lng in path is not supported
