@@ -29,7 +29,7 @@ export function middleware(req) {
     //      const redUrl =new URL('/jav', req.nextUrl.origin)
     const redUrl = "/jav";
     console.log(redUrl);
-    NextResponse.redirect(redUrl,req.URL );
+    return NextResponse.redirect(redUrl,req.URL );
 
   }
 
