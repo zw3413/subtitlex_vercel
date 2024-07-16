@@ -26,7 +26,8 @@ export default function Extension({lng}) {
         "
       >
         <div className="flex justify-center my-8 ">
-          <h1 className="text-2xl font-light mr-6">{t('Welcome to Use')}</h1>
+          <h1 className="text-2xl font-light mr-6">{t('Welcome to use')}
+          </h1>
           <Image
             src="/images/subtitlex-512-transparent.png"
             alt="SubtitleX Logo"
@@ -215,7 +216,7 @@ export default function Extension({lng}) {
               d="m1 14 3-3m-3 3 3 3m-3-3h16v-3m2-7-3 3m3-3-3-3m3 3H3v3"
             ></path>
           </svg>
-          Automatically load subtitle if the video has been collected
+          {t('h_d_1')}
         </h2>
         <h2 className="my-2">
           <svg
@@ -227,8 +228,8 @@ export default function Extension({lng}) {
           >
             <path d="M18 0H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2ZM7.648 9.636c.25 0 .498-.064.717-.186a1 1 0 1 1 .979 1.745 3.475 3.475 0 1 1 .185-5.955 1 1 0 1 1-1.082 1.681 1.475 1.475 0 1 0-.799 2.715Zm6.186 0c.252 0 .5-.063.72-.187a1 1 0 1 1 .974 1.746 3.475 3.475 0 1 1 .188-5.955 1 1 0 0 1-1.084 1.681 1.475 1.475 0 1 0-.8 2.715h.002Z"></path>
           </svg>
-          Over <span className="text-color-jable">30,000</span> video has been
-          collected and still growing
+          {t('h_d_2',{number:"30,000"})}
+         
         </h2>
         <h2 className="my-2">
           <svg
@@ -246,7 +247,7 @@ export default function Extension({lng}) {
               d="M4 17V1m0 0L1 4m3-3 3 3m4-3h6l-6 6h6m-7 10 3.5-7 3.5 7m-6.125-2H16"
             ></path>
           </svg>
-          Support over 10 languages
+          {t('h_d_3')}
         </h2>
         <h2 className="my-2">
           <svg
@@ -259,7 +260,7 @@ export default function Extension({lng}) {
             <path d="M17 0h-5.768a1 1 0 1 0 0 2h3.354L8.4 8.182A1.003 1.003 0 1 0 9.818 9.6L16 3.414v3.354a1 1 0 0 0 2 0V1a1 1 0 0 0-1-1Z"></path>
             <path d="m14.258 7.985-3.025 3.025A3 3 0 1 1 6.99 6.768l3.026-3.026A3.01 3.01 0 0 1 8.411 2H2.167A2.169 2.169 0 0 0 0 4.167v11.666A2.169 2.169 0 0 0 2.167 18h11.666A2.169 2.169 0 0 0 16 15.833V9.589a3.011 3.011 0 0 1-1.742-1.604Z"></path>
           </svg>
-          Load subtitle from user local
+          {t('h_d_4')}
         </h2>
         <h2 className="my-2">
           <svg
@@ -271,7 +272,7 @@ export default function Extension({lng}) {
           >
             <path d="M5 11.424V1a1 1 0 1 0-2 0v10.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.228 3.228 0 0 0 0-6.152ZM19.25 14.5A3.243 3.243 0 0 0 17 11.424V1a1 1 0 0 0-2 0v10.424a3.227 3.227 0 0 0 0 6.152V19a1 1 0 1 0 2 0v-1.424a3.243 3.243 0 0 0 2.25-3.076Zm-6-9A3.243 3.243 0 0 0 11 2.424V1a1 1 0 0 0-2 0v1.424a3.228 3.228 0 0 0 0 6.152V19a1 1 0 1 0 2 0V8.576A3.243 3.243 0 0 0 13.25 5.5Z" />
           </svg>
-          Time offset adjustment
+          {t('h_d_5')}
         </h2>
         <h2 className="my-2" id="help">
           <svg
@@ -283,7 +284,7 @@ export default function Extension({lng}) {
           >
             <path d="M13 20a1 1 0 0 1-.64-.231L7 15.3l-5.36 4.469A1 1 0 0 1 0 19V2a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v17a1 1 0 0 1-1 1Z"></path>
           </svg>
-          Free to use, and update frequently
+          {t('h_d_6')}
         </h2>
       </div>
 
@@ -298,7 +299,7 @@ export default function Extension({lng}) {
             width={60}
             height={30}
           ></Image>
-          <h2 className="text-4xl my-4 mx-12">IT IS SUPER EASY TO USE</h2>
+          <h2 className="text-4xl my-4 mx-12">{t('HEAD_2')}</h2>
           <Image
             src="/images/icon/hand-down-1-96.png"
             alt="hand"
@@ -316,11 +317,9 @@ export default function Extension({lng}) {
           />
           <div>
             <h1 className="text-xl font-thin mt-20">
-            1. Icon of SubtitleX will show on the control bar of video after the
-            page loaded( might delay a few seconds impacted by internet speed). If you didn&apos;t see it please reload the page or
-            contact with developer.</h1>
+            1. {t('h_2_d_1')}</h1>
             <h1 className="font-thin text-base pt-4 wrap">
-              * if the icon{" "}
+              * if the icon {" "} 
               <Image
                 className="inline"
                 src="/images/subtitlex-512-transparent.png"
@@ -335,8 +334,7 @@ export default function Extension({lng}) {
 
         <div className="flex my-4  ">
           <h1 className="text-xl font-thin mt-28">
-            2. Click the icon, you will see the panel of SubtitleX, all
-            operations were located here.
+            2. {t('h_2_d_2')}
           </h1>
           <Image
             alt="SubtitleX"
@@ -357,11 +355,10 @@ export default function Extension({lng}) {
           />
           <div className="flex-wrap mt-28 ml-4">
             <h1 className="text-xl font-thin  wrap">
-              3. Search or get subtitle files by your self, load it with this
-              button.
+              3. {t('h_2_d_3')}
             </h1>
             <h1 className="font-thin text-base pt-4 wrap">
-              Recommended websites to download subtitles:
+              {t('h_2_d_3_c')}
             </h1>
             <svg
               className="w-[20px] h-[20px] text-white inline"
@@ -417,9 +414,7 @@ export default function Extension({lng}) {
 
         <div className="flex my-4  ">
           <h1 className="text-xl font-thin mt-28">
-            4. If the subtitles of video on current page have already been
-            collected by SubtitleX database, you should be able to select
-            subtitles from here.
+            4. {t('h_2_d_4')}
           </h1>
           <Image
             alt="SubtitleX"
@@ -439,10 +434,7 @@ export default function Extension({lng}) {
             width={480}
           />
           <h1 className="text-xl font-thin mt-28">
-            5. Loaded subtitle will show under the video,{" "}
-            <strong>position is draggable</strong>. You can adjust the
-            font-size, background, hide/show ,and the time synchronization in
-            SubtitleX panel.
+            5. {t('h_2_d_5')}
           </h1>
         </div>
       </div>
@@ -456,9 +448,9 @@ export default function Extension({lng}) {
             className="bg-[#20e4ff] text-black hover:text-white font-bold py-2 px-4 rounded z-50"
             href="/Member"
           >
-            Subscribe
+            {t('Subscribe')}
           </Link>{" "}
-          to Enjoy More
+          {t('to Enjoy More')}
         </h1>
 
         <div className="flex justify-between my-12 gap-20">
@@ -492,7 +484,7 @@ export default function Extension({lng}) {
                   d="M5 11.917 9.724 16.5 19 7.5"
                 />
               </svg>
-              20 subtitles per day from subtitlex database
+              {t("sub_desc_1",{number:"20"})}
             </h2>
             <h2 className="text-sm font-light">
               {" "}
@@ -513,13 +505,13 @@ export default function Extension({lng}) {
                   d="M5 11.917 9.724 16.5 19 7.5"
                 />
               </svg>
-              Unlimited loading local srt file
+              {t('Unlimited loading local srt file')}
             </h2>
           </div>
           <div className="flex-wrap mt-4"></div>
           <div>
             <div className="flex-wrap">
-              <h1 className="text-2xl ">Subscribed Tier</h1>
+              <h1 className="text-2xl ">{t('Subscribed Tier')}</h1>
             </div>
             {/* <Image
               alt="SubtitleX"
@@ -546,8 +538,7 @@ export default function Extension({lng}) {
                   d="M5 11.917 9.724 16.5 19 7.5"
                 />
               </svg>
-              <span className="text-color-jable">200 subtitles</span> per day
-              from subtitlex database
+              {t('sub_desc_2',{number:"200"})}
             </h2>
             <h2 className="text-sm font-light">
               {" "}
@@ -568,7 +559,7 @@ export default function Extension({lng}) {
                   d="M5 11.917 9.724 16.5 19 7.5"
                 />
               </svg>
-              Unlimited loading local srt file
+              {t('Unlimited loading local srt file')}
             </h2>
             <h2 className="text-sm font-light">
               {" "}
@@ -589,13 +580,13 @@ export default function Extension({lng}) {
                   d="M5 11.917 9.724 16.5 19 7.5"
                 />
               </svg>
-              Contact with developer directly
+              {t('Contact with developer directly')}
             </h2>
           </div>
         </div>
 
 
-<div className="flex content-center mt-8"><TelegramJoinPage></TelegramJoinPage></div>
+<div className="flex content-center mt-8"><TelegramJoinPage lng={lng}></TelegramJoinPage></div>
         {/* <div className="flex content-center mt-8">
           <button
             onClick={handleInstallClick}

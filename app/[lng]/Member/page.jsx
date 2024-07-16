@@ -1,6 +1,7 @@
 import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
+import { useTranslation, UseTranslation } from "../../i18n";
 // import {
 //   StripePricingTable,
 //   StripePricingTable_Monthly,
@@ -39,7 +40,8 @@ import "@upstash/feedback/index.css";
 // console.log("feedbackApi")
 // console.log(await feedbackApi())
 
-async function Member() {
+async function Member({ params: { lng } }) {
+  const { t } = await UseTranslation(lng,"member");
   const session = await getServerSession(options);
   if (!session) {
     redirect("/api/auth/signin?callbackUrl=/Member");
@@ -108,7 +110,7 @@ async function Member() {
         {/* greeting start */}
         <div className="py-10  mb-18">
           <p className="text-2xl font-medium inline mr-8">
-            Welcome,{" "}
+            {t('Welcome')},{" "}
             {session.user.name ? session.user.name : session.user.email}{" "}
             {/* {hasSub ? (
               <span className="p-6 text-base font-medium">Subscribed</span>
@@ -121,7 +123,7 @@ async function Member() {
             className="bg-white ml-auto text-black rounded-md px-2 py-1"
             href={"" + manage_link}
           >
-            Manage billing
+            {t('Manage billing')}
           </Link>
         </div>
         <SendMessage user={userInfo}></SendMessage>
@@ -131,37 +133,35 @@ async function Member() {
           // for subscribed user
           <div className="h-[420px]">
             <h1 className="max-w-[1000px] text-color-jable">
-              Subscription is Valid.
+              {t('Subscription is Valid.')}
             </h1>
             <h2 className="mt-6">
-              You have login successfully, <br />
+              {t('You have login successfully, ')}<br />
               <br />
               <span className="underline text-2xl">
-                Refresh the video page to show the subtitle.
+                {t('Refresh the video page to show the subtitle.')}
               </span>
               <br />
               <br />
-              Contact with the developer, we&#39;d love to hear your feedback.
+              {t('greeting_1')}
               <br />
               <br />
-              Subscription is valid from{" "}
-              <b className="text-[#20e4ff]"> {start_date} </b> to{" "}
-              <b className="text-[#20e4ff]">{end_date}</b>.
+              {t('Subscription is valid from',{start:start_date, end: end_date})}.
             </h2>
           </div>
         ) : (
           // for none-subscribed user
           <div className="h-[420px]">
-            <h1 className="max-w-[1000px]">Subscription is Invalid.</h1>
+            <h1 className="max-w-[1000px]">{t('Subscription is Invalid.')}</h1>
             <h2 className="mt-2">
-              <span className="text-color-jable">200 subtitles per day </span>{" "}
-              will be offered with a valid subscription.
+              <span className="text-color-jable">{t('200 subtitles per day')} </span>{" "}
+              {t('will be offered with a valid subscription.')}
               <br />
-              Contact with the developer, we&#39;d love to hear your feedback.
+              {t('greeting_2')}
             </h2>
             <div className="min-h-300">
               <div className="mb-10 text-center flex">
-                <PriceTables stripeObj={stripeObj}></PriceTables>
+                <PriceTables stripeObj={stripeObj} lng={lng}></PriceTables>
               </div>
             </div>
           </div>
@@ -172,7 +172,7 @@ async function Member() {
           <FeedbackWidget
             showOnInitial={true}
             title={"Hi 👋"}
-            description={"Have feedback? We'd love to hear it"}
+            description={t("Have feedback? We'd love to hear it")}
             type={"full"}
             themeColor={"#20e4ff"}
             textColor={"#000000"}

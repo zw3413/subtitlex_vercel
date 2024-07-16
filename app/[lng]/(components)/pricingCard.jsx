@@ -1,14 +1,17 @@
+'use client'
 import React from "react";
 import axios from "axios";
 import Link from "next/link";
 import { AiFillCheckCircle } from "react-icons/ai";
+import { useTranslation } from "../../i18n/client";
 
-const PricingCard = ({ priceObj}) => {
+const PricingCard = ({ priceObj, lng}) => {
+  const { t } = useTranslation(lng, "member");
   const dynamicSubtitle = (priceObj) => {
     if (priceObj.nickname === "One Week") {
       return (
         <span className="text-[#20e4ff] mt-1">
-          Jable-Helper 7-day subscription
+          {t('7-day subscription')}
         </span>
       );
     }
@@ -16,7 +19,7 @@ const PricingCard = ({ priceObj}) => {
     if (priceObj.nickname === "One Month") {
       return (
         <span className="text-[#20e4ff] mt-1">
-          Jable-Helper 30-day subscription
+          {t('30-day subscription')}
         </span>
       );
     }
@@ -33,7 +36,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Millions of JAV subtitles
+              {t('Millions of JAV subtitles')}
             </h2>
           </div>
           <div className="border" />
@@ -43,7 +46,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              10+ Languages provided
+              {t('10+ Languages provided')}
             </h2>
           </div>
           <div className="border" />
@@ -53,7 +56,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Immersive enjoyable
+              {t('Immersive enjoyable')}
             </h2>
           </div>
           <div className="border" />
@@ -63,7 +66,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Slack and email support
+              {t('Slack and email support')}
             </h2>
           </div>
           <div className="border" />
@@ -80,7 +83,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Millions of JAV subtitles
+            {t('Millions of JAV subtitles')}
             </h2>
           </div>
           <div className="border" />
@@ -90,7 +93,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              10+ Languages provided
+            {t('10+ Languages provided')}
             </h2>
           </div>
           <div className="border" />
@@ -100,7 +103,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Immersive enjoyable
+            {t('Immersive enjoyable')}
             </h2>
           </div>
           <div className="border" />
@@ -110,7 +113,7 @@ const PricingCard = ({ priceObj}) => {
               aria-hidden="true"
             />
             <h2 className="text-sm text-grep-100 text-white">
-              Slack and email support
+            {t('Slack and email support')}
             </h2>
           </div>
           <div className="border" />
@@ -126,7 +129,7 @@ const PricingCard = ({ priceObj}) => {
           className="mt-8 flex w-full justify-center rounded-md border border-transparent bg-[#20e4ff] py-2 px-4 text-sm font-medium text-black shadow-sm"
           href={"" + priceObj.checkOutLink}
         >
-          Subscribe Now
+         {t('Subscribe Now')}
         </Link>
       );
     }
@@ -136,7 +139,7 @@ const PricingCard = ({ priceObj}) => {
           className="mt-8 flex w-full justify-center rounded-md border border-transparent bg-[#20e4ff] py-2 px-4 text-sm font-medium text-black shadow-sm"
           href={"" + priceObj.checkOutLink}
         >
-          Subscribe Now
+          {t('Subscribe Now')}
         </Link>
       );
     }

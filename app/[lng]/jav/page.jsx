@@ -5,27 +5,31 @@ import SearchForm from '../(components)/searchForm';
 
 import TelegramJoinPage from "../(components)/telegram.jsx";
 
-import {useTranslation} from '../../i18n'
+import { useTranslation, UseTranslation } from "../../i18n";
 import {languages} from '../../i18n/settings'
+
 export async function generateStaticParams(){
   return languages.map((lng)=>({lng}))
 }
 
-export async function generateMetadata(context) {
+export async function generateMetadata({ params: { uuid, lng } }) {
+
+    const { t } = await UseTranslation(lng,'extension');
+
     return {
-        title: "JAV subtitle",
-        description: `Free searching and download subtitles (captions) in multiple languages for Japanese adult videos (JAV).`,
-        keywords: "jav subtitle download,subtitle,captions,download,free,jav,japanese,adult",
+        title: t('jav_meta_title'),
+        description: t('jav_meta_description'),
+        keywords: t('jav_meta_keywords'),
         twitter:{
             card: "summary_large_image",
-            title: "JAV subtitle",
-            description: `Free searching and download subtitles (captions) in multiple languages for Japanese adult videos (JAV).`,
+            title: t('jav_meta_title'),
+            description:t('jav_meta_description'),
             creator: "@subtitlex_xyz",
             site: "https://jav.subtitlex.xyz/",
             image:  "https://jav.subtitlex.xyz/images/screenshots/jav.png",
         },
         openGraph: {
-            title: "JAV subtitle",
+            title: t('jav_meta_title'),
             type: "website",
             url: "https://jav.subtitlex.xyz/",
             site_name: "jav.subtitlex.xyz",
@@ -37,11 +41,11 @@ export async function generateMetadata(context) {
 }
 
 export default async function AdultContent({params:{lng}}) {
-
+    const { t } = await useTranslation(lng,'extension');
     return (
         <>
             <div className="text-3xl font-bold text-pink-600 mb-5 mt-5">
-                <h2>Discover millions of JAV subtitles with subtitlex.xyz!</h2>
+                <h2>{t('jav_HEAD_1')}</h2>
             </div>
             <div className="container  bg-gradient-to-r from-pink-500 to-purple-600 p-10">
 
@@ -58,9 +62,9 @@ export default async function AdultContent({params:{lng}}) {
 
                 {/* </div> */}
             </div>  <p className="text-lg max-w-[900px] text-pink-200 leading-relaxed">
-                Search, download, and enjoy using our extensive library with a massive amount of over 150,000 subtitles for more than 30,000 Japanese Adult Videos (JAVs) collected when building the Subtitlex.xyz
-            </p><div className="flex content-center"><TelegramJoinPage></TelegramJoinPage></div><p className="text-lg leading-relaxed max-w-[900px] text-gray-800">
-                Subtitlex.xyz is a comprehensive database of subtitles for online videos, curated from the internet and produced with fast-whisper. Our mission is to democratize access to high-quality subtitles, fostering community around sharing, learning, and enjoying the video content. Join us in our mission to make intelligent subtitles!
+                {t('jav_DESCRIPTION_1')}
+            </p><div className="flex content-center"><TelegramJoinPage lng={lng}></TelegramJoinPage></div><p className="text-lg leading-relaxed max-w-[900px] text-gray-800">
+                {t('jav_DESCRIPTION_2')}
             </p></>
     );
 }
