@@ -3,7 +3,9 @@ import * as THREE from 'three';
 import fragmentShader from './shaders/fragment.glsl';
 
 export default function initLensBlur  (hostEle){
-
+if(!hostEle){
+  return
+}
 const variation = 0;
 
 // add selected class to link based on variation parameter

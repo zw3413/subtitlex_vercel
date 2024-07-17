@@ -6,46 +6,53 @@ import { useSession } from "next-auth/react";
 import { UpdateAndGetUser } from "../common";
 import InstallChromeExtensionButton from "./(components)/installChromeExtensionButton";
 import { useEffect } from "react";
-import initLensBlur from "./(components)/lensblur/LensBlur"
+import TelegramJoinPage from "./(components)/telegram.jsx";
 
-import {useTranslation} from '../i18n/client'
+//import initLensBlur from "./(components)/lensblur/LensBlur"
 
-export default function Home({params:{lng}}) {
-  const { t } = useTranslation(lng,'translation')
+import { useTranslation } from "../i18n/client";
+
+export default function Home({ params: { lng } }) {
+  const { t } = useTranslation(lng, "main");
   const session = useSession();
   UpdateAndGetUser(session);
 
-
-  useEffect(() => {
-    /// document.documentElement.className = "js";
-    if (!document.querySelector('canvas')) {
-      initLensBlur(document.querySelector('#lensblur'));
-    }
-  });
+  // useEffect(() => {
+  //   /// document.documentElement.className = "js";
+  //   if (!document.querySelector('canvas')) {
+  //     initLensBlur(document.querySelector('#lensblur'));
+  //   }
+  // });
   return (
-    <>  <div id="lensblur" className="z-0 absolute"></div>
-      <div className=" min-w-[1025px] z-10 float-left">
-        <script
-          type="module"
-          src="/lensblur/assets/index-WHyTcPwp.js"
-          async />
-        {/* <link
-          rel="stylesheet"
-          href="/lensblur/assets/index-hamleSwx.css"
-        ></link> */}
-
-
+    <>
+      <div className="text-3xl font-bold text-color-jable mb-5 mt-5">
+        <h2>{t("HEAD_1")}</h2>
+      </div>
+      <div className="container  bg-gradient-to-r  from-purple-600 to-color-jable p-10">
         <Image
           alt="subtitlex"
           className="mx-auto"
           src="/images/subtitlex-512-white-transparent.png"
-          width={250}
-          height={250}
+          width={200}
+          height={200}
         />
         <SearchForm lng={lng} t={t} />
-        <div className="flex place-content-center mt-20">
-          <InstallChromeExtensionButton lng={lng}></InstallChromeExtensionButton>
+        <div className="flex place-content-center mt-10">
+          <InstallChromeExtensionButton
+            lng={lng}
+          ></InstallChromeExtensionButton>
         </div>
-      </div></>
+      </div>
+
+      <p className="text-lg max-w-[900px] text-purple-200 leading-relaxed">
+        {t("DESCRIPTION_1")}
+      </p>
+      <div className="flex content-center">
+        <TelegramJoinPage lng={lng}></TelegramJoinPage>
+      </div>
+      <p className="text-lg leading-relaxed max-w-[900px] text-gray-800">
+        {t("DESCRIPTION_2")}
+      </p>
+    </>
   );
 }
