@@ -69,11 +69,11 @@ export default async function RootLayout({ children, params:{lng} }) {
             {children}
 
             <footer className=" p-4 h-12 w-full justify-between text-slate-400 bg-[#1f1f1f] xs:hidden flex bottom-0 sticky ">
-              <div className="mx-4 w-[350px] flex justify-between">
-                <Link href="/terms-of-service"> {t('TermOfService')} </Link>
+              <div className="mx-4  flex">
+                <Link className="pr-4" href="/terms-of-service"> {t('TermOfService')} </Link>
 
-                <Link href="/privacy-policy"> {t('PrivacyPolicy')}</Link>
-                <Link href="/about"> {t('About')}</Link>
+                <Link className="pr-4" href="/privacy-policy"> {t('PrivacyPolicy')}</Link>
+                <Link className="pr-4" href="/about"> {t('About')}</Link>
               </div>
 
               <span>© 2024 SubtitleX</span>
