@@ -155,7 +155,7 @@ export default async function SearchDetailServer({ params: { uuid, lng } }) {
           </div>
           <div className="my-2 mx-auto">
             <ResultDetailSubscribeInstruct
-              subText={subText}
+              subText={subText} lng={lng}
             ></ResultDetailSubscribeInstruct>
           </div>
           <textarea
