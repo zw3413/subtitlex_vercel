@@ -9,18 +9,27 @@ import InstallChromeExtensionButton from "../../../(components)/installChromeExt
 import ResultDetailDownloadButton from "../../../(components)/resultDetailDownloadButton";
 import ResultDetailSubscribeInstruct from "../../../(components)/resultDetailSubscribeInstruct";
 import { notFound, redirect } from "next/navigation";
-import { MdDescription } from "react-icons/md";
 import { cache } from "react";
 import { useTranslation, UseTranslation } from "../../../../i18n";
 
+
 const getSeed = cache(async (uuid) => {
-  const result = await searchSubtitleByUUID(uuid);
-  if (result && result.length > 0) {
-    const seed = result[0];
+  const response = await searchSubtitleByUUID(uuid);
+  if (
+    response &&
+    response.rc == "000" &&
+    response.data &&
+    JSON.parse(response.data).length > 0
+  ) {
+    const seed = JSON.parse(response.data)[0];
     return seed;
+  } else if (response && response.rc != "000") {
+    //报错
+    console.log(response);
+    redirect("/error?rc="+response.rc+"&rm="+response.rm)
   } else {
+    //没有找到这个uuid的subtitle的话，显示notfound页面
     notFound();
-    return null;
   }
 });
 
@@ -81,25 +90,22 @@ export async function generateMetadata({ params: { uuid, lng } }) {
         site: site,
         image: image,
       },
-      alternates:{
-        canonical:`/${lng}/result/detail/${uuid}`,
-      }
+      alternates: {
+        canonical: `/${lng}/result/detail/${uuid}`,
+      },
     };
   } else {
     return {};
   }
 }
 
-export default async function SearchDetailServer({ params: { uuid, lng } }) {
+export default async function SearchDetail({ params: { uuid, lng } }) {
   //console.log(context);
   //const uuid = context.params.uuid;
   const { t } = await useTranslation(lng);
   let subText = "";
   //获取seed信息
   const seed = await getSeed(uuid);
-  if (!seed) {
-    notFound();
-  }
   const downloadSubtitle = async () => {
     const text = await fetchTextFromURLServerSide(uuid);
     subText = text;
@@ -155,7 +161,8 @@ export default async function SearchDetailServer({ params: { uuid, lng } }) {
           </div>
           <div className="my-2 mx-auto">
             <ResultDetailSubscribeInstruct
-              subText={subText} lng={lng}
+              subText={subText}
+              lng={lng}
             ></ResultDetailSubscribeInstruct>
           </div>
           <textarea

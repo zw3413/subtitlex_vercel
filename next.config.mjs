@@ -32,7 +32,7 @@ const nextConfig = {
         {
           source: "/Extension",
           destination: "/extension",
-        },
+        }
         // {
         //   source: "/",
         //   has: [

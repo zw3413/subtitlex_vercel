@@ -1,8 +1,8 @@
 import { useLocalStorage } from "../customHook/useLocalStorage";
+import { subtitleXserverApi } from "../constants";
+import { useCookies } from "react-cookie";
+import { useSession } from "next-auth/react";
 
-const subtitleXserverApi = "https://api.subtitlex.xyz";
-//const subtitleXserverApi = "http://192.168.2.203:12801";
-//const subtitleXserverApi = "http://127.0.0.1:12801";
 export const languageArray = [
   {name :"All", code:""},
   { name: "English", code: "eng" },
@@ -71,7 +71,7 @@ export const remoteCall = async (f, pl) => {
         hashcode: "xxx",
         request_id: "xxx",
         device_ip: "0.0.0.0",
-        uuid: user.uuid,
+        uuid: user,
         function: f,
         params: pl,
       }),
@@ -83,14 +83,21 @@ export const remoteCall = async (f, pl) => {
   return await response.json();
 };
 
-export const UUID = async () => {
+const requestUUIDWith = async () => {
   try {
-    const response = await fetch(subtitleXserverApi + "/api2", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
+    let url = subtitleXserverApi + "/api2";
+    // url = "http://192.168.2.203:12801"+"/api2"
+    console.log(url);
+    const response = await fetch(
+      url,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
       },
-    });
+      5000
+    );
     if (response.status == "200") {
       const result = await response.json();
       if (result.rc == "000") {
@@ -100,27 +107,44 @@ export const UUID = async () => {
     return "xxxx";
   } catch (e) {
     console.error(e);
-    return "xxxx"
+    return "xxxx";
   }
 };
 
-export const UpdateAndGetUser = async (session) => {
+export const UpdateAndGetUser = async () => {
+  const session = useSession();
+  const [cookies, setCookie] = useCookies(["client_uuid"])
+  //先从local storage中获取user对象
   const [setItem, getItem, removeItem] = useLocalStorage("user");
+  //如果local storage中没有user对象，初始化为一个空对象
   let user = getItem();
   if (!user) {
     user = {};
   }
+  //检查user对象中是否有uuid，没有的话从api请求一个过来
   if (!user.uuid) {
-    Object.assign(user, { uuid: await UUID() });
-    setItem(user);
+    let client_uuid = cookies["client_uuid"];
+    if (!client_uuid || client_uuid == '') {
+      client_uuid = await requestUUIDWith();
+      setCookie("client_uuid", client_uuid, { path: "/" });
+    }
+    Object.assign(user, { uuid: client_uuid });    
   }
-  if (session && session.status == "authenticated") {
+  //如果cookie中没有uuid的话，将client_uuid存入cookie
+  const cookie_client_uuid = cookies["client_uuid"];
+  if(!cookie_client_uuid ||cookie_client_uuid ==''){
+    setCookie("client_uuid", user.uuid, { path: "/" });
+  }
+
+  //如果带有session参数，检查是否是authenticated的session，如果是的话将session中带有的信息放入user对象
+  if (session ) {
     if (session.status === "authenticated") {
-      const user = Object.assign(getItem(), session.data.user);
-      setItem(user);
+      user = Object.assign(user, session.data.user);
     }
   }
+  //保存user
+  setItem(user);
+  //返回user
   return user;
 };
 
-UpdateAndGetUser();

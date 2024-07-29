@@ -1,3 +1,5 @@
+//import "@upstash/feedback/dist/style.css";
+import "@upstash/feedback/index.css"
 import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
 import { redirect } from "next/navigation";
@@ -29,16 +31,12 @@ export const stripe = new Stripe(String(process.env.STRIPE_SECRET), {
   apiVersion: "2024-04-02",
 });
 
-// import FeedbackWidget from "@upstash/feedback";
 
-import "@upstash/feedback/index.css";
-// import createFeedbackAPI from "@upstash/feedback/api";
 
 // const feedbackApi =  createFeedbackAPI({
 //   webhooks: [process.env.SLACK_WEBHOOK_URL],
 // });
-// console.log("feedbackApi")
-// console.log(await feedbackApi())
+
 
 async function Member({ params: { lng } }) {
   const { t } = await UseTranslation(lng,"member");

@@ -2,8 +2,7 @@
 
 import Image from "next/image";
 import SearchForm from "./(components)/searchForm";
-import { useSession } from "next-auth/react";
-import { UpdateAndGetUser } from "../common";
+
 import InstallChromeExtensionButton from "./(components)/installChromeExtensionButton";
 import { useEffect } from "react";
 import TelegramJoinPage from "./(components)/telegram.jsx";
@@ -14,8 +13,7 @@ import { useTranslation } from "../i18n/client";
 
 export default function Home({ params: { lng } }) {
   const { t } = useTranslation(lng, "main");
-  const session = useSession();
-  UpdateAndGetUser(session);
+
 
   // useEffect(() => {
   //   /// document.documentElement.className = "js";

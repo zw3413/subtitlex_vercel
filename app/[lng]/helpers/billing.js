@@ -98,6 +98,8 @@ export async function createCustomerIfNull() {
                     stripe_customer_id: customer.id
                 }
             })
+        }else{
+            return user.stripe_customer_id
         }
         const user2 = await prisma.user.findFirst({ where: { email: session.user?.email } });
         return user2?.stripe_customer_id;

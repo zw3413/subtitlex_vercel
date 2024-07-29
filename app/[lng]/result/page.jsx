@@ -2,8 +2,6 @@
 import { useEffect, useState } from "react";
 import SearchForm from "../(components)/searchForm";
 import { remoteCall } from "../../common";
-import { useSession } from "next-auth/react";
-import { UpdateAndGetUser } from "../../common";
 import SearchList from "../(components)/searchList";
 import SearchDetail from "../(components)/searchDetail";
 import { useTranslation } from "../../i18n/client";
@@ -23,14 +21,14 @@ const searchSubtitle = async (hint) => {
   }
 };
 
-export default function Result({searchParams,params:{lng}}) {
+export default function Result(inParams) {
+  const {searchParams,params:{lng}} = inParams
   const {t} = useTranslation(lng,'translation')
 
   const hint = searchParams.hint;
-  const [seeds, setSeeds] = useState(null);
-  const [seed, setSeed] = useState(null);
+  const [seeds, setSeeds] = useState(null); //根据hint获取到的seeds数组
+  const [seed, setSeed] = useState(null); //选中的seed
 
-  UpdateAndGetUser(useSession());
   useEffect(() => {
     async function fetchData() {
       const result = await searchSubtitle(hint);

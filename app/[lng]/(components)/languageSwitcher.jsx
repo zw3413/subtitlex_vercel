@@ -1,16 +1,15 @@
-'use client'
-import { Trans } from "react-i18next/TransWithoutContext";
+"use client";
 import { languages } from "../../i18n/settings";
 import "flowbite";
 import styles from "../../../node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect } from "react";
 import { LanguageLi } from "./languageLi";
+import { useTranslation } from "../../i18n/client";
+import { UpdateAndGetUser } from "../../common";
 
-import {useTranslation} from '../../i18n/client'
-
-export  function LanguageSwitcher({ lng }) {
-  const { t } = useTranslation(lng,'translation')
-
+export function LanguageSwitcher({ lng }) {
+  const { t } = useTranslation(lng, "translation");
+  UpdateAndGetUser()
   const lngToFlag = {
     en: { countryCode: "us", title: t("English") },
     tr: { countryCode: "tr", title: t("Turkey") },
@@ -38,7 +37,11 @@ export  function LanguageSwitcher({ lng }) {
     return lngToFlag[lng];
   }
 
-  useEffect(() => { initFlowbite(); }, []);
+  useEffect(() => {
+    initFlowbite();
+    console.log(UpdateAndGetUser)
+    
+  }, []);
 
   return (
     <>
@@ -46,7 +49,7 @@ export  function LanguageSwitcher({ lng }) {
         <button
           id="states-button"
           data-dropdown-toggle="dropdown-states"
-          data-dropdown-placement ="bottom"
+          data-dropdown-placement="bottom"
           data-dropdown-trigger="click"
           className="flex-shrink-0 z-10 inline-flex items-center  px-4 text-sm font-medium text-center   rounded-lg    bg-[#1f1f1f]   text-white border-gray-600"
           type="button"

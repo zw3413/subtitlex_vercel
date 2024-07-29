@@ -11,7 +11,7 @@ const initI18next = async (lng, ns) => {
     .init(getOptions(lng, ns))
   return i18nInstance
 }
-
+//服务端使用的useTranslation
 export async function useTranslation(lng, ns, options = {}) {
   const i18nextInstance = await initI18next(lng, ns)
   return {

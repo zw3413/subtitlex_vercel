@@ -9,10 +9,6 @@ import Link from "next/link";
 import Script from "next/script";
 import {useTranslation} from '../i18n'
 import {dir} from 'i18next'
-import {languages} from '../i18n/settings'
-export async function generateStaticParams(){
-  return languages.map((lng)=>({lng}))
-}
 
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
@@ -26,7 +22,7 @@ export const metadata = {
 export default async function RootLayout({ children, params:{lng} }) {
   const {t} = await useTranslation(lng)
   return (
-    <html lang={lng} dir = {dir(lng)} suppressHydrationWarning={true}>
+    <html lang={lng}  dir = {dir(lng)} suppressHydrationWarning={true}>
       <AuthProvider>
         <head>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710355729688713"

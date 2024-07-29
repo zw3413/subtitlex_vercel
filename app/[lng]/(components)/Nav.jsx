@@ -3,13 +3,8 @@ import { getServerSession } from "next-auth";
 import { options } from "../../api/auth/[...nextauth]/options";
 import {LanguageSwitcher} from "./languageSwitcher"
 import {useTranslation} from '../../i18n'
-import {languages} from '../../i18n/settings'
-export async function generateStaticParams(){
-  return languages.map((lng)=>({lng}))
-}
 
 const Nav = async ({lng}) => {
-  console.log(lng)
   const {t} = await useTranslation(lng)
   const session = await getServerSession(options);
   return (

@@ -96,13 +96,15 @@ export const options = {
     }),
   ],
   callbacks: {
-    session: async ({ session, token }) => {
+    session: async ({ session, token, user }) => {
+      console.log("Session Callback:", {session, token, user});
       if (session?.user) {
         session.user.id = token.uid;
       }
       return session;
     },
-    jwt: async ({ user, token }) => {
+    jwt: async ({ user, token, session }) => {
+      console.log("JWT Callback:", {user, token, session});
       if (user) {
         token.uid = user.id;
       }

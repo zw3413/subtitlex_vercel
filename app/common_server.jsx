@@ -1,16 +1,18 @@
 import { getServerSession } from "next-auth";
 import { PrismaClient } from "@prisma/client";
 import { options } from "./api/auth/[...nextauth]/options.js";
+import {cookies} from 'next/headers'
 const prisma = new PrismaClient();
-import { createCustomerIfNull, getSubscription } from "./[lng]/helpers/billing.js";
-
-const subtitleXserverApi = "https://api.subtitlex.xyz";
-//const subtitleXserverApi = "http://192.168.2.203:12801";
-//const subtitleXserverApi = "http://127.0.0.1:12801";
+import {
+  createCustomerIfNull,
+  getSubscription,
+} from "./[lng]/helpers/billing.js";
+import { customFetch } from "./customFetch.js";
+import { subtitleXserverApi } from "../constants.js";
 
 export const fetchTextFromURLServerSide = async (subtitleId) => {
   const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
-  const user = await UpdateAndGetUser();
+  const user = await UpdateAndGetUser_SS();
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -40,18 +42,14 @@ export const searchSubtitleByUUID = async (uuid) => {
     const f = "2ee9a177-f9e7-4b76-94a1-943c02ef32b5";
     const pl = [uuid];
     const result = await remoteCall(f, pl);
-    if (result && result.data && result.data.length > 0) {
-      return JSON.parse(result.data);
-    } else {
-      return [];
-    }
+    return result
   } catch (e) {
     console.error(e);
   }
 };
 
 export const remoteCall = async (f, pl) => {
-  const user = await UpdateAndGetUser()
+  const user = await UpdateAndGetUser_SS();
   let response;
   try {
     console.log("subtitlex: about to cal the remotecall with user ");
@@ -68,7 +66,7 @@ export const remoteCall = async (f, pl) => {
         hashcode: "xxx",
         request_id: "xxx",
         device_ip: "0.0.0.0",
-        uuid: user.uuid,
+        user: user,
         function: f,
         params: pl,
       }),
@@ -80,58 +78,42 @@ export const remoteCall = async (f, pl) => {
   return await response.json();
 };
 
-export const UUID = async () => {
-  try {
 
-    let url = subtitleXserverApi + "/api2"
-   // url = "http://192.168.2.203:12801"+"/api2"
-    console.log(url)
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    },5000);
-    if (response.status == "200") {
-      const result = await response.json();
-      if (result.rc == "000") {
-        return result.data;
-      }
+
+export const UpdateAndGetUser_SS = async () => {
+  try {
+    let user = {};
+    const session = await getServerSession(options);
+    if (session && session.user) {
+      user = session.user;
     }
-    return "xxxx";
+    if (!user.uuid) {
+      const user_uuid = cookies().get("client_uuid");
+      user = { ...user, uuid: user_uuid };
+    }
+    if (user.email) {
+      await createCustomerIfNull();
+      const userFromSession = await prisma.user.findFirst({
+        where: {
+          email: user.email,
+        },
+      });
+      const subscriptions = await getSubscription();
+      const hasSub = subscriptions?.data?.length > 0;
+      const subscribed = hasSub
+        ? new Date() < new Date(user.expireDate * 1000)
+        : false;
+      user = {
+        ...user,
+        ...userFromSession,
+        hasSub: hasSub,
+        expireDate: hasSub ? subscriptions?.data[0].current_period_end : null,
+        subscribed: subscribed,
+      };
+    }
+
+    return user;
   } catch (e) {
     console.error(e);
-    return "xxxx";
   }
 };
-
-export const UpdateAndGetUser = async () => {
-  const session = await getServerSession(options);
-  let user = { uuid: await UUID() };
-
-  if (!session) {
-    return user;
-  }
-  await createCustomerIfNull();
-  const userFromSession = await prisma.user.findFirst({
-    where: {
-      email: session?.user?.email,
-    },
-  });
-  const subscriptions = await getSubscription();
-  const hasSub = subscriptions?.data?.length > 0;
-
-  user = {
-    ...user,
-    ...userFromSession,
-    ...{
-      hasSub: hasSub,
-      expireDate: hasSub ? subscriptions?.data[0].current_period_end : null,
-    }
-  };
-  const subscribed = hasSub ? new Date() < new Date(user.expireDate * 1000) : false;
-  user.subscribed = subscribed;
-  return user;
-};
-
-// UpdateAndGetUser();

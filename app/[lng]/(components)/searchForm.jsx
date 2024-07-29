@@ -1,12 +1,14 @@
 "use client";
+import { useTranslation } from "../../i18n/client";
 import { useState } from "react";
 import "flowbite";
-import { UseTranslation } from "../../i18n/client";
+
 
 export default function SearchForm({ inHint, placeholder, t , lng}) {
 
   if(!t){
-    const tran = UseTranslation(lng, "translation");
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const tran = useTranslation(lng, "translation");
     t = tran.t;
   }
 

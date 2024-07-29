@@ -52,6 +52,6 @@ export function useTranslation(lng, ns, options) {
   return ret
 }
 
-export function UseTranslation(lng,ns,options){
-  return useTranslation(lng, ns, options)
-}
+// export function UseTranslation(lng,ns,options){
+//   return useTranslation(lng, ns, options)
+// }
