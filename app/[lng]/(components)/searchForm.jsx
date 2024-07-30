@@ -1,7 +1,7 @@
 "use client";
 import { useTranslation } from "../../i18n/client";
 import { useState } from "react";
-import "flowbite";
+//import "flowbite";
 
 
 export default function SearchForm({ inHint, placeholder, t , lng}) {

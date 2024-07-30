@@ -79,8 +79,8 @@ export async function generateCustomerPortalLink(customerId) {
 
 export async function createCustomerIfNull() {
     const session = await getServerSession(options);
-    console.log('createCustomerIfNull')
-    console.log(session)
+    // console.log('createCustomerIfNull')
+    // console.log(session)
     if (session) {
         const user = await prisma.user.findFirst({ where: { email: session.user?.email } });
 

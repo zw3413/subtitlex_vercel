@@ -1,5 +1,6 @@
 {
-    "Exceed Limit Please Subscribe":"You have requested more than 20 subtitles today or more than 5 subtitles in last hour, please <1>Subscribe</1> to unlock the limit up to 200 subtitles per day, thanks for your great support",
+    "Exceed_Limit":"We detected that you have requested at a high frequency. ",
+    "Please_Subscribe":"Please <1>Read about the frequency limitation and Subscribe</1> to unlock the limitation.",
     "Not Found":"Not Found",
     "Could not find requested resource, please refresh or":"Could not find requested resource, please refresh or",
     "Return to Home Page":"Return to Home Page",

@@ -23,7 +23,7 @@ export const fetchTextFromURLServerSide = async (subtitleId) => {
         hashcode: "xxx",
         request_id: "xxx",
         device_ip: "0.0.0.0",
-        user: user,
+        uuid: user.uuid,
       }),
     });
     if (!response.ok) {
@@ -88,7 +88,7 @@ export const UpdateAndGetUser_SS = async () => {
       user = session.user;
     }
     if (!user.uuid) {
-      const user_uuid = cookies().get("client_uuid");
+      const user_uuid = cookies().get("client_uuid").value;
       user = { ...user, uuid: user_uuid };
     }
     if (user.email) {

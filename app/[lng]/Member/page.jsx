@@ -54,7 +54,7 @@ async function Member({ params: { lng } }) {
     user?.stripe_customer_id
   );
   const subscriptions = await getSubscription();
-  const hasSub = subscriptions?.data?.length > 0;
+  let hasSub = subscriptions?.data?.length > 0;
   if (hasSub) {
     var start_date = new Date(
       subscriptions?.data[0].current_period_start * 1000
@@ -136,9 +136,7 @@ async function Member({ params: { lng } }) {
             <h2 className="mt-6">
               {t('You have login successfully, ')}<br />
               <br />
-              <span className="underline text-2xl">
-                {t('Refresh the video page to show the subtitle.')}
-              </span>
+              
               <br />
               <br />
               {t('greeting_1')}
@@ -146,6 +144,14 @@ async function Member({ params: { lng } }) {
               <br />
               {t('Subscription is valid from',{start:start_date, end: end_date})}.
             </h2>
+     
+            <div className="mt-2 text-xl font-sans text-color-jable">
+                {t('Refresh the video page to show the subtitle.')}
+              </div>
+              <div className="mt-2">
+            <Link className="text-xl font-sans underline text-color-jable" href="/">{t('Search Subtitles Now')}</Link>
+            </div>
+
           </div>
         ) : (
           // for none-subscribed user
@@ -157,6 +163,9 @@ async function Member({ params: { lng } }) {
               <br />
               {t('greeting_2')}
             </h2>
+            <div className="mt-2">
+            <Link className="text-xl font-sans underline text-color-jable" href="/">{t('Search Subtitles Now')}</Link>
+            </div>
             <div className="min-h-300">
               <div className="mb-10 text-center flex">
                 <PriceTables stripeObj={stripeObj} lng={lng}></PriceTables>

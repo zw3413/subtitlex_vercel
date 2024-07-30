@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import Image from "next/image";
-import "flowbite";
+//import "flowbite";
 
 import TelegramJoinPage from "../(components)/telegram.jsx";
 

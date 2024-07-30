@@ -1,10 +1,9 @@
+"use client";
 import { useLocalStorage } from "../customHook/useLocalStorage";
 import { subtitleXserverApi } from "../constants";
-import { useCookies } from "react-cookie";
-import { useSession } from "next-auth/react";
 
 export const languageArray = [
-  {name :"All", code:""},
+  { name: "All", code: "" },
   { name: "English", code: "eng" },
   { name: "Traditional Chinese", code: "cmn_Hant" },
   { name: "Simplified Chinese", code: "cmn" },
@@ -24,12 +23,12 @@ export const languageArray = [
   { name: "Thai", code: "tha" },
   { name: "Hindi", code: "hin" },
   { name: "Malay", code: "msa" },
-  { name: "Indonesian", code: "ind" }
+  { name: "Indonesian", code: "ind" },
 ];
 
-export const fetchTextFromURL = async (subtitleId) => {
+export const fetchTextFromURL = async (subtitleId, session, client_uuid) => {
   const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
-  const user = await UpdateAndGetUser();
+  const user = await UpdateAndGetUser(session, client_uuid);
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -53,10 +52,10 @@ export const fetchTextFromURL = async (subtitleId) => {
   }
 };
 
-export const remoteCall = async (f, pl) => {
+export const remoteCall = async (f, pl, session, client_uuid) => {
   let response;
   try {
-    const user = await UpdateAndGetUser();
+    const user = await UpdateAndGetUser(session, client_uuid);
     console.log("subtitlex: about to cal the remotecall with user ");
     console.log(user);
     if (!user.uuid) {
@@ -71,7 +70,7 @@ export const remoteCall = async (f, pl) => {
         hashcode: "xxx",
         request_id: "xxx",
         device_ip: "0.0.0.0",
-        uuid: user,
+        user: user,
         function: f,
         params: pl,
       }),
@@ -83,7 +82,7 @@ export const remoteCall = async (f, pl) => {
   return await response.json();
 };
 
-const requestUUIDWith = async () => {
+export const requestUUID = async (session, client_uuid) => {
   try {
     let url = subtitleXserverApi + "/api2";
     // url = "http://192.168.2.203:12801"+"/api2"
@@ -93,7 +92,7 @@ const requestUUIDWith = async () => {
       {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
       },
       5000
@@ -111,9 +110,9 @@ const requestUUIDWith = async () => {
   }
 };
 
-export const UpdateAndGetUser = async () => {
-  const session = useSession();
-  const [cookies, setCookie] = useCookies(["client_uuid"])
+export const UpdateAndGetUser = async (session, client_uuid) => {
+  // const session = useSession();
+  // const [cookies, setCookie] = useCookies(["client_uuid"])
   //先从local storage中获取user对象
   const [setItem, getItem, removeItem] = useLocalStorage("user");
   //如果local storage中没有user对象，初始化为一个空对象
@@ -122,22 +121,22 @@ export const UpdateAndGetUser = async () => {
     user = {};
   }
   //检查user对象中是否有uuid，没有的话从api请求一个过来
-  if (!user.uuid) {
-    let client_uuid = cookies["client_uuid"];
-    if (!client_uuid || client_uuid == '') {
-      client_uuid = await requestUUIDWith();
-      setCookie("client_uuid", client_uuid, { path: "/" });
-    }
-    Object.assign(user, { uuid: client_uuid });    
+  if (!user.client_uuid) {
+    //let client_uuid = cookies["client_uuid"];
+    // if (!client_uuid || client_uuid == '') {
+    //   client_uuid = await requestUUID();
+    //   setCookie("client_uuid", client_uuid, { path: "/" });
+    // }
+    Object.assign(user, { client_uuid: client_uuid });
   }
   //如果cookie中没有uuid的话，将client_uuid存入cookie
-  const cookie_client_uuid = cookies["client_uuid"];
-  if(!cookie_client_uuid ||cookie_client_uuid ==''){
-    setCookie("client_uuid", user.uuid, { path: "/" });
-  }
+  // const cookie_client_uuid = cookies["client_uuid"];
+  // if(!cookie_client_uuid ||cookie_client_uuid ==''){
+  //   setCookie("client_uuid", user.uuid, { path: "/" });
+  // }
 
   //如果带有session参数，检查是否是authenticated的session，如果是的话将session中带有的信息放入user对象
-  if (session ) {
+  if (session) {
     if (session.status === "authenticated") {
       user = Object.assign(user, session.data.user);
     }
@@ -147,4 +146,3 @@ export const UpdateAndGetUser = async () => {
   //返回user
   return user;
 };
-

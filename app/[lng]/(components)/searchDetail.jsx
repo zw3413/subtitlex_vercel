@@ -2,8 +2,11 @@ import { fetchTextFromURL } from "../../common";
 import { useState } from "react";
 export default function SearchDetail({ seed, setIsDetail }) {
   const [subText, setSubText] = useState("");
+  const session = useSession();
+  const cookies = useCookies(["client_uuid"])
+  const client_uuid = cookies["client_uuid"]
   const downloadSubtitle = () => {
-    const text = fetchTextFromURL(seed.uuid).then((text) => {
+    const text = fetchTextFromURL(seed.uuid, session, client_uuid).then((text) => {
       setSubText(text);
     });
   };

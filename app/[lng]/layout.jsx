@@ -1,15 +1,17 @@
 import { Inter } from "next/font/google";
 import "../globals.css";
+import Script from 'next/script';
+import { ThemeModeScript } from "flowbite-react";
+
 
 import Nav from "./(components)/Nav";
 import Image from "next/image";
 
 import AuthProvider from "./(components)/AuthProvider";
 import Link from "next/link";
-import Script from "next/script";
 import {useTranslation} from '../i18n'
 import {dir} from 'i18next'
-
+import dynamic from 'next/dynamic'
 const inter = Inter({ subsets: ["latin"] });
 export const metadata = {
   title: {
@@ -20,6 +22,10 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params:{lng} }) {
+  dynamic(()=>{
+    ()=> import('flowbite'),
+    {ssr:false}
+  })
   const {t} = await useTranslation(lng)
   return (
     <html lang={lng}  dir = {dir(lng)} suppressHydrationWarning={true}>
@@ -39,6 +45,12 @@ export default async function RootLayout({ children, params:{lng} }) {
               gtag('config', 'G-KTQBF80NQT');
             `}
           </Script>
+          {/* <Script
+  src="https://unpkg.com/flowbite@1.3.3/dist/flowbite.js"
+  strategy="beforeInteractive"
+/>
+<link rel="stylesheet" href="https://unpkg.com/flowbite@1.3.3/dist/flowbite.min.css" /> */}
+
         </head>
         <body className={inter.className}>
           <main className="flex min-h-screen bg-black flex-col items-center justify-between ">

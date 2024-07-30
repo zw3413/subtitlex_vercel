@@ -1,15 +1,32 @@
 "use client";
 import { languages } from "../../i18n/settings";
-import "flowbite";
+//import {initFlowbite} from "flowbite";
 import styles from "../../../node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect } from "react";
 import { LanguageLi } from "./languageLi";
 import { useTranslation } from "../../i18n/client";
 import { UpdateAndGetUser } from "../../common";
+import { useSession } from "next-auth/react";
+import { useCookies } from "react-cookie";
+import { requestUUID } from "../../common";
+import Script from "next/script";
 
 export function LanguageSwitcher({ lng }) {
   const { t } = useTranslation(lng, "translation");
-  UpdateAndGetUser()
+  const session = useSession();
+  const cookieName = "client_uuid";
+  const [cookies, setCookie] = useCookies([cookieName]);
+  let client_uuid = cookies["client_uuid"];
+  if (!client_uuid || client_uuid == "") {
+    requestUUID().then((uuid) => {
+      client_uuid = uuid;
+      setCookie("client_uuid", client_uuid, { path: "/" });
+      //UpdateAndGetUser(session, client_uuid);
+    });
+  } else {
+    //UpdateAndGetUser(session, client_uuid);
+  }
+
   const lngToFlag = {
     en: { countryCode: "us", title: t("English") },
     tr: { countryCode: "tr", title: t("Turkey") },
@@ -38,9 +55,40 @@ export function LanguageSwitcher({ lng }) {
   }
 
   useEffect(() => {
-    initFlowbite();
-    console.log(UpdateAndGetUser)
-    
+    //initFlowbite();
+    if (typeof document == "object") {
+      console.log(typeof document, "printed");
+
+      import("particles.js");
+    }
+    // import('@themesberg/flowbite');
+
+    const toggleCollapse = (elementId, show = true) => {
+      const collapseEl = document.getElementById(elementId);
+      if (show) {
+        collapseEl.classList.remove("hidden");
+      } else {
+        collapseEl.classList.add("hidden");
+      }
+    };
+
+    // Toggle target elements using [data-collapse-toggle]
+    document
+      .querySelectorAll("[data-dropdown-toggle]")
+      .forEach(function (collapseToggleEl) {
+        var collapseId = collapseToggleEl.getAttribute("data-dropdown-toggle");
+
+        collapseToggleEl.addEventListener("click", function () {
+          toggleCollapse(
+            collapseId,
+            document.getElementById(collapseId).classList.contains("hidden")
+          );
+        });
+      });
+
+    window.toggleCollapse = toggleCollapse;
+
+    return console.log("Component unmounted!");
   }, []);
 
   return (
@@ -76,7 +124,7 @@ export function LanguageSwitcher({ lng }) {
         </button>
         <div
           id="dropdown-states"
-          className=" z-20 hidden divide-y divide-gray-100 rounded-lg shadow w-48 bg-gray-700"
+          className=" z-20 absolute hidden right-2 top-12 divide-y divide-gray-100 rounded-lg shadow w-48 bg-gray-700"
         >
           <ul
             className="py-2 text-sm text-gray-200"
