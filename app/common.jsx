@@ -121,13 +121,13 @@ export const UpdateAndGetUser = async (session, client_uuid) => {
     user = {};
   }
   //检查user对象中是否有uuid，没有的话从api请求一个过来
-  if (!user.client_uuid) {
+  if (!user.uuid) {
     //let client_uuid = cookies["client_uuid"];
     // if (!client_uuid || client_uuid == '') {
     //   client_uuid = await requestUUID();
     //   setCookie("client_uuid", client_uuid, { path: "/" });
     // }
-    Object.assign(user, { client_uuid: client_uuid });
+    Object.assign(user, { uuid: client_uuid });
   }
   //如果cookie中没有uuid的话，将client_uuid存入cookie
   // const cookie_client_uuid = cookies["client_uuid"];
