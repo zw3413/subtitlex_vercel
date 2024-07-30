@@ -22,10 +22,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children, params:{lng} }) {
-  dynamic(()=>{
-    ()=> import('flowbite'),
-    {ssr:false}
-  })
+  
   const {t} = await useTranslation(lng)
   return (
     <html lang={lng}  dir = {dir(lng)} suppressHydrationWarning={true}>
