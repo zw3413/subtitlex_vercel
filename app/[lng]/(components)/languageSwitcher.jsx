@@ -16,16 +16,17 @@ export function LanguageSwitcher({ lng }) {
   const session = useSession();
   const cookieName = "client_uuid";
   const [cookies, setCookie] = useCookies([cookieName]);
-  let client_uuid = cookies["client_uuid"];
-  // if (!client_uuid || client_uuid == "") {
-  //   requestUUID().then((uuid) => {
-  //     client_uuid = uuid;
-  //     setCookie("client_uuid", client_uuid, { path: "/" });
-  //     UpdateAndGetUser(session, client_uuid);
-  //   });
-  // } else {
-    UpdateAndGetUser(session, client_uuid);
-  //}
+  useEffect(() => {  let client_uuid = cookies["client_uuid"];
+    // if (!client_uuid || client_uuid == "") {
+    //   requestUUID().then((uuid) => {
+    //     client_uuid = uuid;
+    //     setCookie("client_uuid", client_uuid, { path: "/" });
+    //     UpdateAndGetUser(session, client_uuid);
+    //   });
+    // } else {
+      UpdateAndGetUser(session, client_uuid);
+    }, [])
+
 
   const lngToFlag = {
     en: { countryCode: "us", title: t("English") },
