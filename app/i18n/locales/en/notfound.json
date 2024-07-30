@@ -5,5 +5,6 @@
     "Could not find requested resource, please refresh or":"Could not find requested resource, please refresh or",
     "Return to Home Page":"Return to Home Page",
     "or":"or",
-    "Feedback an Issue":"Feedback an Issue"
+    "Feedback an Issue":"Feedback an Issue",
+    "proxy_tip":"If you are behind a proxy, please login to avoid IP pollution"
 }

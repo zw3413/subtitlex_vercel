@@ -23,6 +23,7 @@ export default async function ResultDetailSubscribeInstruct({ subText, lng }) {
             </Link>
             to unlock the limitation. 
           </Trans>
+         <bt/> 👋 {t('proxy_tip')}
         </div>
       ) : (
         <></>
