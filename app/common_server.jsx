@@ -23,7 +23,7 @@ export const fetchTextFromURLServerSide = async (subtitleId) => {
         hashcode: "xxx",
         request_id: "xxx",
         device_ip: "0.0.0.0",
-        uuid: user.uuid,
+        user: user,
       }),
     });
     if (!response.ok) {
