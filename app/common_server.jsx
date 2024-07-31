@@ -95,7 +95,15 @@ export const UpdateAndGetUser_SS = async () => {
     }
     if (user && !user.uuid) {
       console.log("user has no uuid");
-      const user_uuid = cookies().get("client_uuid").value;
+      let user_uuid_obj = cookies().get("client_uuid");
+      if(!user_uuid_obj){
+        console.log("no client_uuid in cookie");
+        console.log("set a temp uuid here")
+        user_uuid_obj ={name:"client_uuid", value:"xxxx", path:"/"}
+      }else{
+        console.log("get client_uuid_obj from cookie", user_uuid_obj);
+      } 
+      const user_uuid = user_uuid_obj.value;
       console.log("get user_uuid from cookie: ", user_uuid)
       user = { ...user, uuid: user_uuid };
       console.log("user", user)
