@@ -51,10 +51,11 @@ export async function middleware(req) {
   //if none, try to get the client ip
   if (!client_uuid || client_uuid  == '') {
     console.log("print all headers")
-    const requestHeaders = new Headers(request.headers)
-    requestHeaders.forEach((value, key) => {
-      console.log(`${key}: ${value}`)
-    })
+    // const requestHeaders = new Headers(req.headers)
+    // requestHeaders.forEach((value, key) => {
+    //   console.log(`${key}: ${value}`)
+    // })
+    
     console.log("read client ip in middleware")
     const CF_Connecting_IP = req.headers['CF-Connecting-IP']
     const X_Forwared_For = req.headers['X-Forwarded-For']
