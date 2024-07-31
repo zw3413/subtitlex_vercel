@@ -1,9 +1,9 @@
 "use client";
 import { useState } from "react";
 import { remoteCall } from "../../../common";
-import { UseTranslation } from "../../../i18n/client";
+import { useTranslation } from "../../../i18n/client";
 export default function UninstallSurvey({params:{lng}}) {
-  const { t } = UseTranslation(lng,"notfound");
+  const { t } = useTranslation(lng,"notfound");
   const [thanks, setThanks] = useState(false)
   const handleFormSubmit = async (event) => {
 
