@@ -43,12 +43,12 @@ const requestUUIDWithClientIP = async (client_ip) => {
 //middleware 用于i18n的redirecting
 export async function middleware(req) {
   const response = NextResponse.next();
-
+  console.log("middleware start")
   //check if the client_uuid exist in the cookie
   let client_uuid = req.cookies.get("client_uuid")?.value;
+  console.log({client_uuid})
   //if none, try to get the client ip
   if (!client_uuid || client_uuid  == '') {
-
     console.log("read client ip in middleware")
     const x_forwared_for = req.headers['x-forwarded-for']
     const remoteAddress = req.socket?.remoteAddress;
@@ -56,9 +56,12 @@ export async function middleware(req) {
     console.log({x_forwared_for, remoteAddress, ip})
 
     const clientIp = ip||(req.headers['x-forwarded-for'] || '').split(',').pop().trim() ;
+    console.log("use client ip:", ip)
     //use the client ip to call api2 to get a client_uuid
     client_uuid = await requestUUIDWithClientIP(clientIp);
+    console.log("get client_uuid:", client_uuid)
     response.cookies.set("client_uuid", client_uuid);
+    console.log("set client_uuid in cookie finished")
   }
 
   let lng;
