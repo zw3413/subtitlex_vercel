@@ -82,16 +82,27 @@ export const remoteCall = async (f, pl) => {
 
 export const UpdateAndGetUser_SS = async () => {
   try {
+    console.log("UpdateAndGetUser_SS");
     let user = {};
+    console.log("user initialed as ", user);
     const session = await getServerSession(options);
+    console.log("get session", {session});
     if (session && session.user) {
+      console.log("session.user exists")
       user = session.user;
+      console.log("set user to session.user",session.user)
+      console.log("user", user); 
     }
-    if (!user.uuid) {
+    if (user && !user.uuid) {
+      console.log("user has no uuid");
       const user_uuid = cookies().get("client_uuid").value;
+      console.log("get user_uuid from cookie: ", user_uuid)
       user = { ...user, uuid: user_uuid };
+      console.log("user", user)
     }
+
     if (user.email) {
+      console.log("user has email");
       await createCustomerIfNull();
       const userFromSession = await prisma.user.findFirst({
         where: {
@@ -110,8 +121,9 @@ export const UpdateAndGetUser_SS = async () => {
         expireDate: hasSub ? subscriptions?.data[0].current_period_end : null,
         subscribed: subscribed,
       };
+      console.log("user", user)
     }
-
+    
     return user;
   } catch (e) {
     console.error(e);
