@@ -150,6 +150,9 @@ export const UpdateAndGetUser_SS = async () => {
       console.log("user", user);
     }
 
+    //save the user back to session
+    
+
     return user;
   } catch (e) {
     console.error(e);

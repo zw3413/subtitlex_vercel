@@ -19,7 +19,6 @@
     "@prisma/client": "^5.11.0",
     "@types/mdx": "^2.0.13",
     "@upstash/feedback": "^2.0.0",
-    "autoprefixer": "^10.4.19",
     "accept-language": "^3.0.18",
     "axios": "^1.6.8",
     "flag-icons": "^7.2.3",
