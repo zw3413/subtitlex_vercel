@@ -51,12 +51,13 @@ export async function middleware(req) {
   //if none, try to get the client ip
   if (!client_uuid || client_uuid  == '') {
     console.log("read client ip in middleware")
-    const x_forwared_for = req.headers['X-Forwarded-For']
+    const CF_Connecting_IP = req.headers['CF-Connecting-IP']
+    const X_Forwared_For = req.headers['X-Forwarded-For']
     const remoteAddress = req.socket?.remoteAddress;
     const ip = req.ip
-    console.log({x_forwared_for, remoteAddress, ip})
+    console.log({CF_Connecting_IP,X_Forwared_For, remoteAddress, ip})
 
-    const clientIp = ip||(req.headers['X-Forwarded-For'] || '').split(',').pop().trim() ;
+    const clientIp = CF_Connecting_IP||(req.headers['X-Forwarded-For'] || '').split(',').pop().trim()||ip ;
     console.log("use client ip:", ip)
     //use the client ip to call api2 to get a client_uuid
     client_uuid = await requestUUIDWithClientIP(clientIp);

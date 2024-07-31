@@ -1,7 +1,7 @@
 import { getServerSession } from "next-auth";
 import { PrismaClient } from "@prisma/client";
 import { options } from "./api/auth/[...nextauth]/options.js";
-import {cookies} from 'next/headers'
+import { cookies } from "next/headers";
 const prisma = new PrismaClient();
 import {
   createCustomerIfNull,
@@ -42,7 +42,7 @@ export const searchSubtitleByUUID = async (uuid) => {
     const f = "2ee9a177-f9e7-4b76-94a1-943c02ef32b5";
     const pl = [uuid];
     const result = await remoteCall(f, pl);
-    return result
+    return result;
   } catch (e) {
     console.error(e);
   }
@@ -78,35 +78,42 @@ export const remoteCall = async (f, pl) => {
   return await response.json();
 };
 
-
-
 export const UpdateAndGetUser_SS = async () => {
   try {
     console.log("UpdateAndGetUser_SS");
+    
     let user = {};
     console.log("user initialed as ", user);
+
+    //read from session
     const session = await getServerSession(options);
-    console.log("get session", {session});
+    console.log("get session", { session });
     if (session && session.user) {
-      console.log("session.user exists")
+      console.log("session.user exists");
       user = session.user;
-      console.log("set user to session.user",session.user)
-      console.log("user", user); 
+      console.log("set user to session.user", session.user);
+      console.log("user", user);
     }
+
+    //if empty user or without uuid, request uuid from cookies or api
     if (user && !user.uuid) {
       console.log("user has no uuid");
       let user_uuid_obj = cookies().get("client_uuid");
-      if(!user_uuid_obj){
+      if (!user_uuid_obj) {
         console.log("no client_uuid in cookie");
-        console.log("set a temp uuid here")
-        user_uuid_obj ={name:"client_uuid", value:"xxxx", path:"/"}
-      }else{
+        console.log("set a temp uuid here");
+        user_uuid_obj = { name: "client_uuid", value: "xxxx", path: "/" };
+
+        console.log("print all cookies")
+        console.log(cookies().getAll())
+
+      } else {
         console.log("get client_uuid_obj from cookie", user_uuid_obj);
-      } 
+      }
       const user_uuid = user_uuid_obj.value;
-      console.log("get user_uuid from cookie: ", user_uuid)
+      console.log("set user_uuid: ", user_uuid);
       user = { ...user, uuid: user_uuid };
-      console.log("user", user)
+      console.log("user", user);
     }
 
     if (user.email) {
@@ -129,9 +136,9 @@ export const UpdateAndGetUser_SS = async () => {
         expireDate: hasSub ? subscriptions?.data[0].current_period_end : null,
         subscribed: subscribed,
       };
-      console.log("user", user)
+      console.log("user", user);
     }
-    
+
     return user;
   } catch (e) {
     console.error(e);
