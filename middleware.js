@@ -45,20 +45,21 @@ const requestUUIDWithClientIP = async (client_ip) => {
 export async function middleware(req) {
   const response = NextResponse.next();
   console.log("middleware start")
+  //console.log("print all cookies", req.cookies.getAll())
   //check if the client_uuid exist in the cookie
   let client_uuid = req.cookies.get("client_uuid")?.value;
-  console.log({client_uuid})
+  console.log("get client_uuid from cookie ",client_uuid)
   //if none, try to get the client ip
   if (!client_uuid || client_uuid  == '') {
     console.log("print all headers")
-    // const requestHeaders = new Headers(req.headers)
-    // requestHeaders.forEach((value, key) => {
-    //   console.log(`${key}: ${value}`)
-    // })
-    
+    const requestHeaders = new Headers(req.headers)
+    requestHeaders.forEach((value, key) => {
+      console.log(`${key}: ${value}`)
+    })
+
     console.log("read client ip in middleware")
-    const CF_Connecting_IP = req.headers['CF-Connecting-IP']
-    const X_Forwared_For = req.headers['X-Forwarded-For']
+    const CF_Connecting_IP =requestHeaders.get('CF-Connecting-IP')
+    const X_Forwared_For = requestHeaders.get('X-Forwarded-For')
     const remoteAddress = req.socket?.remoteAddress;
     const ip = req.ip
     console.log({CF_Connecting_IP,X_Forwared_For, remoteAddress, ip})
