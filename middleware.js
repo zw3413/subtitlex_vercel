@@ -23,7 +23,8 @@ const requestUUIDWithClientIP = async (client_ip) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          "X-Forwarded-Host": client_ip,
+          "X-Forwarded-For": client_ip,
+          "X-Real-Ip":client_ip
         },
       },
       5000
@@ -50,12 +51,12 @@ export async function middleware(req) {
   //if none, try to get the client ip
   if (!client_uuid || client_uuid  == '') {
     console.log("read client ip in middleware")
-    const x_forwared_for = req.headers['x-forwarded-for']
+    const x_forwared_for = req.headers['X-Forwarded-For']
     const remoteAddress = req.socket?.remoteAddress;
     const ip = req.ip
     console.log({x_forwared_for, remoteAddress, ip})
 
-    const clientIp = ip||(req.headers['x-forwarded-for'] || '').split(',').pop().trim() ;
+    const clientIp = ip||(req.headers['X-Forwarded-For'] || '').split(',').pop().trim() ;
     console.log("use client ip:", ip)
     //use the client ip to call api2 to get a client_uuid
     client_uuid = await requestUUIDWithClientIP(clientIp);
