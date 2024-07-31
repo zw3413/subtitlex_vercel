@@ -51,8 +51,8 @@ export async function middleware(req) {
   console.log("get client_uuid from cookie ",client_uuid)
   //if none, try to get the client ip
   if (!client_uuid || client_uuid  == '') {
-    console.log("print all headers")
-    const requestHeaders = new Headers(req.headers)
+    // console.log("print all headers")
+    // const requestHeaders = new Headers(req.headers)
     requestHeaders.forEach((value, key) => {
       console.log(`${key}: ${value}`)
     })
@@ -60,12 +60,11 @@ export async function middleware(req) {
     console.log("read client ip in middleware")
     const CF_Connecting_IP =requestHeaders.get('CF-Connecting-IP')
     const X_Forwared_For = requestHeaders.get('X-Forwarded-For')
-    const remoteAddress = req.socket?.remoteAddress;
     const ip = req.ip
-    console.log({CF_Connecting_IP,X_Forwared_For, remoteAddress, ip})
+    console.log({CF_Connecting_IP,X_Forwared_For, ip})
 
     const clientIp = CF_Connecting_IP||(req.headers['X-Forwarded-For'] || '').split(',').pop().trim()||ip ;
-    console.log("use client ip:", ip)
+    console.log("use client ip:", clientIp)
     //use the client ip to call api2 to get a client_uuid
     client_uuid = await requestUUIDWithClientIP(clientIp);
     console.log("get client_uuid:", client_uuid)
