@@ -1,7 +1,8 @@
 import { getServerSession } from "next-auth";
 import { PrismaClient } from "@prisma/client";
 import { options } from "./api/auth/[...nextauth]/options.js";
-import { cookies } from "next/headers";
+import { headers, cookies } from "next/headers";
+import {ResponseCookies} from "next/dist/compiled/@edge-runtime/cookies";
 const prisma = new PrismaClient();
 import {
   createCustomerIfNull,
@@ -98,14 +99,24 @@ export const UpdateAndGetUser_SS = async () => {
     //if empty user or without uuid, request uuid from cookies or api
     if (user && !user.uuid) {
       console.log("user has no uuid");
+      //let user_uuid_obj = cookies().get("client_uuid");
+
+      const headersStore = headers();
+
       let user_uuid_obj = cookies().get("client_uuid");
+
       if (!user_uuid_obj) {
-        console.log("no client_uuid in cookie");
-        console.log("set a temp uuid here");
+        console.error("no client_uuid in cookie");
+        console.error("set a temp uuid here");
         user_uuid_obj = { name: "client_uuid", value: "xxxx", path: "/" };
 
         console.log("print all cookies")
         console.log(cookies().getAll())
+
+        console.log("print all headers")
+        headersStore.forEach((value, key) => {
+          console.log(`${key}: ${value}`)
+        })
 
       } else {
         console.log("get client_uuid_obj from cookie", user_uuid_obj);

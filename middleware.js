@@ -24,7 +24,7 @@ const requestUUIDWithClientIP = async (client_ip) => {
         headers: {
           "Content-Type": "application/json",
           "X-Forwarded-For": client_ip,
-          "X-Real-Ip":client_ip
+          "X-Real-Ip": client_ip,
         },
       },
       5000
@@ -43,41 +43,18 @@ const requestUUIDWithClientIP = async (client_ip) => {
 };
 //middleware 用于i18n的redirecting
 export async function middleware(req) {
+  console.log("middleware start");
+
   const response = NextResponse.next();
-  console.log("middleware start")
-  //console.log("print all cookies", req.cookies.getAll())
-  //check if the client_uuid exist in the cookie
-  let client_uuid = req.cookies.get("client_uuid")?.value;
-  console.log("get client_uuid from cookie ",client_uuid)
-  //if none, try to get the client ip
-  if (!client_uuid || client_uuid  == '') {
-    // console.log("print all headers")
-     const requestHeaders = new Headers(req.headers)
-    // requestHeaders.forEach((value, key) => {
-    //   console.log(`${key}: ${value}`)
-    // })
-
-    console.log("read client ip in middleware")
-    const CF_Connecting_IP =requestHeaders.get('CF-Connecting-IP')
-    const X_Forwared_For = requestHeaders.get('X-Forwarded-For')
-    const ip = req.ip
-    console.log({CF_Connecting_IP,X_Forwared_For, ip})
-
-    const clientIp = CF_Connecting_IP||(req.headers['X-Forwarded-For'] || '').split(',').pop().trim()||ip ;
-    console.log("use client ip:", clientIp)
-    //use the client ip to call api2 to get a client_uuid
-    client_uuid = await requestUUIDWithClientIP(clientIp);
-    console.log("get client_uuid:", client_uuid)
-    response.cookies.set("client_uuid", client_uuid);
-    console.log("set client_uuid in cookie finished")
-  }
-
   let lng;
+
   //首先尝试使用cookie中带回来的lng
   if (req.cookies.has(cookieName))
     lng = acceptLanguage.get(req.cookies.get(cookieName).value);
+
   //否则尝试使用headers的Accept-Language作为lng
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
+
   //都没有的时候使用默认的lng
   if (!lng) lng = fallbackLng;
 
@@ -86,9 +63,6 @@ export async function middleware(req) {
     req.nextUrl.origin.includes("jav.") ||
     req.headers.get("referer")?.includes("jav.")
   ) {
-    //    const redUrl =req.nextUrl.origin + req.nextUrl.pathname + "/jav"
-    //      const redUrl =new URL('/jav', req.nextUrl.origin)
-
     if (req.nextUrl.pathname === "/") {
       const url = req.nextUrl.clone();
       url.pathname = `/${lng}/jav`;
@@ -121,7 +95,40 @@ export async function middleware(req) {
     );
 
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
-    return response;
   }
+
+  console.log("set client_uuid in cookie start");
+  //console.log("print all cookies", req.cookies.getAll())
+  //check if the client_uuid exist in the cookie
+  let client_uuid = req.cookies.get("client_uuid")?.value;
+  console.log("get client_uuid from cookie ", client_uuid);
+  //if none, try to get the client ip
+  if (!client_uuid || client_uuid == "") {
+    // console.log("print all headers")
+    const requestHeaders = new Headers(req.headers);
+    // requestHeaders.forEach((value, key) => {
+    //   console.log(`${key}: ${value}`)
+    // })
+
+    console.log("read client ip in middleware");
+    const CF_Connecting_IP = requestHeaders.get("CF-Connecting-IP");
+    const X_Forwared_For = requestHeaders.get("X-Forwarded-For");
+    const ip = req.ip;
+    console.log({ CF_Connecting_IP, X_Forwared_For, ip });
+
+    const clientIp =
+      CF_Connecting_IP ||
+      X_Forwared_For?.split(",").pop().trim() ||
+      ip;
+    console.log("use client ip:", clientIp);
+    //use the client ip to call api2 to get a client_uuid
+    client_uuid = await requestUUIDWithClientIP(clientIp);
+    console.log("get client_uuid:", client_uuid);
+    req.cookies.set("client_uuid", client_uuid);
+    response.cookies.set("client_uuid", client_uuid);
+    
+    console.log("set client_uuid in cookie finished");
+  }
+
   return response;
 }
