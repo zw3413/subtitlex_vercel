@@ -52,7 +52,7 @@ export async function middleware(req) {
   //if none, try to get the client ip
   if (!client_uuid || client_uuid  == '') {
     // console.log("print all headers")
-    // const requestHeaders = new Headers(req.headers)
+     const requestHeaders = new Headers(req.headers)
     requestHeaders.forEach((value, key) => {
       console.log(`${key}: ${value}`)
     })
