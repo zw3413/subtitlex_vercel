@@ -55,8 +55,7 @@ export async function middleware(req) {
     const ip = req.ip
     console.log({x_forwared_for, remoteAddress, ip})
 
-    const clientIp = (req.headers['x-forwarded-for'] || '').split(',').pop().trim() || 
-    req.socket?.remoteAddress;
+    const clientIp = ip||(req.headers['x-forwarded-for'] || '').split(',').pop().trim() ;
     //use the client ip to call api2 to get a client_uuid
     client_uuid = await requestUUIDWithClientIP(clientIp);
     response.cookies.set("client_uuid", client_uuid);
