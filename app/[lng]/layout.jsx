@@ -72,9 +72,10 @@ export default async function RootLayout({ children, params: { lng } }) {
 
             </div>
           </header>
-        <div className="flex overflow-y-auto">
+          <div className="flex place-content-center overflow-y-auto w-full" >
+        <div className="w-fit">
             {children}
-            </div>
+            </div></div>
           <footer className=" p-4 h-12 w-full justify-between text-slate-400 bg-[#1f1f1f] xs:hidden flex bottom-0 sticky ">
             <div className="mx-4  flex">
               <Link className="pr-4" href="/terms-of-service"> {t('TermOfService')} </Link>

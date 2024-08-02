@@ -9,19 +9,20 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #888;
-  border-radius: 5px;
+  background: #000;
+
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #000;
-  //border-radius: 5px;
+  background: #555;
+
+  
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #888;
 }
 
 .pink-theme {

@@ -23,7 +23,7 @@ export default function Home({ params: { lng } }) {
   // });
   return (
     <>
-      <div className="text-3xl font-bold text-color-jable mb-5 mt-5">
+      <div className="text-3xl text-center font-bold text-color-jable mb-5 mt-5">
         <h2>{t("HEAD_1")}</h2>
       </div>
       <div className="container  bg-gradient-to-r  from-purple-600 to-color-jable p-10">
@@ -45,7 +45,7 @@ export default function Home({ params: { lng } }) {
       <p className="text-lg max-w-[900px] text-purple-200 leading-relaxed">
         {t("DESCRIPTION_1")}
       </p>
-      <div className="flex content-center">
+      <div className="flex content-center place-content-center">
         <TelegramJoinPage lng={lng}></TelegramJoinPage>
       </div>
       <p className="text-lg leading-relaxed max-w-[900px] text-gray-800">
