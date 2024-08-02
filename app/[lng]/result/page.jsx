@@ -59,7 +59,7 @@ export default function Result(inParams) {
   }, [seed]);
 
   return (
-    <div className=" container min-h-dvh">
+    <div className=" container ">
       <div className="my-10">
         <SearchForm inHint={hint} t={t} />
       </div>

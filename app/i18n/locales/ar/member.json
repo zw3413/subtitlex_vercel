@@ -6,7 +6,7 @@
     "Refresh the video page to show the subtitle.": "قم بتحديث صفحة الفيديو لعرض الترجمة.",
     "greeting_1": "اتصل بالمطور، نحن نحب سماع ملاحظاتك.",
     "Subscription is valid from": "الاشتراك ساري من {{start}} إلى {{end}}",
-    "Subscription is Invalid.": "الاشتراك غير ساري.",
+    "Subscription is Invalid.": "يتم تطبيق حد أقصى 5 ترجمات فريدة في الساعة للمستخدمين غير المشتركين لحماية موارد الخادم.",
     "200 subtitles per day": "200 ترجمة يوميًا",
     "will be offered with a valid subscription.": "سيتم تقديمها مع اشتراك ساري.",
     "greeting_2": "اتصل بالمطور، نحن نحب سماع ملاحظاتك.",
