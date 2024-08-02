@@ -6,7 +6,7 @@
     "Refresh the video page to show the subtitle.": "刷新視頻頁面以顯示字幕。",
     "greeting_1": "聯繫開發人員，我們很樂意聽取您的反饋。",
     "Subscription is valid from": "訂閱有效期為{{start}}至{{end}}",
-    "Subscription is Invalid.": "訂閱無效。",
+    "Subscription is Invalid.": "為了保護伺服器資源，對未訂閱用戶每小時最多只能查看5個不同的字幕。",
     "200 subtitles per day": "每天200個字幕",
     "will be offered with a valid subscription.": "將在有效訂閱中提供。",
     "greeting_2": "聯繫開發人員，我們很樂意聽取您的反饋。",

@@ -6,7 +6,7 @@
     "Refresh the video page to show the subtitle.": "Atualize a página do vídeo para mostrar a legenda.",
     "greeting_1": "Entre em contato com o desenvolvedor, adoraríamos ouvir seu feedback.",
     "Subscription is valid from": "A assinatura é válida de {{start}} a {{end}}",
-    "Subscription is Invalid.": "A assinatura é inválida.",
+    "Subscription is Invalid.": "Um limite de 5 legendas distintas por hora é aplicado para usuários não assinantes para proteger os recursos do servidor.",
     "200 subtitles per day": "200 legendas por dia",
     "will be offered with a valid subscription.": "serão oferecidas com uma assinatura válida.",
     "greeting_2": "Entre em contato com o desenvolvedor, adoraríamos ouvir seu feedback.",

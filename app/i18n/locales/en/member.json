@@ -6,7 +6,7 @@
     "Refresh the video page to show the subtitle.":"Refresh the video page to show the subtitle.",
     "greeting_1":"Contact with the developer, we'd love to hear your feedback.",
     "Subscription is valid from":"Subscription is valid from {{start}} to {{end}}",
-    "Subscription is Invalid.":"Subscription is Invalid.",
+    "Subscription is Invalid.":"A limit of 5 distinct subtitles per hour is applied for unsubscribed users to protect server resources.",
     "200 subtitles per day":"200 subtitles per day",
     "will be offered with a valid subscription.":"will be offered with a valid subscription.",
     "greeting_2":"Contact with the developer, we'd love to hear your feedback.",
@@ -18,6 +18,7 @@
     "Immersive enjoyable":"Immersive enjoyable",
     "Slack and email support":"Slack and email support",
     "Subscribe Now":"Subscribe Now",
-    "Search Subtitles Now":"Search Subtitles Now"
+    "Search Subtitles Now":"Search Subtitles Now",
+    "Submit":"Submit"
 
 }

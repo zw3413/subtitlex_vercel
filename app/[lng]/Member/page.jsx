@@ -156,7 +156,7 @@ async function Member({ params: { lng } }) {
         ) : (
           // for none-subscribed user
           <div className="h-[420px]">
-            <h1 className="max-w-[1000px]">{t('Subscription is Invalid.')}</h1>
+            <h1 className="max-w-[1000px] text-color-jable">{t('Subscription is Invalid.')}</h1>
             <h2 className="mt-2">
               <span className="text-color-jable">{t('200 subtitles per day')} </span>{" "}
               {t('will be offered with a valid subscription.')}

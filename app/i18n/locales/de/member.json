@@ -6,7 +6,7 @@
     "Refresh the video page to show the subtitle.": "Aktualisieren Sie die Videoseite, um die Untertitel anzuzeigen.",
     "greeting_1": "Kontaktieren Sie den Entwickler, wir würden uns über Ihr Feedback freuen.",
     "Subscription is valid from": "Das Abonnement ist gültig von {{start}} bis {{end}}",
-    "Subscription is Invalid.": "Das Abonnement ist ungültig.",
+    "Subscription is Invalid.": "Ein Limit von 5 verschiedenen Untertiteln pro Stunde wird für nicht abonnierte Benutzer angewendet, um die Serverressourcen zu schützen.",
     "200 subtitles per day": "200 Untertitel pro Tag",
     "will be offered with a valid subscription.": "werden mit einem gültigen Abonnement angeboten.",
     "greeting_2": "Kontaktieren Sie den Entwickler, wir würden uns über Ihr Feedback freuen.",

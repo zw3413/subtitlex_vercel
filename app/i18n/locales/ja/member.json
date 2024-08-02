@@ -6,7 +6,7 @@
     "Refresh the video page to show the subtitle.": "ビデオページを更新して字幕を表示してください。",
     "greeting_1": "開発者に連絡してください、フィードバックをお待ちしています。",
     "Subscription is valid from": "サブスクリプションは{{start}}から{{end}}まで有効です",
-    "Subscription is Invalid.": "サブスクリプションは無効です。",
+    "Subscription is Invalid.": "サーバーリソースを保護するために、未購読ユーザーには1時間あたり5つの異なる字幕の制限が適用されます。",
     "200 subtitles per day": "1日あたり200の字幕",
     "will be offered with a valid subscription.": "有効なサブスクリプションで提供されます。",
     "greeting_2": "開発者に連絡してください、フィードバックをお待ちしています。",
