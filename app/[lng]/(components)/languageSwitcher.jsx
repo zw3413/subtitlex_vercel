@@ -8,6 +8,7 @@ import { useTranslation } from "../../i18n/client";
 import { UpdateAndGetUser } from "../../common";
 import { useSession } from "next-auth/react";
 import { useCookies } from "react-cookie";
+import { Suspense } from "react";
 
 
 export function LanguageSwitcher({ lng }) {
@@ -92,7 +93,7 @@ export function LanguageSwitcher({ lng }) {
   }, []);
 
   return (
-    <>
+    <Suspense>
       <div className="flex" id="testdropdown">
         <button
           id="states-button"
@@ -142,6 +143,6 @@ export function LanguageSwitcher({ lng }) {
           </ul>
         </div>
       </div>
-    </>
+    </Suspense>
   );
 }

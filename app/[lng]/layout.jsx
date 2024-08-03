@@ -10,7 +10,6 @@ import { useTranslation } from '../i18n'
 import { dir } from 'i18next'
 import dynamic from 'next/dynamic'
 import { LanguageSwitcher } from "./(components)/languageSwitcher";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -65,7 +64,9 @@ export default async function RootLayout({ children, params: { lng } }) {
 
           <main className="flex-grow overflow-y-auto w-full px-4 py-8">
             <div className="max-w-4xl mx-auto">
-              {children}
+              
+                {children}
+            
             </div>
           </main>
 
