@@ -9,6 +9,7 @@ import Link from "next/link";
 import { useTranslation } from '../i18n'
 import { dir } from 'i18next'
 import dynamic from 'next/dynamic'
+import { LanguageSwitcher } from "./(components)/languageSwitcher";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -58,6 +59,7 @@ export default async function RootLayout({ children, params: { lng } }) {
             </Link>
             <div className="hidden sm:flex">
               <Nav lng={lng} />
+              <LanguageSwitcher lng={lng} />
             </div>
           </header>
 
@@ -76,9 +78,9 @@ export default async function RootLayout({ children, params: { lng } }) {
               </div>
               <span>© 2024 SubtitleX</span>
             </div>
-            <nav className="sm:hidden fixed bottom-0 left-0 right-0 bg-[#1f1f1f] p-4">
+            <div className="sm:hidden fixed bottom-0 left-0 right-0 bg-[#1f1f1f] p-4">
               <Nav lng={lng} />
-            </nav>
+            </div>
           </footer>
         </body>
       </AuthProvider>

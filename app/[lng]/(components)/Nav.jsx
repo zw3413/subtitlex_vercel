@@ -1,13 +1,12 @@
-"use server"
+"use client"
 import Link from "next/link";
-import { getServerSession } from "next-auth";
-import { options } from "../../api/auth/[...nextauth]/options";
 import { LanguageSwitcher } from "./languageSwitcher"
-import { useTranslation } from '../../i18n'
+import { useTranslation } from '../../i18n/client'
+import {useSession} from "next-auth/react"
 
-const Nav = async ({ lng }) => {
-  const { t } = await useTranslation(lng)
-  const session = await getServerSession(options);
+const Nav =  ({ lng }) => {
+  const { t } =  useTranslation(lng)
+  const {data:session} = useSession();
 
   const navItems = [
     { href: `/${lng}/Member`, label: t('Member') },
@@ -49,9 +48,8 @@ const Nav = async ({ lng }) => {
             </Link>
           </li>
         ))}
-        <li>
-          <LanguageSwitcher lng={lng} />
-        </li>
+ 
+        
       </ul>
     </nav>
   );

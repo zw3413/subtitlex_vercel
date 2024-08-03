@@ -8,8 +8,7 @@ import { useTranslation } from "../../i18n/client";
 import { UpdateAndGetUser } from "../../common";
 import { useSession } from "next-auth/react";
 import { useCookies } from "react-cookie";
-import { requestUUID } from "../../common";
-import Script from "next/script";
+
 
 export function LanguageSwitcher({ lng }) {
   const { t } = useTranslation(lng, "translation");
@@ -57,11 +56,11 @@ export function LanguageSwitcher({ lng }) {
 
   useEffect(() => {
     //initFlowbite();
-    if (typeof document == "object") {
-      console.log(typeof document, "printed");
+    // if (typeof document == "object") {
+    //   console.log(typeof document, "printed");
 
-      import("particles.js");
-    }
+    //   import("particles.js");
+    // }
     // import('@themesberg/flowbite');
 
     const toggleCollapse = (elementId, show = true) => {
