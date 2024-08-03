@@ -10,6 +10,7 @@ import { useTranslation, UseTranslation } from "../../i18n";
 //   StripePricingTable_Weekly,
 // } from "../helpers/components";
 import {
+  createCheckoutLink_Daily,
   createCheckoutLink_Weekly,
   createCheckoutLink_Monthly,
   createCustomerIfNull,
@@ -67,6 +68,9 @@ async function Member({ params: { lng } }) {
     new Date(1713235507000).toLocaleString("en-US", { type: "" });
   } else {
     const stripe_customer_id = user?.stripe_customer_id;
+    const checkOutLink_Day = await createCheckoutLink_Daily(
+      stripe_customer_id
+    );
     const checkOutLink_Week = await createCheckoutLink_Weekly(
       stripe_customer_id
     );
@@ -76,11 +80,17 @@ async function Member({ params: { lng } }) {
 
     var stripeObj = {
       stripe_customer_id: stripe_customer_id,
+      daily: {
+        checkOutLink: checkOutLink_Day,
+        price_id: process.env.STRIPE_PRODUCT_DAILY_ID,
+        nickname: "One Day",
+        unit_amount: 50,
+      },
       weekly: {
         checkOutLink: checkOutLink_Week,
         price_id: process.env.STRIPE_PRODUCT_WEEKLY_ID,
         nickname: "One Week",
-        unit_amount: 500,
+        unit_amount: 300,
       },
       monthly: {
         checkOutLink: checkOutLink_Month,
@@ -120,6 +130,7 @@ async function Member({ params: { lng } }) {
           <Link
             className="bg-white ml-auto text-black rounded-md px-2 py-1"
             href={"" + manage_link}
+            target="_blank"
           >
             {t('Manage billing')}
           </Link>

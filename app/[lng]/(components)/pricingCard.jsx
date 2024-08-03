@@ -123,11 +123,23 @@ const PricingCard = ({ priceObj, lng}) => {
   };
 
   const dynamicButton = (priceObj) => {
+    if (priceObj.nickname === "One Day") {
+      return (
+        <Link
+          className="mt-8 flex w-full justify-center rounded-md border border-transparent bg-[#20e4ff] py-2 px-4 text-sm font-medium text-black shadow-sm"
+          href={"" + priceObj.checkOutLink}
+          target="_blank"
+        >
+         {t('Subscribe Now')}
+        </Link>
+      );
+    }
     if (priceObj.nickname === "One Week") {
       return (
         <Link
           className="mt-8 flex w-full justify-center rounded-md border border-transparent bg-[#20e4ff] py-2 px-4 text-sm font-medium text-black shadow-sm"
           href={"" + priceObj.checkOutLink}
+          target="_blank"
         >
          {t('Subscribe Now')}
         </Link>
@@ -138,6 +150,7 @@ const PricingCard = ({ priceObj, lng}) => {
         <Link
           className="mt-8 flex w-full justify-center rounded-md border border-transparent bg-[#20e4ff] py-2 px-4 text-sm font-medium text-black shadow-sm"
           href={"" + priceObj.checkOutLink}
+          target="_blank"
         >
           {t('Subscribe Now')}
         </Link>

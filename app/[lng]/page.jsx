@@ -2,55 +2,41 @@
 
 import Image from "next/image";
 import SearchForm from "./(components)/searchForm";
-
 import InstallChromeExtensionButton from "./(components)/installChromeExtensionButton";
-import { useEffect } from "react";
 import TelegramJoinPage from "./(components)/telegram.jsx";
-
-//import initLensBlur from "./(components)/lensblur/LensBlur"
-
 import { useTranslation } from "../i18n/client";
 
 export default function Home({ params: { lng } }) {
   const { t } = useTranslation(lng, "main");
 
-
-  // useEffect(() => {
-  //   /// document.documentElement.className = "js";
-  //   if (!document.querySelector('canvas')) {
-  //     initLensBlur(document.querySelector('#lensblur'));
-  //   }
-  // });
   return (
-    <>
-      <div className="text-3xl text-center font-bold text-color-jable mb-5 mt-5">
-        <h2>{t("HEAD_1")}</h2>
-      </div>
-      <div className="container  bg-gradient-to-r  from-purple-600 to-color-jable p-10">
+    <div className="px-4 py-8 sm:px-6 lg:px-8">
+      <h2 className="text-2xl sm:text-3xl text-center font-bold text-color-jable mb-6 sm:mb-8">
+        {t("HEAD_1")}
+      </h2>
+      <div className="container mx-auto bg-gradient-to-r from-purple-600 to-color-jable p-6 sm:p-10 rounded-lg shadow-lg">
         <Image
           alt="subtitlex"
-          className="mx-auto"
+          className="mx-auto w-32 h-32 sm:w-48 sm:h-48 mb-6"
           src="/images/subtitlex-512-white-transparent.png"
           width={200}
           height={200}
         />
         <SearchForm lng={lng} t={t} />
-        <div className="flex place-content-center mt-10">
-          <InstallChromeExtensionButton
-            lng={lng}
-          ></InstallChromeExtensionButton>
+        <div className="flex justify-center mt-8">
+          <InstallChromeExtensionButton lng={lng} />
         </div>
       </div>
 
-      <p className="text-lg max-w-[900px] text-purple-200 leading-relaxed">
+      <p className="text-base sm:text-lg max-w-3xl mx-auto text-purple-200 leading-relaxed mt-8 mb-10">
         {t("DESCRIPTION_1")}
       </p>
-      <div className="flex content-center place-content-center">
-        <TelegramJoinPage lng={lng}></TelegramJoinPage>
+      <div className="flex justify-center mb-10">
+        <TelegramJoinPage lng={lng} />
       </div>
-      <p className="text-lg leading-relaxed max-w-[900px] text-gray-800">
+      <p className="text-base sm:text-lg max-w-3xl mx-auto text-gray-800 leading-relaxed">
         {t("DESCRIPTION_2")}
       </p>
-    </>
+    </div>
   );
 }

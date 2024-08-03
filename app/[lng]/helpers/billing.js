@@ -22,7 +22,23 @@ export async function getSubscription() {
     }
     return false;
 }
+export async function createCheckoutLink_Daily(customer) {
+    const checkout = await stripe.checkout.sessions.create({
+        success_url: String(process.env.DOMAIN_NAME) + "/Member",
+        cancel_url: String(process.env.DOMAIN_NAME)+"/Member",
+        customer: customer,
+        line_items: [
+            {
+                price: process.env.STRIPE_PRODUCT_DAILY_ID,
+                quantity:1
+                //price: 'price_1P12o6Lch9pwz6rlVLVCPysi'
+            }
+        ],
+        mode: "subscription"
+    })
 
+    return checkout.url;
+}
 export async function createCheckoutLink_Weekly(customer) {
     const checkout = await stripe.checkout.sessions.create({
         success_url: String(process.env.DOMAIN_NAME) + "/Member",
