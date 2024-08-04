@@ -4,6 +4,7 @@ import InstallChromeExtensionButton from "./installChromeExtensionButton";
 import { useTranslation } from "../../i18n/client";
 import { useState, useEffect, useRef } from "react";
 import { useSession } from "next-auth/react";
+import {sendEmail} from "../../common"
 
 export default function DetailOperations({ subText, seed, lng }) {
     const a = "text-color-jable"
@@ -25,7 +26,7 @@ export default function DetailOperations({ subText, seed, lng }) {
 
     const handleSubmit = () => {
         const target = 'zhangweicalm@gmail.com';
-        const subject = 'SubtitleX Issue';
+        const subject = '[SubtitleX] SubtitleX Issue';
         let content = document.querySelector('#comment').value;
         if (!content || content === '') {
             setMsg(t('email.empty'));
@@ -43,26 +44,7 @@ export default function DetailOperations({ subText, seed, lng }) {
         setShowInput(false);
     }
 
-    async function sendEmail(target, subject, content) {
-        try {
-            const response = await fetch('/api/send-email', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ target, subject, content }),
-            });
 
-            if (!response.ok) {
-                throw new Error('Failed to send email');
-            }
-
-            const data = await response.json();
-            console.log(data.message);
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
 
     return (
         <div className="space-y-4">

@@ -22,5 +22,6 @@
     "Submit":"Soumettre",
     "Please input your comment ...":"Veuillez saisir votre commentaire ...",
     "email.sent":"Le problème a été envoyé au développeur, merci pour vos commentaires.",
-    "email.empty":"Veuillez saisir le commentaire, nous apprécions vos commentaires."
+    "email.empty":"Veuillez saisir le commentaire, nous apprécions vos commentaires.",
+    "Feedback to Developer": "Retour d'information au développeur"
 }

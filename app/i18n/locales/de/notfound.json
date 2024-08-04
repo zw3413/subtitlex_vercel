@@ -1,0 +1,12 @@
+{
+  "Exceed_Limit": "Wir haben festgestellt, dass Sie mit hoher Häufigkeit angefordert haben.",
+  "Please_Subscribe": "Bitte <1>lesen Sie über die Frequenzbeschränkung und abonnieren Sie</1>, um die Beschränkung aufzuheben.",
+  "Not Found": "Nicht gefunden",
+  "Could not find requested resource, please refresh or": "Die angeforderte Ressource konnte nicht gefunden werden, bitte aktualisieren oder",
+  "Return to Home Page": "Zurück zur Homepage",
+  "or": "oder",
+  "Feedback an Issue": "Ein Problem melden",
+  "proxy_tip": "Wenn Sie hinter einem Proxy sind, melden Sie sich bitte an, um eine IP-Verunreinigung zu vermeiden.",
+  "Reload": "Neu laden",
+  "No Data": "Keine Daten"
+}

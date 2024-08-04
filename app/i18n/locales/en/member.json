@@ -21,7 +21,9 @@
     "Search Subtitles Now":"Search Subtitles Now",
     "Submit":"Submit",
     "Please input your comment ...":"Please input your comment ...",
-    "email.sent":"Issue has been sent to the developer, thanks for the feedback.",
-    "email.empty":"Please input the comment, we appreciate your feedback."
+    "email.sent":"Message has been sent to the developer, thanks for the feedback.",
+    "email.empty":"Please input the comment, we appreciate your feedback.",
+    "Feedback to Developer":"Feedback to Developer"
+
 
 }

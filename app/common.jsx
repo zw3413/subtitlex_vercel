@@ -26,6 +26,26 @@ export const languageArray = [
   { name: "Indonesian", code: "ind" },
 ];
 
+export async function sendEmail(target, subject, content) {
+  try {
+      const response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ target, subject, content }),
+      });
+
+      if (!response.ok) {
+          throw new Error('Failed to send email');
+      }
+
+      const data = await response.json();
+      console.log(data.message);
+  } catch (error) {
+      console.error('Error:', error);
+  }
+}
 export const fetchTextFromURL = async (subtitleId, session, client_uuid) => {
   const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
   const user = await UpdateAndGetUser(session, client_uuid);

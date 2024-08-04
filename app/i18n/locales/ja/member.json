@@ -22,5 +22,6 @@
     "Submit":"送信",
     "Please input your comment ...":"コメントを入力してください ...",
     "email.sent":"問題が開発者に送信されました。フィードバックをありがとう。",
-    "email.empty":"コメントを入力してください。フィードバックを感謝します。"
+    "email.empty":"コメントを入力してください。フィードバックを感謝します。",
+    "Feedback to Developer": "開発者へのフィードバック"
 }

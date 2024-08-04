@@ -22,5 +22,6 @@
     "Submit":"Enviar",
     "Please input your comment ...":"Por favor, insira seu comentário ...",
     "email.sent":"O problema foi enviado ao desenvolvedor, obrigado pelo seu feedback.",
-    "email.empty":"Por favor, insira o comentário, agradecemos seu feedback."
+    "email.empty":"Por favor, insira o comentário, agradecemos seu feedback.",
+      "Feedback to Developer": "Feedback para o desenvolvedor"
 }
