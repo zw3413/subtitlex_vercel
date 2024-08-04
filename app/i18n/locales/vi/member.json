@@ -18,5 +18,9 @@
     "Immersive enjoyable": "Trải nghiệm đầy cuốn hút",
     "Slack and email support": "Hỗ trợ qua Slack và email",
     "Subscribe Now": "Đăng ký ngay",
-    "Search Subtitles Now": "Tìm phụ đề ngay bây giờ"
+    "Search Subtitles Now": "Tìm phụ đề ngay bây giờ",
+    "Submit":"Gửi",
+    "Please input your comment ...":"Vui lòng nhập bình luận của bạn ...",
+    "email.sent":"Vấn đề đã được gửi đến nhà phát triển, cảm ơn bạn đã phản hồi.",
+    "email.empty":"Vui lòng nhập bình luận, chúng tôi đánh giá cao phản hồi của bạn."
 }

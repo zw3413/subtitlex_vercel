@@ -2,12 +2,22 @@
 import ResultDetailDownloadButton from "./resultDetailDownloadButton"
 import InstallChromeExtensionButton from "./installChromeExtensionButton";
 import { useTranslation } from "../../i18n/client";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useSession } from "next-auth/react";
 
 export default function DetailOperations({ subText, seed, lng }) {
+    const a = "text-color-jable"
     const { t } = useTranslation(lng, "member");
     const [showInput, setShowInput] = useState(false);
     const [msg, setMsg] = useState(null);
+    const session = useSession();
+    const timeoutRef = useRef(null)
+    useEffect(() => {
+        if(timeoutRef.current){
+            clearTimeout(timeoutRef.current);
+        }
+        timeoutRef.current = setTimeout(() => {setMsg(null)},5000);
+    },[msg])
 
     const handleReportIssue = () => {
         setShowInput(!showInput);
@@ -16,7 +26,14 @@ export default function DetailOperations({ subText, seed, lng }) {
     const handleSubmit = () => {
         const target = 'zhangweicalm@gmail.com';
         const subject = 'SubtitleX Issue';
-        const content = document.querySelector('#comment').value;
+        let content = document.querySelector('#comment').value;
+        if (!content || content === '') {
+            setMsg(t('email.empty'));
+            return;
+        }
+        const line1 = window?.location?.href + "\n"
+        const line2 = JSON.stringify(session? session : {}) +"\n"
+        content =  line1+line2+ content;
         if (!content || content === '') {
             setMsg(t('email.empty'));
             return;
@@ -78,7 +95,7 @@ export default function DetailOperations({ subText, seed, lng }) {
                             <textarea
                                 id="comment"
                                 rows="4"
-                                className="w-full px-0 text-sm border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400"
+                                className="w-full px-0 text-sm border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400" placeholder={t('Please input your comment ...')}
                                 required
                             ></textarea>
                         </div>
@@ -93,7 +110,7 @@ export default function DetailOperations({ subText, seed, lng }) {
                     </div>
                 </div>
             )}
-            {msg && <p className="text-sm text-gray-300">{msg}</p>}
+            {msg && <p className="text-sm  text-color-jable">{msg}</p>}
         </div>
     )
 }

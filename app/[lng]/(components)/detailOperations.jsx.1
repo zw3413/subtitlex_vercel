@@ -2,47 +2,51 @@
 import ResultDetailDownloadButton from "./resultDetailDownloadButton"
 import InstallChromeExtensionButton from "./installChromeExtensionButton";
 import { useTranslation } from "../../i18n/client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function DetailOperations({ subText, seed, lng }) {
     const { t } = useTranslation(lng, "member");
     const [showInput, setShowInput] = useState(false);
     const [msg, setMsg] = useState(null);
+    useEffect(() => {
+        setTimeout(() => {setMsg(null)},5000);
+    },[msg])
     const handleReportIssue = () => {
         setShowInput(!showInput);
     }
-    const handleSubmit =  () => {
+    const handleSubmit = () => {
         const target = 'zhangweicalm@gmail.com';
         const subject = 'SubtitleX Issue';
-        const content = document.querySelector('#comment').value;
+        let content = document.querySelector('#comment').value;
         if (!content || content === '') {
             setMsg(t('email.empty'));
             return;
         }
-        sendEmail(target,subject,content);
+        content = window?.location?.href + "\n" + content;
+        sendEmail(target, subject, content);
         setMsg(t('email.sent'));
         setShowInput(false);
     }
     async function sendEmail(target, subject, content) {
         try {
-          const response = await fetch('/api/send-email', {
-            method: 'POST',
-            headers: {
-              'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({ target, subject, content }),
-          });
-      
-          if (!response.ok) {
-            throw new Error('Failed to send email');
-          }
-      
-          const data = await response.json();
-          console.log(data.message);
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ target, subject, content }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to send email');
+            }
+
+            const data = await response.json();
+            console.log(data.message);
         } catch (error) {
-          console.error('Error:', error);
+            console.error('Error:', error);
         }
-      }
+    }
     return (<>
         <div className="flex  justify-between">
             <div className="inline-flex">
@@ -75,7 +79,7 @@ export default function DetailOperations({ subText, seed, lng }) {
                 <div className="mt-2">
                     <div className="w-full mb-4 border  rounded-lg  bg-gray-700 border-gray-600">
                         <div className="px-4 py-2 rounded-t-lg bg-gray-800">
-                            <textarea id="comment" rows="4" className="w-full px-0 text-sm  border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400"  required ></textarea>
+                            <textarea id="comment" rows="4" className="w-full px-0 text-sm  border-0 bg-gray-800 focus:ring-0 text-white placeholder-gray-400" placeholder={t('Please input your comment ...')} required ></textarea>
                         </div>
                         <div className="flex items-center justify-between px-3 py-2 border-t border-gray-600">
                             <button onClick={handleSubmit} className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4  focus:ring-blue-900 hover:bg-blue-800">
@@ -97,10 +101,10 @@ export default function DetailOperations({ subText, seed, lng }) {
                             </div> */}
                         </div>
                     </div>
-                </div> 
+                </div>
             </>) : (<div></div>)
         }
-        {msg?(<p>{msg}</p>):(<></>)}
+        {msg ? (<p>{msg}</p>) : (<></>)}
     </>
     )
 }

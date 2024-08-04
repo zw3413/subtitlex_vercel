@@ -18,5 +18,10 @@
     "Immersive enjoyable": "Immersives Erlebnis",
     "Slack and email support": "Unterstützung per Slack und E-Mail",
     "Subscribe Now": "Jetzt abonnieren",
-    "Search Subtitles Now": "Jetzt Untertitel suchen"
+    "Search Subtitles Now": "Jetzt Untertitel suchen",
+    "Submit":"Absenden",
+    "Please input your comment ...":"Bitte geben Sie Ihren Kommentar ein ...",
+    "email.sent":"Das Problem wurde an den Entwickler gesendet, danke für Ihr Feedback.",
+    "email.empty":"Bitte geben Sie den Kommentar ein, wir schätzen Ihr Feedback."
+
 }

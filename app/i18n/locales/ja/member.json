@@ -18,5 +18,9 @@
     "Immersive enjoyable": "没入感のある体験",
     "Slack and email support": "Slackとメールのサポート",
     "Subscribe Now": "今すぐ購読",
-    "Search Subtitles Now": "今すぐ字幕を検索"
+    "Search Subtitles Now": "今すぐ字幕を検索",
+    "Submit":"送信",
+    "Please input your comment ...":"コメントを入力してください ...",
+    "email.sent":"問題が開発者に送信されました。フィードバックをありがとう。",
+    "email.empty":"コメントを入力してください。フィードバックを感謝します。"
 }

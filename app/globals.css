@@ -24,7 +24,9 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #888;
 }
-
+.feedback-widget{
+  bottom:100px!important;
+}
 .pink-theme {
   background-color: pink;
 }
