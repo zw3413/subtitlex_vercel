@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import acceptLanguage from "accept-language";
 import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
 import { subtitleXserverApi } from "./constants";
-import cidrRanges from "./cidr";
+import {cidrRanges} from "./cidr";
 import ipRangeCheck from "ip-range-check";
 
 acceptLanguage.languages(languages);
