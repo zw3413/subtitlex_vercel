@@ -1,4 +1,4 @@
-export default cidrRanges  = [
+export const cidrRanges  = [
   "2001:4860:4801:10::/64",
   "2001:4860:4801:11::/64",
   "2001:4860:4801:12::/64",
