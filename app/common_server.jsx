@@ -129,7 +129,11 @@ export const UpdateAndGetUser_SS = async () => {
 
     if (user.email) {
       console.log("user has email");
-      await createCustomerIfNull();
+      try{
+        await createCustomerIfNull();
+      }catch(e){
+        console.error("createCustomerIfNull failed", e);
+      }
       const userFromSession = await prisma.user.findFirst({
         where: {
           email: user.email,
