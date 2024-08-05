@@ -1,0 +1,12 @@
+{
+    "Exceed_Limit": "Nous avons détecté que vous avez demandé à une fréquence élevée.",
+    "Please_Subscribe": "Veuillez <1>lire à propos de la limitation de fréquence et de souscrire</1> pour débloquer la limitation.",
+    "Not Found": "Introuvable",
+    "Could not find requested resource, please refresh or": "La ressource demandée est introuvable, veuillez rafraîchir ou",
+    "Return to Home Page": "Retour à la page d'accueil",
+    "or": "ou",
+    "Feedback an Issue": "Faire un retour sur un problème",
+    "proxy_tip": "Si vous êtes derrière un proxy, veuillez vous connecter pour éviter la pollution d'IP.",
+    "Reload": "Recharger",
+    "No Data": "Aucune donnée"
+  }

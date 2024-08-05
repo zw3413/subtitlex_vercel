@@ -1,0 +1,12 @@
+{
+    "Exceed_Limit": "高頻度でのリクエストが検出されました。",
+    "Please_Subscribe": "高頻度の制限について<1>お読みください、そして登録</1>して制限を解除してください。",
+    "Not Found": "見つかりません",
+    "Could not find requested resource, please refresh or": "要求されたリソースが見つかりませんでした。更新してください、または",
+    "Return to Home Page": "ホームページに戻る",
+    "or": "または",
+    "Feedback an Issue": "問題に関するフィードバック",
+    "proxy_tip": "プロキシの背後にある場合は、IPの汚染を避けるためにログインしてください。",
+    "Reload": "再読み込み",
+    "No Data": "データなし"
+  }

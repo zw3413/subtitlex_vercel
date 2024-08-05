@@ -19,6 +19,11 @@
     "Slack and email support":"Slack and email support",
     "Subscribe Now":"Subscribe Now",
     "Search Subtitles Now":"Search Subtitles Now",
-    "Submit":"Submit"
+    "Submit":"Submit",
+    "Please input your comment ...":"Please input your comment ...",
+    "email.sent":"Message has been sent to the developer, thanks for the feedback.",
+    "email.empty":"Please input the comment, we appreciate your feedback.",
+    "Feedback to Developer":"Feedback to Developer"
+
 
 }

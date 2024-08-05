@@ -1,0 +1,12 @@
+{
+    "Exceed_Limit": "我们检测到您以高频率请求。",
+    "Please_Subscribe": "请<1>阅读频率限制并订阅</1>以解锁限制。",
+    "Not Found": "未找到",
+    "Could not find requested resource, please refresh or": "找不到请求的资源，请刷新或",
+    "Return to Home Page": "返回首页",
+    "or": "或",
+    "Feedback an Issue": "反馈问题",
+    "proxy_tip": "如果您在代理后面，请登录以避免IP污染。",
+    "Reload": "重新加载",
+    "No Data": "没有数据"
+  }

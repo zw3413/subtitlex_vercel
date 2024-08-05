@@ -6,5 +6,7 @@
     "Return to Home Page":"Return to Home Page",
     "or":"or",
     "Feedback an Issue":"Feedback an Issue",
-    "proxy_tip":"If you are behind a proxy, please login to avoid IP pollution."
+    "proxy_tip":"If you are behind a proxy, please login to avoid IP pollution.",
+    "Reload":"Reload",
+    "No Data":"No Data"
 }

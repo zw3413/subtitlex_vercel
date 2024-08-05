@@ -18,6 +18,11 @@
     "Immersive enjoyable": "沉浸式享受",
     "Slack and email support": "Slack和电子邮件支持",
     "Subscribe Now": "立即订阅",
-    "Search Subtitles Now": "开始搜索字幕"
+    "Search Subtitles Now": "开始搜索字幕",
+    "Submit":"提交",
+    "Please input your comment ...":"请输入您的评论 ...",
+    "email.sent":"问题已发送给开发者，感谢您的反馈。",
+    "email.empty":"请输入评论，我们感谢您的反馈。",
+     "Feedback to Developer": "给开发者的反馈"
 
 }

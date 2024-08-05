@@ -1,0 +1,12 @@
+{
+    "Exceed_Limit": "높은 빈도로 요청하셨습니다.",
+    "Please_Subscribe": "빈도 제한에 대해 <1>읽고 구독</1>하여 제한을 해제하십시오.",
+    "Not Found": "찾을 수 없음",
+    "Could not find requested resource, please refresh or": "요청한 리소스를 찾을 수 없습니다. 새로 고침하거나",
+    "Return to Home Page": "홈 페이지로 돌아가기",
+    "or": "또는",
+    "Feedback an Issue": "문제에 대한 피드백",
+    "proxy_tip": "프록시 뒤에 있으면 IP 오염을 피하기 위해 로그인하십시오.",
+    "Reload": "새로 고침",
+    "No Data": "데이터 없음"
+  }

@@ -18,5 +18,10 @@
     "Immersive enjoyable": "몰입감 있는 즐거움",
     "Slack and email support": "Slack 및 이메일 지원",
     "Subscribe Now": "지금 구독",
-    "Search Subtitles Now": "지금 자막 검색"
+    "Search Subtitles Now": "지금 자막 검색",
+    "Submit":"제출",
+    "Please input your comment ...":"댓글을 입력해 주세요 ...",
+    "email.sent":"문제가 개발자에게 전송되었습니다. 피드백 감사합니다.",
+    "email.empty":"댓글을 입력해 주세요. 피드백을 감사드립니다.",
+      "Feedback to Developer": "개발자에게 피드백"
 }

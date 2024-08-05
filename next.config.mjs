@@ -4,6 +4,7 @@ import createMDX from "@next/mdx";
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+
   pageExtensions: ["js", "jsx", "mdx", "ts", "tsx"],
   async headers() {
     return [
@@ -67,6 +68,7 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
+
 };
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
