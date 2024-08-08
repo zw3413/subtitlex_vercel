@@ -77,68 +77,79 @@ export default async function RootLayout({ children, params: { lng } }) {
           </main>
 
           <footer className="w-full ">
-            <div className="hidden sm:block  ">
-              <div className="bg-[#1f1f1f] text-slate-400 flex justify-between items-center px-20 py-1">
-                <div className="text-xl h-full ">
-                  <h2 className="text-xl text-color-jable font-bold">SubtitleX</h2>
-                  <div>----</div>
-                  <Link
-                    href="/terms-of-service"
-                    className="block text-base hover:text-white"
-                  >
-                    {t("TermOfService")}
-                  </Link>
-                  <Link
-                    href="/privacy-policy"
-                    className="block text-base hover:text-white"
-                  >
-                    {t("PrivacyPolicy")}
-                  </Link>
-                  <Link
-                    href="/about"
-                    className="block text-base hover:text-white"
-                  >
-                    {t("About")}
-                  </Link>
-                </div>
-                <div className="text-base h-full">
-                  <h2 className="text-xl text-color-jable font-bold">Resources</h2>
-                  <div>----</div>
-                  <Link
-                    href="https://subtitlex.canny.io/"
-                    className="hover:text-white  block py-1 sm:py-0"
-                    target="_blank"
-                  >
-                    {t("RequestFeature")}
-                  </Link>
+            <div className="hidden sm:block bg-[#1f1f1f] ">
+              <div className="bg-[#1f1f1f] text-slate-400 flex justify-between items-center py-1 max-w-screen-lg mx-auto">
+                
+                  <div className="text-xl h-full ">
+                    <h2 className="text-xl text-color-jable font-bold">
+                      SubtitleX
+                    </h2>
+                    <div>----</div>
+                    <Link
+                      href="/terms-of-service"
+                      className="block text-base hover:text-white"
+                    >
+                      {t("TermOfService")}
+                    </Link>
+                    <Link
+                      href="/privacy-policy"
+                      className="block text-base hover:text-white"
+                    >
+                      {t("PrivacyPolicy")}
+                    </Link>
+                    <Link
+                      href="/about"
+                      className="block text-base hover:text-white"
+                    >
+                      {t("About")}
+                    </Link>
+                  </div>
+                  <div className="text-base h-full">
+                    <h2 className="text-xl text-color-jable font-bold">
+                      Resources
+                    </h2>
+                    <div>----</div>
+                    <Link
+                      href="https://subtitlex.canny.io/"
+                      className="hover:text-white  block py-1 sm:py-0"
+                      target="_blank"
+                    >
+                      {t("RequestFeature")}
+                    </Link>
 
-                  <Link
-                    href={`/${lng}/extension`}
-                    className="hover:text-white  block py-1 sm:py-0"
-                    target="_blank"
-                  >
-                    {t("ChromeExtension")}
-                  </Link>
-                  <Link href={""} className="text-[#1f1f1f]">
-                    111
-                  </Link>
-                </div>
+                    <Link
+                      href={`/${lng}/extension`}
+                      className="hover:text-white  block py-1 sm:py-0"
+                      target="_blank"
+                    >
+                      {t("ChromeExtension")}
+                    </Link>
+                    <Link href={""} className="text-[#1f1f1f]">
+                      111
+                    </Link>
+                  </div>
 
-                <div className="justify-center mb-0 block">
-                  <TelegramJoinPage lng={lng} />
-                </div>
-                <div >
-                  <Image
-                    alt="subtitlex"
-                    src="/images/subtitlex-512-transparent.png"
-                    width={128}
-                    height={128}
-                    className="mr-3"
-                  />
-                  <span>© 2024 <Link href="/" className="underline">SubtitleX.xyz</Link></span>
+                  <div className="justify-center mb-0 block">
+                    <TelegramJoinPage lng={lng} />
+                  </div>
+                  <div>
+                    <Image
+                      alt="subtitlex"
+                      src="/images/subtitlex-512-transparent.png"
+                      width={128}
+                      height={128}
+                      className="mr-3"
+                    />
+                    <span>
+                      © 2024{" "}
+                      <Link href="/" className="underline">
+                        SubtitleX.xyz
+                      </Link>
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
+
             <div className="sm:hidden bottom-0 left-0 right-0 bg-[#1f1f1f] p-4">
               <NavFooter lng={lng} />
             </div>

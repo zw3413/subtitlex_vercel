@@ -107,7 +107,7 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
         subText = text;
     };
 
-    await downloadSubtitle();
+    //await downloadSubtitle();
 
     return (
         <div className="container mx-auto px-4">
@@ -139,14 +139,14 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
                             lng={lng}
                         />
                     </div>
-                    <textarea
+                    {/* <textarea
                         defaultValue={subText}
                         readOnly
                         id="message"
                         rows="4"
                         className="h-[300px] md:h-[600px] lg:h-[1000px] block p-2.5 w-full text-xs md:text-sm rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white overflow-clip"
                         placeholder=""
-                    />
+                    /> */}
                 </div>
             </div>
         </div>
