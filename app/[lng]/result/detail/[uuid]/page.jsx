@@ -107,7 +107,7 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
         subText = text;
     };
 
-    //await downloadSubtitle();
+    await downloadSubtitle();
 
     return (
         <div className="container mx-auto px-4">
