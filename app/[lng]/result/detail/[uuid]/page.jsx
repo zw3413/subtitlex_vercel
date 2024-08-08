@@ -33,7 +33,7 @@ const getSeed = cache(async (uuid) => {
 
 export async function generateMetadata({ params: { uuid, lng } }) {
     const { t } = await UseTranslation(lng);
-    const uuid = params.uuid;
+    //const uuid = params.uuid;
     const seed = await getSeed(uuid);
     if (seed) {
         let jav_description = "";
