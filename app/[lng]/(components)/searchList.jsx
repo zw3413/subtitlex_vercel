@@ -81,7 +81,7 @@ export default function SearchList({ seeds, setSeed, t }) {
               setLang={setLang}
             ></LanguageSelect>
           </div>
-          <table className="text-sm text-left rtl:text-right text-gray-400 ">
+          <table className="text-sm text-left rtl:text-right text-gray-400 w-full">
             <thead className="text-xs  uppercase bg-gray-700 text-gray-400">
               <tr>
                 <th scope="col" className="px-6 py-3 ">
