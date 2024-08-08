@@ -43,7 +43,7 @@ export default function Result(inParams) {
                 setSeeds(result);
             }
         });
-    }, [hint, session, client_uuid]);
+    }, []);
 
     useEffect(() => {
         if (seed) {

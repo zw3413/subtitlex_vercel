@@ -84,13 +84,13 @@ export default function SearchList({ seeds, setSeed, t }) {
           <table className="text-sm text-left rtl:text-right text-gray-400 ">
             <thead className="text-xs  uppercase bg-gray-700 text-gray-400">
               <tr>
-                <th scope="col" className="px-6 py-3 w-[150px]">
+                <th scope="col" className="px-6 py-3 ">
                   {t('Language')}
                 </th>
-                <th scope="col" className="px-6 py-3 w-[750px]">
+                <th scope="col" className="px-6 py-3 ">
                   {t('Video Name')}
                 </th>
-                <th scope="col" className="px-6 py-3 w-[100px]">
+                <th scope="col" className="px-6 py-3 ">
                   {t('Format')}
                 </th>
               </tr>
@@ -100,20 +100,20 @@ export default function SearchList({ seeds, setSeed, t }) {
                 return (
                   <tr
                     key={seed.uuid}
-                    className="bg-gray-800 border-gray-700 hover:bg-gray-600"
+                    className="bg-gray-800 border-gray-700 border-2 hover:bg-gray-600"
                     onClick={() => {
                       setSeed(seed);
      
                     }}
                   >
-                    <td className="px-6 py-4 w-[150px]">{t(seed.language)}</td>
-                    <th
+                    <td className="text-center">{t(seed.language)}</td>
+                    <td
                       scope="row"
-                      className="px-6 py-4 font-medium   text-white "
+                      className=" font-medium py-2  text-white "
                     >
                       {seed.video_name}
-                    </th>
-                    <td className="px-6 py-4 w-[100px]">{seed.format}</td>
+                    </td>
+                    <td className="text-center">{seed.format}</td>
                   </tr>
                 );
               })}

@@ -1,55 +1,41 @@
-"use client"
+"use client";
 import Link from "next/link";
-import { LanguageSwitcher } from "./languageSwitcher"
-import { useTranslation } from '../../i18n/client'
-import {useSession} from "next-auth/react"
+import { LanguageSwitcher } from "./languageSwitcher";
+import { useTranslation } from "../../i18n/client";
+import { useSession } from "next-auth/react";
 
-const Nav =  ({ lng }) => {
-  const { t } =  useTranslation(lng)
-  const {data:session} = useSession();
-
-  const navItems = [
-    { href: `/${lng}/Member`, label: t('Member') },
-    { 
-      href: session ? "/api/auth/signout?callbackUrl=/" : "/api/auth/signin?callbackUrl=/Member", 
-      label: session ? t('Logout') : t('Login')
-    },
-  ];
+const Nav = ({ lng }) => {
+  const { t } = useTranslation(lng);
+  const { data: session } = useSession();
 
   return (
-    <nav className="w-full px-2 py-2 sm:px-0 sm:py-0">
-      <ul className="flex flex-row flex-wrap justify-between sm:justify-center items-center gap-2 sm:gap-4 text-sm sm:text-base text-slate-400">
-        <li className="hidden sm:block">
-          <Link 
-            href={`/${lng}/extension`} 
-            className="hover:text-white underline block py-1 sm:py-0"
-            target="_blank"
-          >
-            {t('ChromeExtension')}
-          </Link>
-        </li>
-        <li className="hidden sm:block">
-          <Link 
-            href="https://subtitlex.canny.io/"
-            className="hover:text-white underline block py-1 sm:py-0"
-            target="_blank"
-          >
-            {t('RequestFeature')}
-          </Link>
-        </li>
-        {navItems.map((item, index) => (
-          <li key={index}>
-            <Link 
-              href={item.href} 
-              className="hover:text-white underline block py-1 sm:py-0"
-              target={item.target}
-            >
-              {item.label}
+    <nav className="w-full px-2 py-2 sm:px-0 sm:py-0 ">
+      <ul className="flex flex-row justify-end items-center gap-8 sm:gap-4 text-sm sm:text-base text-slate-400">
+        <li className="px-4">
+          <button className="text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-2xl hover:text-white  block py-0 sm:py-0  rounded-lg shadow-sm px-6">
+            <Link href={`/${lng}/Member`} className="">
+              {t("Get Premium")}
             </Link>
-          </li>
-        ))}
- 
-        
+          </button>
+        </li>
+
+        <li className="px-4">
+          <button className="text-xl hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-6 text-slate-800">
+            <Link
+              href={
+                session
+                  ? "/api/auth/signout?callbackUrl=/"
+                  : "/api/auth/signin?callbackUrl=/Member"
+              }
+              className=" "
+            >
+              {session ? t("Logout") : t("Login")}
+            </Link>
+          </button>
+        </li>
+        <li>
+          <LanguageSwitcher lng={lng} />
+        </li>
       </ul>
     </nav>
   );

@@ -3,7 +3,6 @@
 import Image from "next/image";
 import SearchForm from "./(components)/searchForm";
 import InstallChromeExtensionButton from "./(components)/installChromeExtensionButton";
-import TelegramJoinPage from "./(components)/telegram.jsx";
 import { useTranslation } from "../i18n/client";
 
 export default function Home({ params: { lng } }) {
@@ -31,9 +30,7 @@ export default function Home({ params: { lng } }) {
       <p className="text-base sm:text-lg max-w-3xl mx-auto text-purple-200 leading-relaxed mt-8 mb-10">
         {t("DESCRIPTION_1")}
       </p>
-      <div className="flex justify-center mb-10">
-        <TelegramJoinPage lng={lng} />
-      </div>
+    
       <p className="text-base sm:text-lg max-w-3xl mx-auto text-gray-800 leading-relaxed">
         {t("DESCRIPTION_2")}
       </p>

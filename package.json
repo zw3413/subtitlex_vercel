@@ -45,6 +45,7 @@
     "remark-gfm": "^4.0.0",
     "remark-rehype": "^11.1.0",
     "stripe": "^14.23.0",
+    "swr": "^2.2.5",
     "three": "^0.164.1"
   },
   "devDependencies": {
