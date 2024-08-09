@@ -84,7 +84,7 @@ export default async function RootLayout({ children, params: { lng } }) {
                     <h2 className="text-xl text-color-jable font-bold">
                       SubtitleX
                     </h2>
-                    <div>----</div>
+                    <hr className="mt-2 mb-4 w-12 h-px bg-gray-500 border-0 rounded font-thin"/>
                     <Link
                       href="/terms-of-service"
                       className="block text-base hover:text-white"
@@ -104,11 +104,12 @@ export default async function RootLayout({ children, params: { lng } }) {
                       {t("About")}
                     </Link>
                   </div>
-                  <div className="text-base h-full">
+                  <div className="text-base h-full ms-2">
                     <h2 className="text-xl text-color-jable font-bold">
                       Resources
                     </h2>
-                    <div>----</div>
+                    <hr className="mt-2 mb-4 w-12 h-px bg-gray-500 border-0 rounded font-thin"/>
+
                     <Link
                       href="https://subtitlex.canny.io/"
                       className="hover:text-white  block py-1 sm:py-0"
@@ -124,25 +125,25 @@ export default async function RootLayout({ children, params: { lng } }) {
                     >
                       {t("ChromeExtension")}
                     </Link>
-                    <Link href={""} className="text-[#1f1f1f]">
-                      111
+                    <Link href={""} className="text-[#1f1f1f]   block py-1 sm:py-0">
+                      pending
                     </Link>
                   </div>
 
                   <div className="justify-center mb-0 block">
                     <TelegramJoinPage lng={lng} />
                   </div>
-                  <div>
+                  <div className="flex flex-col justify-center items-center w-[150px]">
                     <Image
                       alt="subtitlex"
                       src="/images/subtitlex-512-transparent.png"
                       width={128}
                       height={128}
-                      className="mr-3"
+                      className=" flex"
                     />
-                    <span>
-                      © 2024{" "}
-                      <Link href="/" className="underline">
+                    <span className="flex">
+                      ©2024{" "}
+                      <Link href="/" className="underline ps-1">
                         SubtitleX.xyz
                       </Link>
                     </span>
