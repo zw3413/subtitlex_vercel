@@ -12,7 +12,7 @@ const Nav = ({ lng }) => {
     <nav className="w-full px-2 py-2 sm:px-0 sm:py-0 ">
       <ul className="flex flex-row justify-end items-center gap-8 sm:gap-4 text-sm sm:text-base text-slate-400">
         <li className="px-4">
-          <button className="text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-2xl hover:text-white  block py-0 sm:py-0  rounded-lg shadow-sm px-6">
+          <button className="h-[32px] text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-2xl hover:text-white  block py-0 sm:py-0  rounded-lg shadow-sm px-6">
             <Link href={`/${lng}/Member`} className="">
               {t("Get Premium")}
             </Link>
@@ -20,7 +20,7 @@ const Nav = ({ lng }) => {
         </li>
 
         <li className="px-4">
-          <button className="text-xl hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-6 text-slate-800">
+          <button className="h-[32px] text-xl hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-6 text-slate-800">
             <Link
               href={
                 session

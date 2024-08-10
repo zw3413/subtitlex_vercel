@@ -2,16 +2,19 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Script from "next/script";
 import { ThemeModeScript } from "flowbite-react";
-
 import Nav from "./(components)/Nav";
+import NavFooter from "./(components)/NavFooter";
 import Image from "next/image";
-
 import AuthProvider from "./(components)/AuthProvider";
 import Link from "next/link";
 import { useTranslation } from "../i18n";
 import { dir } from "i18next";
 import dynamic from "next/dynamic";
+import { LanguageSwitcher } from "./(components)/languageSwitcher";
+import TelegramJoinPage from "./(components)/telegram.jsx";
+
 const inter = Inter({ subsets: ["latin"] });
+
 export const metadata = {
   title: {
     default: "SubtitleX",
@@ -22,6 +25,7 @@ export const metadata = {
 
 export default async function RootLayout({ children, params: { lng } }) {
   const { t } = await useTranslation(lng);
+
   return (
     <html lang={lng} dir={dir(lng)} suppressHydrationWarning={true}>
       <AuthProvider>
@@ -29,7 +33,7 @@ export default async function RootLayout({ children, params: { lng } }) {
           <script
             async
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710355729688713"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           ></script>
           <Script
             src={"https://www.googletagmanager.com/gtag/js?id=G-KTQBF80NQT"}
@@ -43,60 +47,116 @@ export default async function RootLayout({ children, params: { lng } }) {
               gtag('config', 'G-KTQBF80NQT');
             `}
           </Script>
-          {/* <Script
-  src="https://unpkg.com/flowbite@1.3.3/dist/flowbite.js"
-  strategy="beforeInteractive"
-/>
-<link rel="stylesheet" href="https://unpkg.com/flowbite@1.3.3/dist/flowbite.min.css" /> */}
         </head>
-        <body className={inter.className}>
-          <main className="flex h-screen bg-black flex-col items-center justify-between ">
-            <header
-              className="sticky top-0  z-10 bg-[#1f1f1f] w-full items-center justify-between font-bold text-sm flex 
-            "
+        <body
+          className={`${inter.className} flex flex-col min-h-screen  bg-black`}
+        >
+          <header className=" top-0 z-10 bg-[#1f1f1f] w-full flex items-center justify-between p-1  sm:p-4 ">
+            <Link
+              href="/"
+              className="flex items-center place-content-center w-full sm:place-content-start sm:w-auto"
             >
-              <Link href="/">
-                <p className="text-3xl px-4 unde text-slate-400 inline-flex align-bottom">
+              <Image
+                alt="subtitlex"
+                src="/images/subtitlex-512-transparent.png"
+                width={35}
+                height={35}
+                className="mr-3"
+              />
+              <p className="text-xl sm:text-3xl font-extralight text-slate-400 tracking-widest">
+                SubtitleX.xyz
+              </p>
+            </Link>
+            <div className="hidden sm:flex w-full">
+              <Nav lng={lng} />
+            </div>
+          </header>
+
+          <main className="flex-grow overflow-y-auto w-full px-4 py-8">
+            <div className=" mx-auto pb-16">{children}</div>
+          </main>
+
+          <footer className="w-full ">
+            <div className="hidden sm:block bg-[#1f1f1f] ">
+              <div className="bg-[#1f1f1f] text-slate-400 flex justify-between items-center py-1 max-w-screen-lg mx-auto">
+                <div className="text-xl h-full ">
+                  <h2 className="text-xl text-color-jable font-bold">
+                    SubtitleX
+                  </h2>
+                  <hr className="mt-2 mb-4 w-12 h-px bg-gray-500 border-0 rounded font-thin" />
+                  <Link
+                    href="/terms-of-service"
+                    className="block text-base hover:text-white"
+                  >
+                    {t("TermOfService")}
+                  </Link>
+                  <Link
+                    href="/privacy-policy"
+                    className="block text-base hover:text-white"
+                  >
+                    {t("PrivacyPolicy")}
+                  </Link>
+                  <Link
+                    href="/about"
+                    className="block text-base hover:text-white"
+                  >
+                    {t("About")}
+                  </Link>
+                </div>
+                <div className="text-base h-full ms-2">
+                  <h2 className="text-xl text-color-jable font-bold">
+                    Resources
+                  </h2>
+                  <hr className="mt-2 mb-4 w-12 h-px bg-gray-500 border-0 rounded font-thin" />
+
+                  <Link
+                    href="https://subtitlex.canny.io/"
+                    className="hover:text-white  block py-1 sm:py-0"
+                    target="_blank"
+                  >
+                    {t("RequestFeature")}
+                  </Link>
+
+                  <Link
+                    href={`/${lng}/extension`}
+                    className="hover:text-white  block py-1 sm:py-0"
+                    target="_blank"
+                  >
+                    {t("ChromeExtension")}
+                  </Link>
+                  <Link
+                    href={""}
+                    className="text-[#1f1f1f]   block py-1 sm:py-0"
+                  >
+                    pending
+                  </Link>
+                </div>
+
+                <div className="justify-center mb-0 block">
+                  <TelegramJoinPage lng={lng} />
+                </div>
+                <div className="flex flex-col justify-center items-center w-[150px]">
                   <Image
                     alt="subtitlex"
-                    className="mx-1"
                     src="/images/subtitlex-512-transparent.png"
-                    width={30}
-                    height={30}
+                    width={128}
+                    height={128}
+                    className=" flex"
                   />
-                  SubtitleX
-                </p>
-              </Link>
-              <div className="hidden sm:flex bottom-0 left-0  items-end justify-center  static h-auto w-auto bg-none">
-                <Nav lng={lng} />
+                  <span className="flex">
+                    ©2024{" "}
+                    <Link href="/" className="underline ps-1">
+                      SubtitleX.xyz
+                    </Link>
+                  </span>
+                </div>
               </div>
-            </header>
-            <div className="flex place-content-center overflow-y-auto w-full">
-              <div className="w-fit">{children}</div>
             </div>
-            <footer className=" p-4 h-12 w-full justify-between text-slate-400 bg-[#1f1f1f] xs:hidden flex bottom-0 sticky ">
-              <div className="sm:hidden">
-                <Nav lng={lng} />
-              </div>
-              <div className="hidden mx-4  sm:flex">
-                <Link className="pr-4" href="/terms-of-service">
-                  {" "}
-                  {t("TermOfService")}{" "}
-                </Link>
 
-                <Link className="pr-4" href="/privacy-policy">
-                  {" "}
-                  {t("PrivacyPolicy")}
-                </Link>
-                <Link className="pr-4" href="/about">
-                  {" "}
-                  {t("About")}
-                </Link>
-              </div>
-
-              <span>© 2024 SubtitleX</span>
-            </footer>
-          </main>
+            <div className="sm:hidden bottom-0 left-0 right-0 bg-[#1f1f1f] p-4">
+              <NavFooter lng={lng} />
+            </div>
+          </footer>
         </body>
       </AuthProvider>
     </html>
