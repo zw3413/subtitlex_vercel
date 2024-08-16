@@ -51,9 +51,9 @@ export async function generateMetadata({ params: { uuid, lng } }) {
 
     function k(video_no) {
       if (video_no && video_no.length > 0) {
-        return `${video_no}, ${t("subtitle")}, ${t("captions")},${t(
+        return `${video_no}, ${video_no.replace("-","")}, ${t("subtitle")},${t(
           "download"
-        )},${t("free")},${t("jav")},${t("japanese adult video")}`;
+        )}`;
       } else {
         return `${t("subtitle")}, ${t("captions")},${t("download")},${t(
           "free"
