@@ -75,8 +75,7 @@ export function LanguageSwitcher({ lng }) {
   }, []);
 
   return (
-
-      <div className="flex" id="testdropdown">
+<Suspense>      <div className="flex" id="testdropdown">
         <button
           id="states-button"
           data-dropdown-toggle="dropdown-states"
@@ -125,6 +124,7 @@ export function LanguageSwitcher({ lng }) {
           </ul>
         </div>
       </div>
+      </Suspense>
 
   );
 }
