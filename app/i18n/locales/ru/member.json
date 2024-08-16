@@ -23,5 +23,15 @@
     "Please input your comment ...":"Пожалуйста, введите ваш комментарий ...",
     "email.sent":"Проблема отправлена разработчику, спасибо за ваш отзыв.",
     "email.empty":"Пожалуйста, введите комментарий, мы ценим ваш отзыв.",
-     "Feedback to Developer": "Отзыв разработчику"
+     "Feedback to Developer": "Отзыв разработчику",
+     "Get Premium": "Получить Премиум",
+     "You must be a premium member to download full versions of subtitles.": "Вы должны быть премиум-членом, чтобы скачать полные версии субтитров.",
+     "Select a Subscription Plan": "Выберите план подписки",
+     "Join us on our mission to subtitle every obscure movie! Renews automatically, cancel anytime!": "Присоединяйтесь к нашей миссии субтитров для каждого неизвестного фильма! Автоматическое продление, отмена в любое время!",
+     "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.": "Чтобы избежать злоупотреблений, загрузка полных субтитров ограничена 20 субтитрами в день.",
+     "No Free Access to Full Subtitles": "Без бесплатного доступа к полным субтитрам",
+     "Free Access to All Our 400,000+ Subtitles": "Бесплатный доступ ко всем нашим более чем 400 000 субтитрам",
+     "Free Access to 400,000+ Demo Subtitles": "Бесплатный доступ к более чем 400 000 демо-субтитрам",
+     "Load Subtitles with Browser Extension": "Загрузите субтитры с помощью расширения браузера",
+     "New Subtitles Added Every Week": "Новые субтитры добавляются каждую неделю"
 }

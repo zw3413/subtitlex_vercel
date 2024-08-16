@@ -2,16 +2,14 @@ import { Inter } from "next/font/google";
 import "../globals.css";
 import Script from "next/script";
 import { ThemeModeScript } from "flowbite-react";
-import Nav from "./(components)/Nav";
+import NavWrapper from "./(components)/navWrapper";
 import NavFooter from "./(components)/NavFooter";
 import Image from "next/image";
 import AuthProvider from "./(components)/AuthProvider";
 import Link from "next/link";
 import { useTranslation } from "../i18n";
 import { dir } from "i18next";
-import dynamic from "next/dynamic";
-import { LanguageSwitcher } from "./(components)/languageSwitcher";
-import TelegramJoinPage from "./(components)/telegram.jsx";
+import TwitterPage from "./(components)/twitter";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,7 +23,6 @@ export const metadata = {
 
 export default async function RootLayout({ children, params: { lng } }) {
   const { t } = await useTranslation(lng);
-
   return (
     <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
       <AuthProvider>
@@ -35,10 +32,12 @@ export default async function RootLayout({ children, params: { lng } }) {
             src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710355729688713"
             crossOrigin="anonymous"
           ></script>
+
           <Script
             src={"https://www.googletagmanager.com/gtag/js?id=G-KTQBF80NQT"}
             strategy="afterInteractive"
           />
+
           <Script id="google-analytics" strategy="afterInteractive">
             {`
               window.dataLayer = window.dataLayer || [];
@@ -47,6 +46,8 @@ export default async function RootLayout({ children, params: { lng } }) {
               gtag('config', 'G-KTQBF80NQT');
             `}
           </Script>
+
+
         </head>
         <body
           className={`${inter.className} flex flex-col min-h-screen  bg-black`}
@@ -54,7 +55,7 @@ export default async function RootLayout({ children, params: { lng } }) {
           <header className=" top-0 z-10 bg-[#1f1f1f] w-full flex items-center justify-between p-1  sm:p-4 ">
             <Link
               href="/"
-              className="flex items-center place-content-center w-full sm:place-content-start sm:w-auto"
+              className="flex items-center place-content-center  sm:place-content-start "
             >
               <Image
                 alt="subtitlex"
@@ -67,12 +68,13 @@ export default async function RootLayout({ children, params: { lng } }) {
                 SubtitleX.xyz
               </p>
             </Link>
-            <div className="hidden sm:flex w-full">
-              <Nav lng={lng} />
+
+            <div className="flex grow items-center ">
+              <NavWrapper lng={lng}></NavWrapper>
             </div>
           </header>
 
-          <main className="flex-grow overflow-y-auto w-full px-4 py-8">
+          <main className="flex-grow overflow-y-auto w-full px-w py-8">
             <div className=" mx-auto pb-16">{children}</div>
           </main>
 
@@ -133,7 +135,7 @@ export default async function RootLayout({ children, params: { lng } }) {
                 </div>
 
                 <div className="justify-center mb-0 block">
-                  <TelegramJoinPage lng={lng} />
+                  <TwitterPage lng={lng} />
                 </div>
                 <div className="flex flex-col justify-center items-center w-[150px]">
                   <Image

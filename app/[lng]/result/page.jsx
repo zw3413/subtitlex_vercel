@@ -49,7 +49,7 @@ export default function Result(inParams) {
         if (seed) {
             console.log(seed);
             const url = `/result/detail/${seed.uuid}`;
-            window.open(url, "_blank");
+            window.open(url,"_self");
         }
     }, [seed]);
 

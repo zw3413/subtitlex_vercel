@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev-proxy": "node  -r global-agent/bootstrap  node_modules/next/dist/bin/next dev",
-    "dev": "next dev",
+    "dev": "next dev -p 80",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",

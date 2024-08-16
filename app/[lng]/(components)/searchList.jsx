@@ -100,7 +100,7 @@ export default function SearchList({ seeds, setSeed, t }) {
                 return (
                   <tr
                     key={seed.uuid}
-                    className="bg-gray-800 border-gray-700 border-2 hover:bg-gray-600"
+                    className="bg-gray-800 border-gray-700 border-2 hover:bg-gray-600 cursor-pointer"
                     onClick={() => {
                       setSeed(seed);
      

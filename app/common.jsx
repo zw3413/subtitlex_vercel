@@ -28,27 +28,28 @@ export const languageArray = [
 
 export async function sendEmail(target, subject, content) {
   try {
-      const response = await fetch('/api/send-email', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ target, subject, content }),
-      });
+    const response = await fetch("/api/send-email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ target, subject, content }),
+    });
 
-      if (!response.ok) {
-          throw new Error('Failed to send email');
-      }
+    if (!response.ok) {
+      throw new Error("Failed to send email");
+    }
 
-      const data = await response.json();
-      console.log(data.message);
+    const data = await response.json();
+    console.log(data.message);
   } catch (error) {
-      console.error('Error:', error);
+    console.error("Error:", error);
   }
 }
-export const fetchTextFromURL = async (subtitleId, session, client_uuid) => {
-  const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
-  const user = await UpdateAndGetUser(session, client_uuid);
+export const fetchTextFromURL = async (subtitleId,  mode) => {
+  const url = `${subtitleXserverApi}/subtitle?id=${subtitleId}&mode=${mode}`
+  //const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
+  const user = await UpdateAndGetUser();
   try {
     const response = await fetch(url, {
       method: "POST",
@@ -75,12 +76,12 @@ export const fetchTextFromURL = async (subtitleId, session, client_uuid) => {
 export const remoteCall = async (f, pl, session, client_uuid) => {
   let response;
   try {
-    const user = await UpdateAndGetUser(session, client_uuid);
+    const user = await UpdateAndGetUser_nouuid();
     console.log("subtitlex: about to cal the remotecall with user ");
     console.log(user);
-    if (!user.uuid) {
-      return;
-    }
+    // if (!user.uuid) {
+    //   return;
+    // }
     response = await fetch(subtitleXserverApi + "/api1", {
       method: "POST",
       // headers: {
@@ -130,25 +131,25 @@ export const requestUUID = async (session, client_uuid) => {
   }
 };
 
-export const UpdateAndGetUser = async (session, client_uuid) => {
+export const UpdateAndGetUser = async () => {
   // const session = useSession();
   // const [cookies, setCookie] = useCookies(["client_uuid"])
   //先从local storage中获取user对象
   const [setItem, getItem, removeItem] = useLocalStorage("user");
   //如果local storage中没有user对象，初始化为一个空对象
   let user = getItem();
-  if (!user) {
-    user = {};
-  }
+  // if (!user) {
+  //   user = {};
+  // }
   //检查user对象中是否有uuid，没有的话从api请求一个过来
-  if (!user.uuid) {
-    //let client_uuid = cookies["client_uuid"];
-    // if (!client_uuid || client_uuid == '') {
-    //   client_uuid = await requestUUID();
-    //   setCookie("client_uuid", client_uuid, { path: "/" });
-    // }
-    Object.assign(user, { uuid: client_uuid });
-  }
+  // if (!user.uuid) {
+  //   //let client_uuid = cookies["client_uuid"];
+  //   // if (!client_uuid || client_uuid == '') {
+  //   //   client_uuid = await requestUUID();
+  //   //   setCookie("client_uuid", client_uuid, { path: "/" });
+  //   // }
+  //   Object.assign(user, { uuid: client_uuid });
+  // }
   //如果cookie中没有uuid的话，将client_uuid存入cookie
   // const cookie_client_uuid = cookies["client_uuid"];
   // if(!cookie_client_uuid ||cookie_client_uuid ==''){
@@ -156,13 +157,28 @@ export const UpdateAndGetUser = async (session, client_uuid) => {
   // }
 
   //如果带有session参数，检查是否是authenticated的session，如果是的话将session中带有的信息放入user对象
-  if (session) {
-    if (session.status === "authenticated") {
-      user = Object.assign(user, session.data.user);
-    }
-  }
+  // if (session) {
+  //   if (session.status === "authenticated") {
+  //     user = Object.assign(user, session.data.user);
+  //   }
+  // }
   //保存user
-  setItem(user);
+  // setItem(user);
+  //返回user
+  return user;
+};
+
+export const UpdateAndGetUser_nouuid = async (session) => {
+  //从api请求user
+  const response = await fetch("/api/checkSubscription", {
+    method: "POST",
+  });
+  if(response.status != 200){
+    console.error("request userinfo from server failed")
+    console.error(response)
+    return null
+  }
+  const user = await response.json();
   //返回user
   return user;
 };

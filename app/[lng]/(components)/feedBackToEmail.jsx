@@ -7,7 +7,7 @@ import { sendEmail } from "../../common"
 export default function FeedBackToEmail({ lng, subject }) {
     const a = "text-color-jable"
     const { t } = useTranslation(lng, "member");
-    const [showInput, setShowInput] = useState(true);
+    const [showInput, setShowInput] = useState(false);
     const [msg, setMsg] = useState(null);
     const session = useSession();
     const timeoutRef = useRef(null)
@@ -39,10 +39,12 @@ export default function FeedBackToEmail({ lng, subject }) {
     }
 
     return (<>
-
+     <h2 className="text-white p-2 cursor-pointer" onClick={()=>{
+        setShowInput(!showInput)
+     }}>{subject}</h2>
        { showInput &&
         <div className="mt-2" >
-            <h2 className="text-white p-2">{subject}:</h2>
+       
             <div className="w-full  border rounded-lg bg-gray-700 border-gray-600">
                 <div className="px-4 py-2 rounded-t-lg bg-gray-800">
                     <textarea

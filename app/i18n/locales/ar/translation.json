@@ -30,6 +30,7 @@
     "Indonesian": "الإندونيسية",
     "Swedish": "السويدية",
     "Swiss": "السويسرية",
+    "Italian": "الإيطالي" ,
     "Search": "بحث",
     "InstallChromeExtension": "تثبيت إضافة كروم",
     "ResultsOfSearching": "نتائج البحث",
@@ -49,5 +50,24 @@
     "Free download subtitles (captions) of": "تحميل مجاني للترجمات (التعليقات التوضيحية) لـ",
     "in language of": "باللغة",
     "in format of": "بصيغة",
-    "This subtitle is for the Japanese Adult Video (JAV) with ID": "هذه الترجمة مخصصة للفيديو الياباني للبالغين (JAV) ذو المعرف"
+    "This subtitle is for the Japanese Adult Video (JAV) with ID": "هذه الترجمة مخصصة للفيديو الياباني للبالغين (JAV) ذو المعرف",
+    "Subtitles": "الترجمة",
+    "Subtitle Language": "لغة الترجمة",
+    "Source Language": "اللغة المصدر",
+    "Video Number": "رقم الفيديو",
+    "AI Generated": "مولد بواسطة الذكاء الاصطناعي",
+    "Version": "الإصدار",
+    "Upload Date": "تاريخ الرفع",
+    "Duration": "المدة",
+    "Words count": "عدد الكلمات",
+    "File Size": "حجم الملف",
+    "Free Demo": "تجربة مجانية",
+    "Download Demo": "تنزيل التجربة",
+      "Signin": "تسجيل الدخول",
+  "Signout": "تسجيل الخروج",
+     "User Upload":"تحميل المستخدم",
+     "AI generated content may include some fault": "قد يتضمن محتوى مولد بواسطة الذكاء الاصطناعي بعض الأخطاء",
+"Check DEMO before download the full version": "تحقق من النسخة التجريبية قبل تنزيل النسخة الكاملة",
+"Please feedback any issue to developer": "يرجى إبلاغ المطور بأي مشكلة"
+
 }

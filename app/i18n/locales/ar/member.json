@@ -23,5 +23,15 @@
     "Please input your comment ...":"يرجى إدخال تعليقك ...",
     "email.sent":"تم إرسال المشكلة إلى المطور، شكرًا على ملاحظاتك.",
     "email.empty":"يرجى إدخال التعليق، نقدر ملاحظاتك.",
-    "Feedback to Developer": "ملاحظات للمطور"
+    "Feedback to Developer": "ملاحظات للمطور",
+    "Get Premium": "احصل على النسخة الأساسية",
+    "You must be a premium member to download full versions of subtitles.": "يجب أن تكون عضوًا بريديًا لتنزيل نسخة كاملة من الترجمة.",
+    "Select a Subscription Plan": "اختر خطة الاشتراك",
+    "Join us on our mission to subtitles every obscure movie! Renews automatically, cancel anytime!": "انضم إلينا في مهمتنا لترجمة كل 영화 مجهولة! تجدد تلقائيًا، إلغاء في أي وقت!",
+    "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.": "لتجنب الاستغلال، تم تقييد تحميل الترجمة الكاملة لـ 20 ترجمات يوميًا.",
+    "No Free Access to Full Subtitles": "لا توجد وصول مجاني لنسخة كاملة من الترجمة",
+    "Free Access to All Our 400,000+ Subtitles": "الوصول المجاني لجميع ترجماتنا التي تزيد عن 400,000 ترجمة",
+    "Free Access to 400,000+ Demo Subtitles": "الوصول المجاني لـ 400,000+ ترجمة تجريبية",
+    "Load Subtitles with Browser Extension": "تحميل الترجمة باستخدام ملحق المتصفح",
+    "New Subtitles Added Every Week": "إضافة ترجمات جديدة كل أسبوع"
 }

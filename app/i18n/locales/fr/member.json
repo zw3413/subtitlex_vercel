@@ -23,5 +23,15 @@
     "Please input your comment ...":"Veuillez saisir votre commentaire ...",
     "email.sent":"Le problème a été envoyé au développeur, merci pour vos commentaires.",
     "email.empty":"Veuillez saisir le commentaire, nous apprécions vos commentaires.",
-    "Feedback to Developer": "Retour d'information au développeur"
+    "Feedback to Developer": "Retour d'information au développeur",
+    "Get Premium": "Obtenir Premium",
+  "You must be a premium member to download full versions of subtitles.": "Vous devez être membre premium pour télécharger les versions complètes des sous-titres.",
+  "Select a Subscription Plan": "Sélectionnez un forfait d'abonnement",
+  "Join us on our mission to subtitles every obscure movie! Renews automatically, cancel anytime!": "Rejoignez-nous dans notre mission de sous-titrer chaque film obscur ! Renouvelle automatiquement, annulez à tout moment !",
+  "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.": "Pour éviter les abus, les téléchargements de sous-titres complets sont limités à 20 sous-titres par jour.",
+  "No Free Access to Full Subtitles": "Aucun accès gratuit aux sous-titres complets",
+  "Free Access to All Our 400,000+ Subtitles": "Accès gratuit à tous nos plus de 400 000 sous-titres",
+  "Free Access to 400,000+ Demo Subtitles": "Accès gratuit à plus de 400 000 sous-titres de démo",
+  "Load Subtitles with Browser Extension": "Charger les sous-titres avec l'extension de navigateur",
+  "New Subtitles Added Every Week": "Nouveaux sous-titres ajoutés chaque semaine"
 }

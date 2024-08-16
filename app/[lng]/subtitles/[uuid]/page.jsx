@@ -2,15 +2,16 @@
 import {
   fetchTextFromURLServerSide,
   searchSubtitleByUUID,
-} from "../../../../common_server";
-import SearchForm from "../../../(components)/searchForm";
-import SubtitleRating from "../../../(components)/subtitleRating";
-import ResultDetailSubscribeInstruct from "../../../(components)/resultDetailSubscribeInstruct";
+} from "../../../common_server";
+import SearchForm from "../../(components)/searchForm";
+import SubtitleRating from "../../(components)/subtitleRating";
+import ResultDetailSubscribeInstruct from "../../(components)/resultDetailSubscribeInstruct";
 import { notFound, redirect } from "next/navigation";
 import { cache } from "react";
-import { useTranslation, UseTranslation } from "../../../../i18n";
-import DetailOperations from "../../../(components)/detailOperations";
-
+import { useTranslation, UseTranslation } from "../../../i18n";
+import DetailOperations from "./detailOperations";
+import DetailCard from "./detailCard";
+import {languages} from "../../../i18n/settings"
 const getSeed = cache(async (uuid) => {
   const response = await searchSubtitleByUUID(uuid);
   if (
@@ -23,8 +24,7 @@ const getSeed = cache(async (uuid) => {
     return seed;
   } else if (response && response.rc != "000") {
     //报错
-    console.log(response);
-    redirect("/error?rc=" + response.rc + "&rm=" + response.rm)
+    redirect("/error?rc=" + response.rc + "&rm=" + response.rm);
   } else {
     //没有找到这个uuid的subtitle的话，显示notfound页面
     notFound();
@@ -60,6 +60,15 @@ export async function generateMetadata({ params: { uuid, lng } }) {
         )}`;
       }
     }
+    function alternates (){
+      let alternates={};
+      languages.map(
+        (lng)=>{
+          alternates[lng] = `/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`
+        }
+      )
+      return alternates
+    }
     return {
       title: seed.video_name,
       description:
@@ -89,7 +98,8 @@ export async function generateMetadata({ params: { uuid, lng } }) {
         image: image,
       },
       alternates: {
-        canonical: `/${lng}/result/detail/${uuid}`,
+        canonical: `/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`,
+        languages:alternates()
       },
     };
   } else {
@@ -107,47 +117,24 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
     subText = text;
   };
 
-  await downloadSubtitle();
+  // await downloadSubtitle();
 
   return (
-    <div className=" container ">
-      <div className="pt-10">
-        <SearchForm lng={lng} />
-      </div>
-      <div className="grid gap-2 grid-cols-5 mt-10">
-        <div className="col-span-3 py-4">
-          <div>
-            <h1 className="text-xl my-2">{seed.video_name}</h1>
-
-            <SubtitleRating rating={seed.rating}></SubtitleRating>
-
-            <p className="tracking-wide">
-              <span className="text-thin my-2">{t("Language")}:</span>
-              {t(seed.language)}{" "}
-              <span className="ml-2 text-thin my-2">{t("Format")}:</span>
-              {seed.format}
-            </p>
-            <p>{seed.video_description}</p>
-          </div>
-
-          <div className="my-4 ">
-            <DetailOperations subText={subText} seed={seed} lng={lng}></DetailOperations>
-          </div>
+    <div className="container mx-auto px-4">
+      
+      <div className="mt-6 md:mt-10">
+        <div className="max-w-3xl mx-auto">
           <div className="my-2 mx-auto">
-            <ResultDetailSubscribeInstruct
-              subText={subText}
-              lng={lng}
-            ></ResultDetailSubscribeInstruct>
+            <ResultDetailSubscribeInstruct subText={subText} lng={lng} />
           </div>
-          <textarea
-          defaultValue={subText}
-            readOnly
-            id="message"
-            rows="4"
-            className="h-[1000px] block p-2.5 w-full text-sm  rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white overflow-clip "
-            placeholder=""
-          ></textarea>
+          <DetailCard subtitle={seed} lng={lng}></DetailCard>
+          <div className="my-4">
+            <DetailOperations subText={subText} subtitleUuid={uuid} seed={seed} lng={lng} />
+          </div>
         </div>
+      </div>
+      <div className="pt-6 md:pt-10">
+        <SearchForm lng={lng} />
       </div>
     </div>
   );

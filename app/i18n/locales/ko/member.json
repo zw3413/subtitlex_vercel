@@ -23,5 +23,15 @@
     "Please input your comment ...":"댓글을 입력해 주세요 ...",
     "email.sent":"문제가 개발자에게 전송되었습니다. 피드백 감사합니다.",
     "email.empty":"댓글을 입력해 주세요. 피드백을 감사드립니다.",
-      "Feedback to Developer": "개발자에게 피드백"
+      "Feedback to Developer": "개발자에게 피드백",
+      "Get Premium": "프리미엄 구매",
+      "You must be a premium member to download full versions of subtitles.": "자막의 전체 버전을 다운로드하려면 프리미엄 회원이어야 합니다.",
+      "Select a Subscription Plan": "구독 계획 선택",
+      "Join us on our mission to subtitles every obscure movie! Renews automatically, cancel anytime!": "모든 희귀 영화에 자막을 달아주는 우리의 사명에 동참하세요! 자동 갱신, 언제든지 취소 가능!",
+      "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.": "남용을 방지하기 위해, 전체 자막 다운로드는 하루에 20개로 제한됩니다.",
+      "No Free Access to Full Subtitles": "전체 자막에 대한 무료 접근 없음",
+      "Free Access to All Our 400,000+ Subtitles": "우리의 400,000+ 자막에 대한 무료 접근",
+      "Free Access to 400,000+ Demo Subtitles": "400,000+ 데모 자막에 대한 무료 접근",
+      "Load Subtitles with Browser Extension": "브라우저 확장 프로그램으로 자막 로드",
+      "New Subtitles Added Every Week": "매주 새로운 자막 추가"
 }

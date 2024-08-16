@@ -75,6 +75,24 @@ export async function createCheckoutLink_Monthly(customer) {
     return checkout.url;
 }
 
+export async function createCheckoutLink_Premium(customer) {
+    const checkout = await stripe.checkout.sessions.create({
+        success_url: String(process.env.DOMAIN_NAME) + "/Member",
+        cancel_url: String(process.env.DOMAIN_NAME)+"/Member",
+        customer: customer,
+        line_items: [
+            {
+                price: process.env.STRIPE_PRODUCT_PREMIUM_ID,
+                quantity:1
+                //price: 'price_1P12o6Lch9pwz6rlVLVCPysi'
+            }
+        ],
+        mode: "subscription"
+    })
+
+    return checkout.url;
+}
+
 // Generate Customer portal
 export async function generateCustomerPortalLink(customerId) {
     try {

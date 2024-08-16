@@ -5,28 +5,10 @@ import styles from "../../../node_modules/flag-icons/css/flag-icons.min.css";
 import { useEffect } from "react";
 import { LanguageLi } from "./languageLi";
 import { useTranslation } from "../../i18n/client";
-import { UpdateAndGetUser } from "../../common";
-import { useSession } from "next-auth/react";
-import { useCookies } from "react-cookie";
 import { Suspense } from "react";
-
 
 export function LanguageSwitcher({ lng }) {
   const { t } = useTranslation(lng, "translation");
-  const session = useSession();
-  const cookieName = "client_uuid";
-  const [cookies, setCookie] = useCookies([cookieName]);
-  useEffect(() => {
-    let client_uuid = cookies["client_uuid"];
-    // if (!client_uuid || client_uuid == "") {
-    //   requestUUID().then((uuid) => {
-    //     client_uuid = uuid;
-    //     setCookie("client_uuid", client_uuid, { path: "/" });
-    //     UpdateAndGetUser(session, client_uuid);
-    //   });
-    // } else {
-    UpdateAndGetUser(session, client_uuid);
-  }, []);
 
   const lngToFlag = {
     en: { countryCode: "us", title: t("English") },
@@ -93,7 +75,7 @@ export function LanguageSwitcher({ lng }) {
   }, []);
 
   return (
-    <Suspense>
+
       <div className="flex" id="testdropdown">
         <button
           id="states-button"
@@ -143,6 +125,6 @@ export function LanguageSwitcher({ lng }) {
           </ul>
         </div>
       </div>
-    </Suspense>
+
   );
 }

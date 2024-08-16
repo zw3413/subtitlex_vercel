@@ -1,13 +1,12 @@
 "use server";
-import { Label } from "flowbite-react";
-import Image from "next/image";
-import { useTranslation } from "../../../../i18n";
+import { useTranslation } from "../../../i18n";
+import DownloadDemoButton from "./downloadDemoButton";
+import AI_GENERATED_TOOLTIP from "./aiGeneratedTooltip";
 async function DetailCard({ subtitle, lng }) {
   const { t } = await useTranslation(lng);
-
   return (
     <>
-      <h1 className="text-5xl font-extrabold dark:text-white my-2">
+      <h1 className="text-center sm:text-start text-2xl sm:text-5xl font-extrabold text-white my-2">
         {subtitle.video_name} - {t(subtitle.language)} {t("Subtitles")}
       </h1>
       <div className="my-4">{subtitle.video_description}</div>
@@ -35,7 +34,7 @@ async function DetailCard({ subtitle, lng }) {
                 >
                   {t("Subtitle Language")}
                 </td>
-                <td className="text-white px-6 py-4">{subtitle.language}</td>
+                <td className="text-white px-6 py-4">{t(subtitle.language)}</td>
               </tr>
 
               <tr className="border-b border-gray-200 dark:border-gray-700">
@@ -46,7 +45,7 @@ async function DetailCard({ subtitle, lng }) {
                   {t("Source Language")}
                 </td>
                 <td className="text-white px-6 py-4">
-                  {subtitle.source_language}
+                  {t(subtitle.source_language)}
                 </td>
               </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
@@ -82,9 +81,10 @@ async function DetailCard({ subtitle, lng }) {
                   className="px-6 py-4 font-medium  whitespace-nowrap  text-white bg-gray-800"
                 >
                   {t("AI Generated")}
+                  <AI_GENERATED_TOOLTIP lng={lng}></AI_GENERATED_TOOLTIP>
                 </td>
                 <td className="text-white px-6 py-4">
-                  {subtitle.ai_generaged}
+                  {subtitle.ai_generated}
                 </td>
               </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
@@ -94,9 +94,21 @@ async function DetailCard({ subtitle, lng }) {
                 >
                   {t("Version")}
                 </td>
-                <td className="text-white px-6 py-4">Engine 1.1</td>
+                <td className="text-white px-6 py-4">
+                  {subtitle.transcribe_version}
+                </td>
               </tr>
-
+              <tr className="border-b border-gray-200 dark:border-gray-700">
+                <td
+                  scope="row"
+                  className="px-6 py-4 font-medium  whitespace-nowrap  text-white bg-gray-800"
+                >
+                  {t("User Upload")}
+                </td>
+                <td className="text-white px-6 py-4">
+                  {subtitle.user_uploaded}
+                </td>
+              </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
                 <td
                   scope="row"
@@ -104,7 +116,7 @@ async function DetailCard({ subtitle, lng }) {
                 >
                   {t("Upload Date")}
                 </td>
-                <td className="text-white px-6 py-4">{subtitle.upload_date}</td>
+                <td className="text-white px-6 py-4">{subtitle.create_time}</td>
               </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
                 <td
@@ -113,7 +125,9 @@ async function DetailCard({ subtitle, lng }) {
                 >
                   {t("Duration")}
                 </td>
-                <td className="text-white px-6 py-4">{subtitle.file_size}</td>
+                <td className="text-white px-6 py-4">
+                  {subtitle.video_length}
+                </td>
               </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
                 <td
@@ -122,7 +136,7 @@ async function DetailCard({ subtitle, lng }) {
                 >
                   {t("Words count")}
                 </td>
-                <td className="text-white px-6 py-4">{subtitle.file_size}</td>
+                <td className="text-white px-6 py-4">{subtitle.words_num}</td>
               </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
                 <td
@@ -141,7 +155,14 @@ async function DetailCard({ subtitle, lng }) {
                   {t("Free Demo")}
                 </td>
                 <td className="text-white px-6 py-4">
-                  <button>{t("Download Demo")}</button>
+                  <DownloadDemoButton
+                    lng={lng}
+                    uuid={subtitle.uuid}
+                    format={subtitle.format}
+                    language={subtitle.language}
+                    video_no={subtitle.video_no}
+                    video_name={subtitle.video_name}
+                  ></DownloadDemoButton>
                 </td>
               </tr>
             </tbody>

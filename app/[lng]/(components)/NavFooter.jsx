@@ -2,50 +2,36 @@
 import Link from "next/link";
 import { LanguageSwitcher } from "./languageSwitcher";
 import { useTranslation } from "../../i18n/client";
-import { useSession } from "next-auth/react";
+import { useLocalStorage } from "../../../customHook/useLocalStorage";
 
-const NavFooter = ({ lng }) => {
+const NavFooter = ({ lng, user }) => {
   const { t } = useTranslation(lng);
-  const { data: session } = useSession();
-
-  const navItems = [
-    { href: `/${lng}/Member`, label: t("Member") },
-    {
-      href: session
-        ? "/api/auth/signout?callbackUrl=/"
-        : "/api/auth/signin?callbackUrl=/Member",
-      label: session ? t("Logout") : t("Login"),
-    },
-  ];
+  //  const { data: session, status } = useSession();
 
   return (
-    <nav className="w-full px-1 py-0 sm:px-0 sm:py-0 ">
-      <ul className="flex flex-row justify-between sm:justify-between items-center gap-8 sm:gap-4 text-sm sm:text-base text-slate-400">
-      <li>
-          <button className="text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-2xl hover:text-white  block py-0 sm:py-0  rounded-lg shadow-sm px-6">
-          <Link
-            href={`/${lng}/Member`}
-            className=""
-          >
-            {t("Get Premium")}
-          </Link></button>
-        </li>
-
-
-        <li>
-          <Link
-            href={
-              session
-                ? "/api/auth/signout?callbackUrl=/"
-                : "/api/auth/signin?callbackUrl=/Member"
-            }
-            className="hover:text-white  block py-1 sm:py-0"
-          >
-            {session ? t("Logout") : t("Login")}
-          </Link>
-        </li>
-      </ul>
-    </nav>
+      <nav className="w-full px-2 py-2 sm:px-0 sm:py-0 ">
+        <ul className="flex flex-row justify-end items-center gap-8 sm:gap-4 text-sm sm:text-base text-slate-400">
+          {}
+          <li className="px-4">
+            <button
+   
+              className="h-[32px] text-xl hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-6 text-slate-800"
+            >
+              <Link
+                href={
+                  user?.email
+                    ? "/api/auth/signout?callbackUrl=" + window.location.href
+                    : "/api/auth/signin?callbackUrl=/Member"
+                }
+                className=" "
+              >
+                {user?.email ? t("Signout") : t("Signin")}
+              </Link>
+            </button>
+          </li>
+          
+        </ul>
+      </nav>
   );
 };
 

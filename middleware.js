@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import acceptLanguage from "accept-language";
 import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
 import { subtitleXserverApi } from "./constants";
-import {cidrRanges} from "./cidr";
+import { cidrRanges } from "./cidr";
 import ipRangeCheck from "ip-range-check";
 
 acceptLanguage.languages(languages);
@@ -50,8 +50,6 @@ const isIpAllowed = (ip) => {
 };
 //middleware 用于i18n的redirecting
 export async function middleware(req) {
-  console.log("middleware start");
-
   const response = NextResponse.next();
   let lng;
 
@@ -61,10 +59,14 @@ export async function middleware(req) {
   }
 
   //否则尝试使用headers的Accept-Language作为lng
-  if (!lng) {lng = acceptLanguage.get(req.headers.get("Accept-Language"));}
+  if (!lng) {
+    lng = acceptLanguage.get(req.headers.get("Accept-Language"));
+  }
 
   //都没有的时候使用默认的lng
-  if (!lng) {lng = fallbackLng;}
+  if (!lng) {
+    lng = fallbackLng;
+  }
 
   //转换jav.subtitlex.xyz 和 jav.subtitlex.xyz/[lng]的子域名的路径，并重定向
   if (
@@ -105,6 +107,33 @@ export async function middleware(req) {
     if (lngInReferer) response.cookies.set(cookieName, lngInReferer);
   }
 
+  //await checkClientUuid(req, response)
+
+  //http://localhost/en/result/detail/4b298196-ec9a-4159-8b6c-900d460cb8ce
+ 
+  const pathname = req.nextUrl.pathname;
+  if (
+    pathname.includes("/result/detail/") ||
+    pathname.includes("/subtitles/")
+  ) {
+    //兼容老路径
+    let newPath = pathname.replace("/result/detail/", "/subtitles/");
+    //去掉最后两段
+    const pathSegments = newPath.split("/");
+    if (pathSegments.length >= 5) {
+      pathSegments.pop();
+      pathSegments.pop();
+      newPath = pathSegments.join("/");
+    }
+    const newUrl = new URL(newPath, req.nextUrl.origin);
+    console.log("rewrite url", newUrl.toString());
+    return NextResponse.rewrite(newUrl);
+  }
+
+  return response;
+}
+
+async function checkClientUuid(req, response) {
   console.log("set client_uuid in cookie start");
   //console.log("print all cookies", req.cookies.getAll())
   //check if the client_uuid exist in the cookie
@@ -140,6 +169,4 @@ export async function middleware(req) {
 
     console.log("set client_uuid in cookie finished");
   }
-
-  return response;
 }

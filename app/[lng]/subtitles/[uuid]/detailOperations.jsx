@@ -1,12 +1,13 @@
 "use client"
-import ResultDetailDownloadButton from "../../../(components)/resultDetailDownloadButton"
-import InstallChromeExtensionButton from "../../../(components)/installChromeExtensionButton";
-import { useTranslation } from "../../../../i18n/client";
+import ResultDetailDownloadButton from "../../(components)/resultDetailDownloadButton"
+import InstallChromeExtensionButton from "../../(components)/installChromeExtensionButton";
+import { useTranslation } from "../../../i18n/client";
 import { useState, useEffect, useRef } from "react";
 import { useSession } from "next-auth/react";
-import {sendEmail} from "../../../../common"
+import {sendEmail} from "../../../common"
 
-export default function DetailOperations({ subText, seed, lng }) {
+
+export default function DetailOperations({ subText, subtitleUuid,seed, lng }) {
     const a = "text-color-jable"
     const { t } = useTranslation(lng, "member");
     const [showInput, setShowInput] = useState(false);
@@ -24,6 +25,7 @@ export default function DetailOperations({ subText, seed, lng }) {
         setShowInput(!showInput);
     }
 
+    //提交issue report
     const handleSubmit = () => {
         const target = 'zhangweicalm@gmail.com';
         const subject = '[SubtitleX] SubtitleX Issue';
@@ -52,8 +54,9 @@ export default function DetailOperations({ subText, seed, lng }) {
                 <div className="flex flex-wrap gap-2">
                     <ResultDetailDownloadButton
                         subText={subText}
+                        subtitleUuid={subtitleUuid}
                         language={seed.language}
-                        name={seed.video_name}
+                        name={seed.video_no || seed.video_name}
                         format={seed.format}
                         lng={lng}
                     />

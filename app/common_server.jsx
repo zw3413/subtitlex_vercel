@@ -50,14 +50,14 @@ export const searchSubtitleByUUID = async (uuid) => {
 };
 
 export const remoteCall = async (f, pl) => {
-  const user = await UpdateAndGetUser_SS();
+  const user = await UpdateAndGetUser_SS_nouuid();
   let response;
   try {
-    console.log("subtitlex: about to cal the remotecall with user ");
-    console.log(user);
-    if (!user.uuid) {
-      return;
-    }
+    // console.log("subtitlex: about to cal the remotecall with user ");
+    // console.log(user);
+    // if (!user.uuid) {
+    //   return;
+    // }
     response = await fetch(subtitleXserverApi + "/api1", {
       method: "POST",
       // headers: {
@@ -79,6 +79,46 @@ export const remoteCall = async (f, pl) => {
   return await response.json();
 };
 
+export const UpdateAndGetUser_SS_nouuid = async () => {
+  try {
+    let user = {};
+    //read from session
+    const session = await getServerSession(options);
+    if (session && session.user) {
+      user = session.user;
+    }
+
+    //if empty user or without uuid, request uuid from cookies or api
+    if (user.email) {
+      try{
+        await createCustomerIfNull();
+      }catch(e){
+        console.error("createCustomerIfNull failed", e);
+      }
+      const userFromSession = await prisma.user.findFirst({
+        where: {
+          email: user.email,
+        },
+      });
+      const subscriptions = await getSubscription();
+      const hasSub = subscriptions?.data?.length > 0;
+      const subscribed = hasSub
+        ? new Date() < new Date(user.expireDate * 1000)
+        : false;
+      user = {
+        ...user,
+        ...userFromSession,
+        hasSub: hasSub,
+        expireDate: hasSub ? subscriptions?.data[0].current_period_end : null,
+        subscribed: subscribed,
+      };
+    }
+    return user;
+  } catch (e) {
+    console.error(e);
+  }
+};
+
 export const UpdateAndGetUser_SS = async () => {
   try {
     console.log("UpdateAndGetUser_SS");
@@ -88,12 +128,8 @@ export const UpdateAndGetUser_SS = async () => {
 
     //read from session
     const session = await getServerSession(options);
-    console.log("get session", { session });
     if (session && session.user) {
-      console.log("session.user exists");
       user = session.user;
-      console.log("set user to session.user", session.user);
-      console.log("user", user);
     }
 
     //if empty user or without uuid, request uuid from cookies or api

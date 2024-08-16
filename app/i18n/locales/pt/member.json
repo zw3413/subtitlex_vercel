@@ -23,5 +23,15 @@
     "Please input your comment ...":"Por favor, insira seu comentário ...",
     "email.sent":"O problema foi enviado ao desenvolvedor, obrigado pelo seu feedback.",
     "email.empty":"Por favor, insira o comentário, agradecemos seu feedback.",
-      "Feedback to Developer": "Feedback para o desenvolvedor"
+      "Feedback to Developer": "Feedback para o desenvolvedor",
+      "Get Premium": "Obtenha Premium",
+      "You must be a premium member to download full versions of subtitles.": "Você deve ser um membro premium para baixar versões completas de legendas.",
+      "Select a Subscription Plan": "Selecione um Plano de Assinatura",
+      "Join us on our mission to subtitle every obscure movie! Renews automatically, cancel anytime!": "Junte-se a nós na nossa missão de legendar todos os filmes obscuros! Renove automaticamente, cancele a qualquer momento!",
+      "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.": "Para evitar abuso, as descargas de legendas completas são limitadas a 20 legendas por dia.",
+      "No Free Access to Full Subtitles": "Sem Acesso Grátis às Legendas Completas",
+      "Free Access to All Our 400,000+ Subtitles": "Acesso Grátis a Todas as Nossas Mais de 400.000 Legendas",
+      "Free Access to 400,000+ Demo Subtitles": "Acesso Grátis a Mais de 400.000 Legendas de Demonstração",
+      "Load Subtitles with Browser Extension": "Carregue Legendas com Extensão do Navegador",
+      "New Subtitles Added Every Week": "Novas Legendas Adicionadas Todas as Semanas"
 }

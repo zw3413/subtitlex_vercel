@@ -24,7 +24,14 @@
     "email.sent":"Message has been sent to the developer, thanks for the feedback.",
     "email.empty":"Please input the comment, we appreciate your feedback.",
     "Feedback to Developer":"Feedback to Developer",
-    "Get Premium":"Get Premium"
-
-
+    "Get Premium":"Get Premium",
+    "You must be a premium member to download full versions of subtitles.":"You must be a premium member to download full versions of subtitles.",
+    "Select a Subscription Plan":"Select a Subscription Plan",
+    "Join us on our mission to subtitles every obscure movie! Renews automatically, cancel anytime!":"Join us on our mission to subtitles every obscure movie! Renews automatically, cancel anytime!",
+    "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.":"To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.",
+    "No Free Access to Full Subtitles":"No Free Access to Full Subtitles",
+    "Free Access to All Our 400,000+ Subtitles":"Free Access to All Our 400,000+ Subtitles",
+    "Free Access to 400,000+ Demo Subtitles":"Free Access to 400,000+ Demo Subtitles",
+    "Load Subtitles with Browser Extension":"Load Subtitles with Browser Extension",
+    "New Subtitles Added Every Week":"New Subtitles Added Every Week"
 }

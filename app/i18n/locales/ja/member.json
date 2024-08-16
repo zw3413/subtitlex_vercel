@@ -23,5 +23,15 @@
     "Please input your comment ...":"コメントを入力してください ...",
     "email.sent":"問題が開発者に送信されました。フィードバックをありがとう。",
     "email.empty":"コメントを入力してください。フィードバックを感謝します。",
-    "Feedback to Developer": "開発者へのフィードバック"
+    "Feedback to Developer": "開発者へのフィードバック",
+    "Get Premium": "プレミアムプランを取得",
+  "You must be a premium member to download full versions of subtitles.": "字幕の完全版をダウンロードするには、プレミアムメンバーである必要があります。",
+  "Select a Subscription Plan": "サブスクリプションプランを選択",
+  "Join us on our mission to subtitles every obscure movie! Renews automatically, cancel anytime!": "不明な映画を字幕化する私たちの使命に参加してください！自動更新、いつでもキャンセル可能！",
+  "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.": "悪用を避けるために、完全な字幕のダウンロードは1日あたり20字幕に制限されています。",
+  "No Free Access to Full Subtitles": "完全な字幕への無料アクセスはありません",
+  "Free Access to All Our 400,000+ Subtitles": "40万点以上の字幕に無料でアクセス",
+  "Free Access to 400,000+ Demo Subtitles": "40万点以上のデモ字幕に無料でアクセス",
+  "Load Subtitles with Browser Extension": "ブラウザ拡張機能で字幕を読み込む",
+  "New Subtitles Added Every Week": "毎週新しい字幕が追加されます"
 }

@@ -23,6 +23,16 @@
     "Please input your comment ...":"请输入您的评论 ...",
     "email.sent":"问题已发送给开发者，感谢您的反馈。",
     "email.empty":"请输入评论，我们感谢您的反馈。",
-     "Feedback to Developer": "给开发者的反馈"
+     "Feedback to Developer": "给开发者的反馈",
+     "Get Premium": "获取高级版",
+     "You must be a premium member to download full versions of subtitles.": "您必须是高级会员才能下载完整的字幕版本。",
+     "Select a Subscription Plan": "选择一个订阅计划",
+     "Join us on our mission to subtitle every obscure movie! Renews automatically, cancel anytime!": "加入我们为每一部鲜为人知的电影添加字幕的使命吧！自动续订，随时取消！",
+     "To avoid abuse, full subtitle downloads are limited to any 20 subtitles per day.": "为了避免滥用，每天的完整字幕下载限制为20个字幕。",
+     "No Free Access to Full Subtitles": "没有免费获取完整字幕的权限",
+     "Free Access to All Our 400,000+ Subtitles": "免费获取我们所有400,000+字幕",
+     "Free Access to 400,000+ Demo Subtitles": "免费获取400,000+演示字幕",
+     "Load Subtitles with Browser Extension": "使用浏览器扩展加载字幕",
+     "New Subtitles Added Every Week": "每周新增字幕"
 
 }
