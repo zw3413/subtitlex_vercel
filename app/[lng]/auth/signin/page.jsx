@@ -14,7 +14,7 @@ console.log(providers)
         <h2 className="my-6 text-center text-3xl font-extrabold text-white">
           {t('Sign in to your account')}
         </h2>
-        <SignInForm providers={providers} lng={lng} />
+        <SignInForm providers_str={JSON.stringify(providers)} lng={lng} />
       </div>
     </div>
   );

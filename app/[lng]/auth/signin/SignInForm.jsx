@@ -5,7 +5,8 @@ import { signIn } from "next-auth/react";
 import { useState } from "react";
 import { useTranslation } from "../../../i18n/client";
 
-export default function SignInForm({ providers, lng }) {
+export default function SignInForm({ providers_str, lng }) {
+  const providers = JSON.parse(providers_str);
   console.log(providers);
   const { t } = useTranslation(lng, "auth");
   const [email, setEmail] = useState("");
