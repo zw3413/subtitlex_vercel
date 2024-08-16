@@ -12,10 +12,10 @@ const Nav = ({ lng, user }) => {
       <nav className="w-full px-2 py-2 sm:px-0 sm:py-0 ">
         <ul className="flex flex-row justify-end items-center gap-8 sm:gap-4 text-sm sm:text-base text-slate-400">
           {}
-          <li className="px-4">
+          <li className="px-4 ">
             <button
    
-              className="h-[32px] text-xl hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-6 text-slate-800"
+              className="h-[24px] text-base hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-4 text-slate-800"
             >
               <Link
                 href={
