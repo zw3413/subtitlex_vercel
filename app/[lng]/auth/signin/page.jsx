@@ -7,7 +7,7 @@ export default async function SignIn({params:{lng}}) {
   const  {t}  = await useTranslation(lng,"auth");
 
   const providers = await getProviders();
-
+console.log(providers)
   return (
     <div className="flex items-center justify-center">
       <div className="w-full max-w-md space-y-10 rounded-xl p-10 shadow-md">

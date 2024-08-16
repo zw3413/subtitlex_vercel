@@ -6,6 +6,7 @@ import { useState } from "react";
 import { useTranslation } from "../../../i18n/client";
 
 export default function SignInForm({ providers, lng }) {
+  console.log(providers);
   const { t } = useTranslation(lng, "auth");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
