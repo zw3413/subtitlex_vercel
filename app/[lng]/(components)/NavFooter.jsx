@@ -21,7 +21,7 @@ const NavFooter = ({ lng, user }) => {
                 href={
                   user?.email
                     ? "/api/auth/signout?callbackUrl=" + window.location.href
-                    : "/api/auth/signin?callbackUrl=/Member"
+                    : "/api/auth/signin?callbackUrl=/"
                 }
                 className=" "
               >
