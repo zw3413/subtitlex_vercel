@@ -27,11 +27,7 @@ export default async function RootLayout({ children, params: { lng } }) {
     <html lang={lng} dir={dir(lng)} suppressHydrationWarning>
       <AuthProvider>
         <head>
-          <script
-            async
-            src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4710355729688713"
-            crossOrigin="anonymous"
-          ></script>
+
 
           <Script
             src={"https://www.googletagmanager.com/gtag/js?id=G-KTQBF80NQT"}
