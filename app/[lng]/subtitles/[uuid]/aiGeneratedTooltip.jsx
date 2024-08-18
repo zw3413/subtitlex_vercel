@@ -29,7 +29,7 @@ export default function AI_GENERATED_TOOLTIP({ lng }) {
 
   return (
     <>
-      <button id="ai_generated_tooltip_btn" type="button" className=" ">
+      <button id="ai_generated_tooltip_btn" type="button" className=" " name ="tips">
         <svg
           className="w-4 h-4 text-color-jable"
           aria-hidden="true"

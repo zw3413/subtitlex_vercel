@@ -83,6 +83,7 @@ export function LanguageSwitcher({ lng }) {
           data-dropdown-trigger="click"
           className="flex-shrink-0 z-10 inline-flex items-center  px-4 text-sm font-medium text-center   rounded-lg    bg-[#1f1f1f]   text-white border-gray-600"
           type="button"
+          name ="languageSwitcher"
         >
           <span
             className={`text-lg fi fis fi-${getCc(lng)?.countryCode}`}

@@ -80,7 +80,7 @@ export default async function RootLayout({ children, params: { lng } }) {
 
           <footer className="w-full ">
             <div className="hidden sm:block bg-[#1f1f1f] ">
-              <div className="bg-[#1f1f1f] text-slate-400 flex justify-between items-center py-1 max-w-screen-lg mx-auto">
+              <div className="bg-[#1f1f1f] text-slate-300 flex justify-between items-center py-1 max-w-screen-lg mx-auto">
                 <div className="text-xl h-full ">
                   <h2 className="text-xl text-color-jable font-bold">
                     SubtitleX

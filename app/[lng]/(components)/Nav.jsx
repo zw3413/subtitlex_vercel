@@ -15,7 +15,7 @@ const Nav = ({ lng, user }) => {
           <li className="px-4 ">
             <button
    
-              className="h-[24px] text-base hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-4 text-slate-800"
+              className="h-[32px] text-base hover:text-white  block py-1 sm:py-0 rounded-lg bg-color-jable px-4 text-slate-800"
             >
               <Link
                 href={

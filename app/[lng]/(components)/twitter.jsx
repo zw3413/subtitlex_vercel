@@ -11,7 +11,7 @@ function TwitterPage({ lng }) {
         <h1 className="text-2xl mb-4 font-bold">
           {t("Follow Us on")} X (Twitter)!
         </h1>
-        <p className="mb-4 text-gray-500">
+        <p className="mb-4 text-gray-300">
           {t("Stay up-to-date with the latest news, tips and tricks.")}
         </p>
         <a

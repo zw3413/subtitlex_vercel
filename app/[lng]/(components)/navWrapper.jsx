@@ -21,13 +21,13 @@ export default function NavWrapper({ lng }) {
   return (
     <>
         {user?.hasSub ? (
-          <button className="ms-4 flex h-[24px] text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-base hover:text-white   py-0 sm:py-0 rounded-lg shadow-sm px-2">
+          <button className="ms-4 flex h-[32px] items-center text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-base hover:text-white   py-0 sm:py-0 rounded-lg shadow-sm px-2">
             <a href={`/${lng}/Member`} className="">
               Premium
             </a>
           </button>
         ) : (
-          <button className="ms-4 flex h-[24px] text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-base hover:text-white   py-0 sm:py-0 rounded-lg shadow-sm px-2">
+          <button className="ms-4 flex h-[32px] items-center text-color-jable bg-gradient-to-r from-purple-600 to-red-500 text-base hover:text-white   py-0 sm:py-0 rounded-lg shadow-sm px-2">
             <a href={`/${lng}/Member`} className="">
               Get Premium
             </a>
