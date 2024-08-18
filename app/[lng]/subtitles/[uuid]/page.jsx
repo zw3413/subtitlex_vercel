@@ -64,7 +64,7 @@ export async function generateMetadata({ params: { uuid, lng } }) {
       let alternates={};
       languages.map(
         (lng)=>{
-          alternates[lng] = `/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`
+          alternates[lng] = `https://www.subtitlex.xyz/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`
         }
       )
       return alternates
@@ -98,7 +98,7 @@ export async function generateMetadata({ params: { uuid, lng } }) {
         image: image,
       },
       alternates: {
-        canonical: `/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`,
+        canonical: `https://www.subtitlex.xyz/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`,
         languages:alternates()
       },
     };
