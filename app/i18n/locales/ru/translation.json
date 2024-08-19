@@ -66,7 +66,7 @@
       "Signin": "Вход",
   "Signout": "Выход",
      "User Upload":"Загрузка пользователя",
-     "AI generated content may include some fault": "Сгенерированный AI контент может содержать некоторые ошибки",
-"Check DEMO before download the full version": "Проверьте ДЕМО перед скачиванием полной версии",
-"Please feedback any issue to developer": "Пожалуйста, сообщите разработчику о любых проблемах"
+  "AI generated content may include some fault": "Содержимое, созданное ИИ, может иногда содержать небольшие неточности",
+"Check DEMO before download the full version": "Пожалуйста, проверьте демо-версию перед скачиванием полной версии",
+"Please feedback any issue to developer": "Любая обратная связь о проблемах приветствуется, пожалуйста, свяжитесь"
 }
