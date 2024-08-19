@@ -31,7 +31,7 @@ export default function AI_GENERATED_TOOLTIP({ lng }) {
     <>
       <button id="ai_generated_tooltip_btn" type="button" className=" " name ="tips">
         <svg
-          className="w-4 h-4 text-color-jable"
+          className="w-4 h-4 text-white"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           width="24"
