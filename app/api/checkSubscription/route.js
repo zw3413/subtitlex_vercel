@@ -40,9 +40,20 @@ export async function POST(request) {
           if (hasSub) {
             //email+weekday+salt(stripe_customer_id) md5
             const salt = user?.stripe_customer_id;
-            const weekday = new Date().getDay();
-            var md5 = require('md5')
-            user_secret = md5(email + weekday + salt);
+            const date = new Date(
+              Date.UTC(
+                new Date().getUTCFullYear(),
+                new Date().getUTCMonth(),
+                new Date().getUTCDate(),
+                new Date().getUTCHours(),
+                new Date().getUTCMinutes(),
+                new Date().getUTCSeconds()
+              )
+            );
+            // Get the day of the week for the current UTC date
+            const dayOfWeek = date.getUTCDay();
+            var md5 = require("md5");
+            user_secret = md5(email + dayOfWeek + salt);
           }
           userInfo = {
             email: user.email,
