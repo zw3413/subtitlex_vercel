@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Trans } from "react-i18next/TransWithoutContext";
 export default async function ResultDetailSubscribeInstruct({ subText, lng }) {
   const { t } = await useTranslation(lng, "notfound");
-  console.log("resultDetailSubscribeInstruct ", lng);
+  //console.log("resultDetailSubscribeInstruct ", lng);
   const tip = "Subscribe to www.subtitlex.xyz/Member please";
 
   return (

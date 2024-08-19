@@ -11,14 +11,12 @@ export default function DownloadDemoButton({
   video_no,
   video_name,
 }) {
-  console.log(video_no);
+
   const { t } = useTranslation(lng);
   const handleDownloadDemo = async () => {
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [setItem, getItem, removeItem] = useLocalStorage("user");
     const user = getItem();
-    console.log("download demo subtitle button");
-    console.log(user);
     if (user && user.email) {
       const subText = await fetchTextFromURL(uuid, "demo");
       var blob = new Blob([subText], { type: "text/plain;charset=utf-8" });
