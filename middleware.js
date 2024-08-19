@@ -50,17 +50,17 @@ const isIpAllowed = (ip) => {
 };
 //middleware 用于i18n的redirecting
 export async function middleware(req) {
-  const requestHeaders = new Headers(req.headers);
-  const CF_Connecting_IP = requestHeaders.get("CF-Connecting-IP");
-  const X_Forwared_For = requestHeaders.get("X-Forwarded-For");
-  const ip = req.ip;
-  const clientIp =
-    CF_Connecting_IP || X_Forwared_For?.split(",").pop().trim() || ip;
-  console.log(
-    "user client ip:",
-    clientIp,
-    isIpAllowed(clientIp) ? "Googlebot" :""
-  );
+
+  const pathname = req.nextUrl.pathname;
+
+  if (pathname.includes("/result/detail/")) {
+    let newPath = pathname.replace("/result/detail/", "/subtitles/");
+    const newUrl = new URL(newPath, req.nextUrl.origin);
+    console.log("redirect url", newUrl.toString());
+    return NextResponse.redirect(newUrl);
+  }
+
+
 
   const response = NextResponse.next();
   let lng;
@@ -123,14 +123,6 @@ export async function middleware(req) {
 
   //http://localhost/en/result/detail/4b298196-ec9a-4159-8b6c-900d460cb8ce
 
-  const pathname = req.nextUrl.pathname;
-
-  if (pathname.includes("/result/detail/")) {
-    let newPath = pathname.replace("/result/detail/", "/subtitles/");
-    const newUrl = new URL(newPath, req.nextUrl.origin);
-    console.log("redirect url", newUrl.toString());
-    return NextResponse.redirect(newUrl);
-  }
 
   if (pathname.includes("/subtitles/")) {
     //兼容老路径
@@ -146,6 +138,19 @@ export async function middleware(req) {
     console.log("rewrite url", newUrl.toString());
     return NextResponse.rewrite(newUrl);
   }
+
+  //print the user client ip
+  const requestHeaders = new Headers(req.headers);
+  const CF_Connecting_IP = requestHeaders.get("CF-Connecting-IP");
+  const X_Forwared_For = requestHeaders.get("X-Forwarded-For");
+  const ip = req.ip;
+  const clientIp =
+    CF_Connecting_IP || X_Forwared_For?.split(",").pop().trim() || ip;
+  console.log(
+    "user client ip:",
+    clientIp,
+    isIpAllowed(clientIp) ? "Googlebot" :""
+  );
 
   return response;
 }

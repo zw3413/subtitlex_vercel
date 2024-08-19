@@ -34,7 +34,7 @@ export default function SearchForm({ inHint, placeholder, t, lng }) {
       onSubmit={validateForm}
     >
       <div className="relative">
-        <label for="hint" className="invisible" name = "Search Subtitles">Search Subtitles:</label>
+        <label htmlFor="hint" className="invisible" name = "Search Subtitles">Search Subtitles:</label>
         <input
           type="search"
           name="hint"
