@@ -123,9 +123,20 @@ export async function middleware(req) {
 
   //http://localhost/en/result/detail/4b298196-ec9a-4159-8b6c-900d460cb8ce
 
-
+  //print the user client ip
+  const requestHeaders = new Headers(req.headers);
+  const CF_Connecting_IP = requestHeaders.get("CF-Connecting-IP");
+  const X_Forwared_For = requestHeaders.get("X-Forwarded-For");
+  const ip = req.ip;
+  const clientIp =
+    CF_Connecting_IP || X_Forwared_For?.split(",").pop().trim() || ip;
+  console.log(
+    "user client ip:",
+    clientIp,
+    isIpAllowed(clientIp) ? "Googlebot" :""
+  );
   if (pathname.includes("/subtitles/")) {
-    //兼容老路径
+    
     let newPath = pathname;
     //去掉最后两段
     const pathSegments = newPath.split("/");
@@ -139,18 +150,7 @@ export async function middleware(req) {
     return NextResponse.rewrite(newUrl);
   }
 
-  //print the user client ip
-  const requestHeaders = new Headers(req.headers);
-  const CF_Connecting_IP = requestHeaders.get("CF-Connecting-IP");
-  const X_Forwared_For = requestHeaders.get("X-Forwarded-For");
-  const ip = req.ip;
-  const clientIp =
-    CF_Connecting_IP || X_Forwared_For?.split(",").pop().trim() || ip;
-  console.log(
-    "user client ip:",
-    clientIp,
-    isIpAllowed(clientIp) ? "Googlebot" :""
-  );
+
 
   return response;
 }
