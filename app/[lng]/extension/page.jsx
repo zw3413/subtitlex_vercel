@@ -1,4 +1,4 @@
-import Extension from "./extension";
+import ExtensionVid from "./extension_vid";
 import { useTranslation, UseTranslation } from "../../i18n";
 import { languages } from '../../i18n/settings'
 
@@ -21,6 +21,6 @@ export async function generateMetadata({ params: { lng } }) {
 export default async function Home({ params: { lng } }) {
   const { t } = await useTranslation(lng, 'extension');
   return (
-    <Extension lng={lng}></Extension>
+    <ExtensionVid lng={lng}></ExtensionVid>
   )
 }

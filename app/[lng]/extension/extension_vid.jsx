@@ -5,9 +5,9 @@ import Image from "next/image";
 
 import TelegramJoinPage from "../(components)/telegram.jsx";
 
-import { useTranslation } from "../../i18n/client";
+import { useTranslation } from "../../i18n/client.js";
 
-export default function Extension({ lng }) {
+export default function ExtensionVid({ lng }) {
   const { t } = useTranslation(lng, "extension");
   function handleInstallClick() {
     window.open(
@@ -16,7 +16,7 @@ export default function Extension({ lng }) {
     );
   }
   return (
-    <>
+    <div className="mx-auto w-fit">
       <div
         className=" 
         mt-16  
@@ -199,7 +199,7 @@ export default function Extension({ lng }) {
       </div>
 
       {/* product instruction */}
-      <div className="font-bold">
+      <div className="font-bold w-fit mx-auto">
         <h2 className="my-2">
           <svg
             className="w-9 h-9 text-white inline mr-8"
@@ -307,6 +307,10 @@ export default function Extension({ lng }) {
             height={30}
           ></Image>
         </div>
+
+        <video className="mx-auto my-8" loop controls>
+          <source src="/images/chrome_extension.mp4" type="video/mp4" />
+        </video>
         <div className="flex my-4 ">
           <Image
             alt="SubtitleX"
@@ -440,154 +444,6 @@ export default function Extension({ lng }) {
       </div>
 
 
-
-      {/* subscribe */}
-      <div className="my-12">
-        <h1 className="text-center font-semibold text-5xl mx-auto mb-12">
-          <Link
-            className="bg-[#20e4ff] text-black hover:text-white font-bold py-2 px-4 rounded z-50"
-            href="/Member"
-          >
-            {t('Subscribe')}
-          </Link>{" "}
-          {t('to Enjoy More')}
-        </h1>
-
-        <div className="flex justify-between my-12 gap-20">
-          <div>
-            <h1 className="text-2xl">Free Tier</h1>
-
-            {/* <Image
-              alt="SubtitleX"
-              className="shadow-lg shadow-gray-100 mb-8"
-              width={256}
-              height={268}
-              src="/images/noneuser.png"
-            /> */}
-
-            <h2 className="text-sm font-light">
-              {" "}
-              <svg
-                className="w-[20px] h-[20px] text-white inline mr-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 11.917 9.724 16.5 19 7.5"
-                />
-              </svg>
-              {t("sub_desc_1", { number: "20" })}
-            </h2>
-            <h2 className="text-sm font-light">
-              {" "}
-              <svg
-                className="w-[20px] h-[20px] text-white inline mr-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 11.917 9.724 16.5 19 7.5"
-                />
-              </svg>
-              {t('Unlimited loading local srt file')}
-            </h2>
-          </div>
-          <div className="flex-wrap mt-4"></div>
-          <div>
-            <div className="flex-wrap">
-              <h1 className="text-2xl ">{t('Subscribed Tier')}</h1>
-            </div>
-            {/* <Image
-              alt="SubtitleX"
-              className="shadow-lg shadow-gray-100 mb-8"
-              width={256}
-              height={268}
-              src="/images/loginuser.png"
-            /> */}
-            <h2 className="text-sm font-light ">
-              <svg
-                className="w-[20px] h-[20px] text-white inline mr-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 11.917 9.724 16.5 19 7.5"
-                />
-              </svg>
-              {t('sub_desc_2', { number: "200" })}
-            </h2>
-            <h2 className="text-sm font-light">
-              {" "}
-              <svg
-                className="w-[20px] h-[20px] text-white inline mr-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 11.917 9.724 16.5 19 7.5"
-                />
-              </svg>
-              {t('Unlimited loading local srt file')}
-            </h2>
-            <h2 className="text-sm font-light">
-              {" "}
-              <svg
-                className="w-[20px] h-[20px] text-white inline mr-4"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                fill="none"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke="currentColor"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M5 11.917 9.724 16.5 19 7.5"
-                />
-              </svg>
-              {t('Contact with developer directly')}
-            </h2>
-          </div>
-        </div>
-
-
-        <div className="flex content-center mt-8"><TelegramJoinPage lng={lng}></TelegramJoinPage></div>
-      </div>
-    </>
+    </div>
   );
 }
