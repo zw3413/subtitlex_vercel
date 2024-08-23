@@ -121,50 +121,13 @@ export const UpdateAndGetUser_SS_nouuid = async () => {
 
 export const UpdateAndGetUser_SS = async () => {
   try {
-    console.log("UpdateAndGetUser_SS");
-    
     let user = {};
-    console.log("user initialed as ", user);
-
     //read from session
     const session = await getServerSession(options);
     if (session && session.user) {
       user = session.user;
     }
-
-    //if empty user or without uuid, request uuid from cookies or api
-    if (user && !user.uuid) {
-      console.log("user has no uuid");
-      //let user_uuid_obj = cookies().get("client_uuid");
-
-      const headersStore = headers();
-
-      let user_uuid_obj = cookies().get("client_uuid");
-
-      if (!user_uuid_obj) {
-        console.error("no client_uuid in cookie");
-        console.error("set a temp uuid here");
-        user_uuid_obj = { name: "client_uuid", value: "xxxx", path: "/" };
-
-        console.log("print all cookies")
-        console.log(cookies().getAll())
-
-        console.log("print all headers")
-        headersStore.forEach((value, key) => {
-          console.log(`${key}: ${value}`)
-        })
-
-      } else {
-        console.log("get client_uuid_obj from cookie", user_uuid_obj);
-      }
-      const user_uuid = user_uuid_obj.value;
-      console.log("set user_uuid: ", user_uuid);
-      user = { ...user, uuid: user_uuid };
-      console.log("user", user);
-    }
-
     if (user.email) {
-      console.log("user has email");
       try{
         await createCustomerIfNull();
       }catch(e){
