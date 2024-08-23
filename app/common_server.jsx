@@ -11,8 +11,8 @@ import {
 import { customFetch } from "./customFetch.js";
 import { subtitleXserverApi } from "../constants.js";
 
-export const fetchTextFromURLServerSide = async (subtitleId) => {
-  const url = subtitleXserverApi + "/subtitle?id=" + subtitleId;
+export const fetchTextFromURLServerSide = async (subtitleId, mode) => {
+  const url = subtitleXserverApi + "/subtitle?id=" + subtitleId+"&mode="+mode;
   const user = await UpdateAndGetUser_SS();
   try {
     const response = await fetch(url, {

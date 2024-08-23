@@ -2,6 +2,7 @@
 import { useTranslation } from "../../../i18n";
 import DownloadDemoButton from "./downloadDemoButton";
 import AI_GENERATED_TOOLTIP from "./aiGeneratedTooltip";
+
 async function DetailCard({ subtitle, lng }) {
   const { t } = await useTranslation(lng);
   return (
@@ -10,10 +11,10 @@ async function DetailCard({ subtitle, lng }) {
         {subtitle.video_name} - {t(subtitle.language)} {t("Subtitles")}
       </h1>
       <div className="my-4">{subtitle.video_description}</div>
+
       <hr className=" w-full h-px bg-gray-500 border-0 rounded font-thin" />
 
       <div className="mt-6 flex flex-col flex-wrap w-full">
-        {/* 左侧 */}
         <div className="w-full flex text-center  place-content-center ">
           {/* <Image
             src="/images/subtitlex-512-transparent.png"
@@ -23,7 +24,7 @@ async function DetailCard({ subtitle, lng }) {
             className=""
           ></Image> */}
         </div>
-        {/* 右侧 */}
+
         <div className="w-full  relative overflow-x-auto shadow-md sm:rounded-lg">
           <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
             <tbody>

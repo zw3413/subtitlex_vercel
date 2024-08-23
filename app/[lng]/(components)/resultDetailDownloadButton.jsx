@@ -3,7 +3,6 @@ import { useTranslation } from "../../i18n/client";
 import { fetchTextFromURL } from "../../common";
 import { useLocalStorage } from "../../../customHook/useLocalStorage";
 export default function ResultDetailDownloadButton({
-  subText,
   subtitleUuid,
   language,
   name,
@@ -11,7 +10,7 @@ export default function ResultDetailDownloadButton({
   lng,
 }) {
   const { t } = useTranslation(lng, "translation");
-  const downloadSubtitle = async ({mode}) => {
+  const downloadSubtitle = async ({ mode }) => {
     const text = await fetchTextFromURL(subtitleUuid, mode);
     subText = text;
   };
@@ -24,10 +23,10 @@ export default function ResultDetailDownloadButton({
     console.log(user);
     if (user && user.email) {
       if (user?.hasSub) {
-        if(!user?.user_secret){
+        if (!user?.user_secret) {
           console.error("no user_secret");
         }
-        await downloadSubtitle({mode:"full"});
+        await downloadSubtitle({ mode: "full" });
         var blob = new Blob([subText], { type: "text/plain;charset=utf-8" });
         var url = URL.createObjectURL(blob);
 

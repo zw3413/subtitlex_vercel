@@ -48,7 +48,7 @@ export default function Result(inParams) {
     useEffect(() => {
         if (seed) {
             console.log(seed);
-            const url = `/subtitles/${seed.uuid}/${seed.video_no||seed.video_name}/${seed.language}`;
+            const url = `/${lng}/subtitles/${seed.uuid}/${seed.video_no||seed.video_name}/${seed.language}`;
             window.open(url,"_self");
         }
     }, [seed]);

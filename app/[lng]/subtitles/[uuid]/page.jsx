@@ -11,7 +11,8 @@ import { cache } from "react";
 import { useTranslation, UseTranslation } from "../../../i18n";
 import DetailOperations from "./detailOperations";
 import DetailCard from "./detailCard";
-import {languages} from "../../../i18n/settings"
+import { languages } from "../../../i18n/settings";
+import SubtitleDemo from "./subtitleDemo.jsx";
 const getSeed = cache(async (uuid) => {
   const response = await searchSubtitleByUUID(uuid);
   if (
@@ -51,7 +52,7 @@ export async function generateMetadata({ params: { uuid, lng } }) {
 
     function k(video_no) {
       if (video_no && video_no.length > 0) {
-        return `${video_no}, ${video_no.replace("-","")}, ${t("subtitle")},${t(
+        return `${video_no}, ${video_no.replace("-", "")}, ${t("subtitle")},${t(
           "download"
         )}`;
       } else {
@@ -60,14 +61,14 @@ export async function generateMetadata({ params: { uuid, lng } }) {
         )}`;
       }
     }
-    function alternates (){
-      let alternates={};
-      languages.map(
-        (lng)=>{
-          alternates[lng] = `https://www.subtitlex.xyz/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`
-        }
-      )
-      return alternates
+    function alternates() {
+      let alternates = {};
+      languages.map((lng) => {
+        alternates[lng] = `https://www.subtitlex.xyz/${lng}/subtitles/${uuid}/${
+          seed.video_no || seed.video_name
+        }/${seed.language}`;
+      });
+      return alternates;
     }
     return {
       title: seed.video_name,
@@ -98,8 +99,10 @@ export async function generateMetadata({ params: { uuid, lng } }) {
         image: image,
       },
       alternates: {
-        canonical: `https://www.subtitlex.xyz/${lng}/subtitles/${uuid}/${seed.video_no || seed.video_name}/${seed.language}`,
-        languages:alternates()
+        canonical: `https://www.subtitlex.xyz/${lng}/subtitles/${uuid}/${
+          seed.video_no || seed.video_name
+        }/${seed.language}`,
+        languages: alternates(),
       },
     };
   } else {
@@ -121,16 +124,23 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
 
   return (
     <div className="container mx-auto px-4">
-      
       <div className="mt-6 md:mt-10">
         <div className="max-w-3xl mx-auto">
           <div className="my-2 mx-auto">
             <ResultDetailSubscribeInstruct subText={subText} lng={lng} />
           </div>
           <DetailCard subtitle={seed} lng={lng}></DetailCard>
-          <div className="my-4">
-            <DetailOperations subText={subText} subtitleUuid={uuid} seed={seed} lng={lng} />
+
+          <div className="my-6">
+            <SubtitleDemo lng={lng} uuid={uuid}></SubtitleDemo>
           </div>
+          <div className="my-4">
+        <DetailOperations
+          subtitleUuid={uuid}
+          seed={seed}
+          lng={lng}
+        />
+      </div>
         </div>
       </div>
       <div className="pt-6 md:pt-10">
