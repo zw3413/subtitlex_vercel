@@ -45,7 +45,8 @@ export default async function SubtitleDemo({
         readOnly
         id="message"
         rows="4"
-        className="h-[1000px] block p-2.5 w-full text-sm  rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white overflow-clip "
+        disabled
+        className=" select-none h-[1000px] block p-2.5 w-full text-sm  rounded-lg border bg-gray-700 border-gray-600 placeholder-gray-400 text-white overflow-clip "
         placeholder=""
       ></textarea>
     </>
