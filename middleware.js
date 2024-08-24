@@ -53,12 +53,7 @@ export async function middleware(req) {
 
   const pathname = req.nextUrl.pathname;
 
-  if (pathname.includes("/result/detail/")) {
-    let newPath = pathname.replace("/result/detail/", "/subtitles/");
-    const newUrl = new URL(newPath, req.nextUrl.origin);
-    console.log("redirect url", newUrl.toString());
-    return NextResponse.redirect(newUrl);
-  }
+
 
 
 
@@ -135,9 +130,16 @@ export async function middleware(req) {
     clientIp,
     isIpAllowed(clientIp) ? "Googlebot" :""
   );
-  if (pathname.includes("/subtitles/")) {
+  if (pathname.includes("/subtitles/") || pathname.includes("/result/detail/")) {
+
+    // if () {
+    //   let newPath = ;
+    //   const newUrl = new URL(newPath, req.nextUrl.origin);
+    //   console.log("redirect url", newUrl.toString());
+    //   return NextResponse.redirect(newUrl);
+    // }
     
-    let newPath = pathname;
+    let newPath = pathname.replace("/result/detail/", "/subtitles/");
     //去掉最后两段
     const pathSegments = newPath.split("/");
     if (pathSegments.length >= 5) {
