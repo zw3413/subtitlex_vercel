@@ -124,10 +124,21 @@ async function DetailCard({ subtitle, lng }) {
                   scope="row"
                   className="px-6 py-4 font-medium  whitespace-nowrap  text-white bg-gray-800"
                 >
-                  {t("Duration")}
+                  {t("Video Duration")}
                 </td>
                 <td className="text-white px-6 py-4">
                   {subtitle.video_length}
+                </td>
+              </tr>
+              <tr className="border-b border-gray-200 dark:border-gray-700">
+                <td
+                  scope="row"
+                  className="px-6 py-4 font-medium  whitespace-nowrap  text-white bg-gray-800"
+                >
+                  {t("Subtitle Duration")}
+                </td>
+                <td className="text-white px-6 py-4">
+                  {subtitle.duration}
                 </td>
               </tr>
               <tr className="border-b border-gray-200 dark:border-gray-700">
