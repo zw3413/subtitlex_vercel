@@ -52,12 +52,12 @@ const isIpAllowed = (ip) => {
 export async function middleware(req) {
   const pathname = req.nextUrl.pathname;
 
-  if (pathname.includes("/result/detail/")) {
-    let newPath = pathname.replace("/result/detail/", "/subtitles/");
-    const newUrl = new URL(newPath, req.nextUrl.origin);
-    console.log("redirect url", newUrl.toString());
-    return NextResponse.redirect(newUrl,{status:301});
-  }
+  // if (pathname.includes("/result/detail/")) {
+  //   let newPath = pathname.replace("/result/detail/", "/subtitles/");
+  //   const newUrl = new URL(newPath, req.nextUrl.origin);
+  //   console.log("redirect url", newUrl.toString());
+  //   return NextResponse.redirect(newUrl,{status:301});
+  // }
 
   const response = NextResponse.next();
   let lng;
@@ -132,7 +132,7 @@ export async function middleware(req) {
     clientIp,
     isIpAllowed(clientIp) ? "Googlebot" : ""
   );
-  if (pathname.includes("/subtitles/")) {
+  if (pathname.includes("/subtitles/") ||pathname.includes("/result/detail/")) {
     // if () {
     //   let newPath = ;
     //   const newUrl = new URL(newPath, req.nextUrl.origin);
@@ -140,7 +140,7 @@ export async function middleware(req) {
     //   return NextResponse.redirect(newUrl);
     // }
 
-    let newPath = pathname;
+    let newPath = pathname.replace("/result/detail/", "/subtitles/");;
     //去掉最后两段
     const pathSegments = newPath.split("/");
     if (pathSegments.length >= 5) {
