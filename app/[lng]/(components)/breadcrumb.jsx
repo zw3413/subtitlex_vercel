@@ -6,7 +6,7 @@ export default async function Breadcrumb({lng, seed}) {
       <ol className="inline-flex items-center space-x-1 md:space-x-2 rtl:space-x-reverse">
         <li className="inline-flex items-center">
           <a
-            href={"/${lng}"}
+            href={`/${lng}`}
             className="inline-flex items-center text-sm font-medium  text-gray-400 hover:text-white"
           >
             <svg
