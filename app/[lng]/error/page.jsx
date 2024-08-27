@@ -10,11 +10,11 @@ export default async function Error({ params: { lng }, searchParams }) {
         <div>{searchParams.rc}</div>
         <div>{searchParams.rm}</div>
         <p>
-          <Link className="text-color-jable pe-2 underline" href="/">
+          <Link className="text-color-jable pe-2 underline" href={`/${lng}`} target="_self">
             {t("Return to Home Page")}
           </Link>
           {t("or")}
-          <Link className=" underline px-2" href="/Member">
+          <Link className=" underline px-2" href="/Member" target="_self">
             {t("Feedback an Issue")}
           </Link>
           .
