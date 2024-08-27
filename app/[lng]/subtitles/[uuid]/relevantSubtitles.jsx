@@ -21,7 +21,7 @@ export default function RelevantSubtitles({ lng, uuid }) {
 
   useEffect(() => {
     fetchRelevantSubtitles();
-  });
+  },[]);
 
   return (
      seedList.length > 0 && (
