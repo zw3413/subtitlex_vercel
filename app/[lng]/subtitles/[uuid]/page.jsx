@@ -13,6 +13,9 @@ import DetailOperations from "./detailOperations";
 import DetailCard from "./detailCard";
 import { languages } from "../../../i18n/settings";
 import SubtitleDemo from "./subtitleDemo.jsx";
+import Breadcrumb from "../../(components)/breadcrumb";
+import RelevantSubtitles from "./relevantSubtitles"
+import ActressOtherProduction from "./actressOtherProduction"
 const getSeed = cache(async (uuid) => {
   const response = await searchSubtitleByUUID(uuid);
   if (
@@ -126,6 +129,9 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
     <div className="container mx-auto px-4">
       <div className="mt-6 md:mt-10">
         <div className="max-w-3xl mx-auto">
+          <div>
+            <Breadcrumb lng={lng} seed={seed} />
+          </div>
           <div className="my-2 mx-auto">
             <ResultDetailSubscribeInstruct subText={subText} lng={lng} />
           </div>
@@ -135,14 +141,20 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
             <SubtitleDemo lng={lng} uuid={uuid}></SubtitleDemo>
           </div>
           <div className="my-4">
-        <DetailOperations
-          subtitleUuid={uuid}
-          seed={seed}
-          lng={lng}
-        />
-      </div>
+            <DetailOperations subtitleUuid={uuid} seed={seed} lng={lng} />
+          </div>
         </div>
       </div>
+
+
+      <div className="pt-6 md:pt-10">
+        <RelevantSubtitles lng={lng} uuid={uuid} />
+      </div>
+
+      <div className="pt-6 md:pt-10">
+        <ActressOtherProduction lng={lng} uuid={uuid} language={seed.language}/>
+      </div>
+
       <div className="pt-6 md:pt-10">
         <SearchForm lng={lng} />
       </div>

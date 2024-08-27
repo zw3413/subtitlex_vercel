@@ -70,5 +70,13 @@
 "Check DEMO before download the full version": "전체 버전을 다운로드하기 전에 데모를 확인해 주세요",
 "Please feedback any issue to developer": "문제에 대한 피드백은 언제든지 환영입니다, 연락주세요",
 "Video Duration": "동영상 지속 시간",
-"Subtitle Duration": "자막 지속 시간"
+"Subtitle Duration": "자막 지속 시간",
+"Home": "홈",
+"Subtitles Recently Added": "최근 추가된 자막",
+"Upload Time": "업로드 시간",
+"subtitle_count": "총 {{videosCount}}개의 개별 비디오에 대해 {{subsCount}}개의 개별 자막",
+"actress_other_production_title": "배우의 {{language}} 자막",
+"Actress": "배우",
+"Subtitles Relevant": "관련 자막",
+"At least 4 characters!": "최소 4자 이상이어야 합니다!"
 }

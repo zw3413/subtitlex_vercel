@@ -70,5 +70,13 @@
 "Check DEMO before download the full version": "完全版をダウンロードする前に、デモを確認してください",
 "Please feedback any issue to developer": "問題に関するフィードバックは歓迎です、お気軽にお問い合わせください",
 "Video Duration": "ビデオの長さ",
-"Subtitle Duration": "字幕の長さ"
+"Subtitle Duration": "字幕の長さ",
+"Home": "ホーム",
+"Subtitles Recently Added": "最近追加された字幕",
+"Upload Time": "アップロード時間",
+"subtitle_count": "合計 {{videosCount}} 本の動画に対して {{subsCount}} 件の個別字幕",
+"actress_other_production_title": "女優の {{language}} 字幕",
+"Actress": "女優",
+"Subtitles Relevant": "関連字幕",
+"At least 4 characters!": "最低4文字必要です！"
 }

@@ -70,5 +70,13 @@
 "Check DEMO before download the full version": "Sila semak DEMO sebelum memuat turun versi penuh",
 "Please feedback any issue to developer": "Sebaiknya maklum balas sebarang isu diberikan, sila hubungi",
 "Video Duration": "Tempoh Video",
-"Subtitle Duration": "Tempoh Subtitel"
+"Subtitle Duration": "Tempoh Subtitel",
+"Home": "Laman Utama",
+"Subtitles Recently Added": "Sari Kata Baru Ditambah",
+"Upload Time": "Masa Muat Naik",
+"subtitle_count": "Jumlah {{subsCount}} sari kata berbeza untuk {{videosCount}} video berbeza",
+"actress_other_production_title": "Sari Kata dalam {{language}} untuk Pelakon Wanita",
+"Actress": "Pelakon Wanita",
+"Subtitles Relevant": "Sari Kata Berkaitan",
+"At least 4 characters!": "Sekurang-kurangnya 4 aksara!"
 }

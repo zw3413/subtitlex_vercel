@@ -70,5 +70,14 @@
     "Check DEMO before download the full version":"Please review the demonstration in advance",
     "Please feedback any issue to developer":"Any issue feedback is welcome, please contact",
     "Video Duration":"Video Duration",
-    "Subtitle Duration":"Subtitle Duration"
+    "Subtitle Duration":"Subtitle Duration",
+    "Home":"Home",
+    "Subtitles Recently Added":"Subtitles Recently Added",
+    "Upload Time":"Upload Time",
+    "subtitle_count" :" Totally {{subsCount}} distinct subtitles for {{videosCount}} distinct videos",
+    "actress_other_production_title":"  Subtitles in {{language}} of Actress",
+    "Actress":"Actress",
+    "Subtitles Relevant":"Subtitles Relevant",
+    "At least 4 characters!":"At least 4 characters!"
+
 }

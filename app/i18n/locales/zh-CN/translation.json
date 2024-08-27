@@ -70,6 +70,14 @@
 "Check DEMO before download the full version": "请在下载完整版之前先查看演示版",
 "Please feedback any issue to developer": "欢迎对任何问题提供反馈，请联系",
 "Video Duration": "视频时长",
-"Subtitle Duration": "字幕时长"
+"Subtitle Duration": "字幕时长",
+"Home": "首页",
+"Subtitles Recently Added": "最近添加的字幕",
+"Upload Time": "上传时间",
+"subtitle_count": "共有 {{subsCount}} 个不同字幕，适用于 {{videosCount}} 个不同视频",
+"actress_other_production_title": "女演员的 {{language}} 字幕",
+"Actress": "女演员",
+"Subtitles Relevant": "相关字幕",
+"At least 4 characters!": "至少4个字符！"
 
 }

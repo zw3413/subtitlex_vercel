@@ -70,6 +70,14 @@
 "Check DEMO before download the full version": "يرجى مراجعة النسخة التجريبية قبل تنزيل النسخة الكاملة",
 "Please feedback any issue to developer": "مرحبا بأي ملاحظات حول المشكلات، يرجى الاتصال",
 "Video Duration": "مدة الفيديو",
-"Subtitle Duration": "مدة الترجمة النصية"
+"Subtitle Duration": "مدة الترجمة النصية",
+"Home": "الرئيسية",
+  "Subtitles Recently Added": "الترجمات المضافة حديثًا",
+  "Upload Time": "وقت الرفع",
+  "subtitle_count": "إجمالي {{subsCount}} ترجمة مميزة لـ {{videosCount}} فيديو مميز",
+  "actress_other_production_title": "الترجمات باللغة {{language}} للممثلة",
+  "Actress": "الممثلة",
+  "Subtitles Relevant": "الترجمات ذات الصلة",
+  "At least 4 characters!": "على الأقل 4 أحرف!"
 
 }

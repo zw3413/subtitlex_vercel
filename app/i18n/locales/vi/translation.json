@@ -70,5 +70,13 @@
 "Check DEMO before download the full version": "Vui lòng kiểm tra bản demo trước khi tải xuống phiên bản đầy đủ",
 "Please feedback any issue to developer": "Bất kỳ phản hồi về vấn đề nào đều được chào đón, vui lòng liên hệ",
 "Video Duration": "Thời lượng Video",
-"Subtitle Duration": "Thời lượng Phụ đề"
+"Subtitle Duration": "Thời lượng Phụ đề",
+"Home": "Trang chủ",
+"Subtitles Recently Added": "Phụ đề mới thêm gần đây",
+"Upload Time": "Thời gian tải lên",
+"subtitle_count": "Tổng cộng {{subsCount}} phụ đề riêng biệt cho {{videosCount}} video riêng biệt",
+"actress_other_production_title": "Phụ đề bằng {{language}} của Diễn viên",
+"Actress": "Diễn viên",
+"Subtitles Relevant": "Phụ đề liên quan",
+"At least 4 characters!": "Ít nhất 4 ký tự!"
 }

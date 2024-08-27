@@ -70,5 +70,13 @@
 "Check DEMO before download the full version": "Por favor, revise la demostración antes de descargar la versión completa",
 "Please feedback any issue to developer": "Cualquier retroalimentación de problemas es bienvenida, por favor contacte",
 "Video Duration": "Duración del video",
-"Subtitle Duration": "Duración de los subtítulos"
+"Subtitle Duration": "Duración de los subtítulos",
+"Home": "Inicio",
+"Subtitles Recently Added": "Subtítulos añadidos recientemente",
+"Upload Time": "Tiempo de subida",
+"subtitle_count": "En total {{subsCount}} subtítulos distintos para {{videosCount}} videos distintos",
+"actress_other_production_title": "Subtítulos en {{language}} de la actriz",
+"Actress": "Actriz",
+"Subtitles Relevant": "Subtítulos relevantes",
+"At least 4 characters!": "¡Al menos 4 caracteres!"
 }

@@ -6,7 +6,7 @@ export default async function Error({ params: { lng }, searchParams }) {
   const { t } = await useTranslation(lng, "notfound");
   return (
     <>
-      <div>
+      <div className="container mx-auto px-4  py-8 sm:px-6 lg:px-8">
         <div>{searchParams.rc}</div>
         <div>{searchParams.rm}</div>
         <p>

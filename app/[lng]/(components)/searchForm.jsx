@@ -1,7 +1,7 @@
 "use client";
 import { useTranslation } from "../../i18n/client";
 import { useState } from "react";
-
+import SubtitleCount from "./subtitleCount";
 export default function SearchForm({ inHint, placeholder, t, lng }) {
   if (!t) {
     // eslint-disable-next-line react-hooks/rules-of-hooks
@@ -57,9 +57,11 @@ export default function SearchForm({ inHint, placeholder, t, lng }) {
       </div>
       {isError && (
         <p className="mt-2 text-sm sm:text-base text-red-600 dark:text-red-400">
-          <span className="font-medium">At least 4 characters!</span>
+          <span className="font-medium">{t('At least 4 characters!')}</span>
         </p>
       )}
+      <SubtitleCount lng={lng} />
     </form>
+    
   );
 }
