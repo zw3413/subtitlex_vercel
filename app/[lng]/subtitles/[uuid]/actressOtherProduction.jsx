@@ -25,7 +25,7 @@ export default function RelevantSubtitles({ lng, uuid, language }) {
   },[]);
 
   return (seedList.length > 0 &&(
-    <div className="  container max-w-3xl mx-auto bg-color-jable p-6 sm:p-10 rounded-lg shadow-lg">
+    <div className="  container max-w-3xl mx-auto bg-purple-600 p-6 sm:p-10 rounded-lg shadow-lg">
       <h1>
         <Trans i18nKey = "actress_other_production_title" t={t}>
         Subtitles in {{language}} of Actress

@@ -8,7 +8,7 @@ async function DetailCard({ subtitle, lng }) {
   return (
     <>
      
-      <hr className=" w-full h-px bg-gray-500 border-0 rounded font-thin" />
+      <hr className=" w-full h-px bg-gray-500 border-0 rounded font-thin my-2" />
 
       <div className="mt-6 flex flex-col flex-wrap w-full">
         <div className="w-full flex text-center  place-content-center ">

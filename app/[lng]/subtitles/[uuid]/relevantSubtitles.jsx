@@ -25,7 +25,7 @@ export default function RelevantSubtitles({ lng, uuid }) {
 
   return (
      seedList.length > 0 && (
-    <div className="  container max-w-3xl mx-auto bg-color-jable p-6 sm:p-10 rounded-lg shadow-lg">
+    <div className="  container max-w-3xl mx-auto bg-purple-600 p-6 sm:p-10 rounded-lg shadow-lg">
       <h1>{t('Subtitles Relevant')}</h1>
       <table className="text-sm text-left rtl:text-right text-gray-400 w-full">
         <thead className="text-xs  uppercase bg-gray-700 text-gray-400">
