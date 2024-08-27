@@ -50,12 +50,14 @@ const isIpAllowed = (ip) => {
 };
 //middleware 用于i18n的redirecting
 export async function middleware(req) {
-
   const pathname = req.nextUrl.pathname;
 
-
-
-
+  if (pathname.includes("/result/detail/")) {
+    let newPath = pathname.replace("/result/detail/", "/subtitles/");
+    const newUrl = new URL(newPath, req.nextUrl.origin);
+    console.log("redirect url", newUrl.toString());
+    return NextResponse.redirect(newUrl,{status:301});
+  }
 
   const response = NextResponse.next();
   let lng;
@@ -102,7 +104,7 @@ export async function middleware(req) {
     for (const [key, value] of req.nextUrl.searchParams.entries()) {
       newUrl.searchParams.append(key, value);
     }
-    return NextResponse.redirect(newUrl);
+    return NextResponse.redirect(newUrl, { status: 302 });
   }
   //如果header中有referer，则使用和原来一致的lng，并修改cookie中lng
   if (req.headers.has("referer")) {
@@ -128,18 +130,17 @@ export async function middleware(req) {
   console.log(
     "user client ip:",
     clientIp,
-    isIpAllowed(clientIp) ? "Googlebot" :""
+    isIpAllowed(clientIp) ? "Googlebot" : ""
   );
-  if (pathname.includes("/subtitles/") || pathname.includes("/result/detail/")) {
-
+  if (pathname.includes("/subtitles/")) {
     // if () {
     //   let newPath = ;
     //   const newUrl = new URL(newPath, req.nextUrl.origin);
     //   console.log("redirect url", newUrl.toString());
     //   return NextResponse.redirect(newUrl);
     // }
-    
-    let newPath = pathname.replace("/result/detail/", "/subtitles/");
+
+    let newPath = pathname;
     //去掉最后两段
     const pathSegments = newPath.split("/");
     if (pathSegments.length >= 5) {
@@ -151,8 +152,6 @@ export async function middleware(req) {
     console.log("rewrite url", newUrl.toString());
     return NextResponse.rewrite(newUrl);
   }
-
-
 
   return response;
 }

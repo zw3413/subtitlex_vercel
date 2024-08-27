@@ -61,7 +61,7 @@ export default function ResultDetailDownloadButton({
         onClick={handleClick}
         id="download"
         type="button"
-        className=" h-14 text-base px-5 py-1 mx-2 font-medium rounded-lg  text-color-jable bg-blue-800 hover:bg-blue-700 hover:text-white  "
+        className=" h-14 text-base px-5 py-1 mx-2 font-medium rounded-lg  hover:text-color-jable hover:bg-blue-800 bg-blue-700 text-white  "
       >
         {t("Download")}
       </button>

@@ -7,11 +7,7 @@ async function DetailCard({ subtitle, lng }) {
   const { t } = await useTranslation(lng);
   return (
     <>
-      <h1 className="text-center sm:text-start text-2xl sm:text-5xl font-extrabold text-white my-2">
-        {subtitle.video_name} - {t(subtitle.language)} {t("Subtitles")}
-      </h1>
-      <div className="my-4">{subtitle.video_description}</div>
-
+     
       <hr className=" w-full h-px bg-gray-500 border-0 rounded font-thin" />
 
       <div className="mt-6 flex flex-col flex-wrap w-full">

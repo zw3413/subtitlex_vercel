@@ -135,6 +135,11 @@ export default async function SearchDetail({ params: { uuid, lng } }) {
           <div className="my-2 mx-auto">
             <ResultDetailSubscribeInstruct subText={subText} lng={lng} />
           </div>
+          <h1 className="text-center sm:text-start text-2xl sm:text-5xl font-extrabold text-white my-2">
+        {seed.video_name} - {t(seed.language)} {t("Subtitles")}
+      </h1>
+      <div className="my-4">{seed.video_description}</div>
+      <DetailOperations subtitleUuid={uuid} seed={seed} lng={lng} />
           <DetailCard subtitle={seed} lng={lng}></DetailCard>
 
           <div className="my-6">
