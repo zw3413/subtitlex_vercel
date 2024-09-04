@@ -296,11 +296,11 @@ export default function Home() {
             <p className="text-lg sm:pl-10">
               By visiting this page on our website:  
               <a
-                href="https://www.subtitlex.xyz/Memeber"
+                href="https://www.subtitlex.xyz/Member"
                 rel="external nofollow noopener"
                 target="_blank"
               >
-                https://www.subtitlex.xyz/Memeber
+                https://www.subtitlex.xyz/Member
               </a>
             </p>
           </li>
