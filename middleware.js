@@ -4,6 +4,36 @@ import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
 import { subtitleXserverApi } from "./constants";
 import { cidrRanges } from "./cidr";
 import ipRangeCheck from "ip-range-check";
+import {notFound} from "next/navigation"
+
+export const fetchVideoInfo = async(uuid)=>{
+
+  const url = subtitleXserverApi+"/get_subtitle_info?subtitleUuid="+uuid
+  const response = await fetch(url,{method:"POST"})
+  if(response.status!=200){
+    return null
+  }else{
+    const result =  await response.json()
+    if(result && result.length>0){
+      return {video_no : result[0]["video_no"], language: result[0]["language_name"]}
+    }else{
+      return null
+    }
+
+  }
+}
+const uuid_videono_language = {}
+const findInfoOfSubtitle = async (uuid) => {
+  let videoInfo = uuid_videono_language[uuid]
+  if(!videoInfo){
+    videoInfo = await fetchVideoInfo(uuid)
+    uuid_videono_language[uuid] = videoInfo
+    if(!videoInfo){
+      return null
+    }
+  }
+  return videoInfo
+}
 
 acceptLanguage.languages(languages);
 
@@ -132,7 +162,26 @@ export async function middleware(req) {
     clientIp,
     isIpAllowed(clientIp) ? "Googlebot" : ""
   );
-  if (pathname.includes("/subtitles/") ||pathname.includes("/result/detail/")) {
+
+
+  if(pathname.includes("/result/detail/")){
+    let newPath = pathname.replace("/result/detail/", "/subtitles/");;
+    //the last part of newUrl is uuid of subtitle, extract the uuid from the newUrl
+    const uuid = newPath.split("/").pop();
+    const videoInfo = await findInfoOfSubtitle(uuid)
+    if(!videoInfo){
+      notFound() ;
+    }
+    const videono = videoInfo.video_no
+    const language = videoInfo.language
+    const newUrl = new URL(`${newPath}/${videono}/${language}`, req.nextUrl.origin);
+
+    console.log("redirect url", newUrl.toString());
+    return NextResponse.redirect(newUrl, {status:301});
+  }
+
+
+  if (pathname.includes("/subtitles/") ) {
     // if () {
     //   let newPath = ;
     //   const newUrl = new URL(newPath, req.nextUrl.origin);
@@ -140,7 +189,7 @@ export async function middleware(req) {
     //   return NextResponse.redirect(newUrl);
     // }
 
-    let newPath = pathname.replace("/result/detail/", "/subtitles/");;
+    let newPath = pathname;
     //去掉最后两段
     const pathSegments = newPath.split("/");
     if (pathSegments.length >= 5) {
@@ -150,7 +199,7 @@ export async function middleware(req) {
     }
     const newUrl = new URL(newPath, req.nextUrl.origin);
     console.log("rewrite url", newUrl.toString());
-    return NextResponse.rewrite(newUrl);
+    return NextResponse.rewrite(newUrl)
   }
 
   return response;
