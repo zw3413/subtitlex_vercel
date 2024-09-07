@@ -198,7 +198,7 @@ export async function middleware(req) {
       newPath = pathSegments.join("/");
     }
     const newUrl = new URL(newPath, req.nextUrl.origin);
-    console.log("rewrite url", newUrl.toString());
+    //console.log("rewrite url", newUrl.toString());
     return NextResponse.rewrite(newUrl)
   }
 

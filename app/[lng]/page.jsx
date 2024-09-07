@@ -5,6 +5,40 @@ import SearchForm from "./(components)/searchForm";
 import InstallChromeExtensionButton from "./(components)/installChromeExtensionButton";
 import { UseTranslation } from "../i18n";
 import RecentlyAdded from "./(components)/recentlyAdded";
+import { languages } from "../i18n/settings";
+export async function generateMetadata({ params: { lng } }) {
+  const { t } = await UseTranslation(lng);
+
+  function alternates() {
+    let alternates = {};
+    languages.map((lng) => {
+      alternates[lng] = `https://www.subtitlex.xyz/${lng}`;
+    });
+    return alternates;
+  }
+  return {
+
+      title: "HOME",
+    openGraph: {
+      description:
+        `${t("Free download subtitles (captions) of")} `,
+      images: ["https://www.subtitlex.xyz/images/subtitlex-512-transparent.png"],
+    },
+    twitter: {
+      card: "summary",
+      title: "SubtitleX",
+      description:
+        `${t("Free download subtitles (captions) of")} .` ,
+      creator: "@subtitlex_xyz",
+      site: "https://www.subtitlex.xyz",
+      image: "https://www.subtitlex.xyz/images/subtitlex-512-transparent.png",
+    },
+    alternates: {
+      canonical: `https://www.subtitlex.xyz/${lng}`,
+      languages: alternates(),
+    },
+  };
+}
 
 export default async function Home({ params: { lng } }) {
   const { t } = await UseTranslation(lng, "main");
