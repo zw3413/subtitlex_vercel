@@ -4,36 +4,42 @@ import { fallbackLng, languages, cookieName } from "./app/i18n/settings";
 import { subtitleXserverApi } from "./constants";
 import { cidrRanges } from "./cidr";
 import ipRangeCheck from "ip-range-check";
-import {notFound} from "next/navigation"
+import { notFound } from "next/navigation";
 
-export const fetchVideoInfo = async(uuid)=>{
-
-  const url = subtitleXserverApi+"/get_subtitle_info?subtitleUuid="+uuid
-  const response = await fetch(url,{method:"POST"})
-  if(response.status!=200){
-    return null
-  }else{
-    const result =  await response.json()
-    if(result && result.length>0){
-      return {video_no : result[0]["video_no"], language: result[0]["language_name"]}
-    }else{
-      return null
+export const fetchVideoInfo = async (uuid) => {
+  const url = subtitleXserverApi + "/get_subtitle_info?subtitleUuid=" + uuid;
+  try {
+    const response = await fetch(url, { method: "POST" });
+    if (response.status != 200) {
+      return null;
+    } else {
+      const result = await response.json();
+      if (result && result.length > 0) {
+        return {
+          video_no: result[0]["video_no"],
+          language: result[0]["language_name"],
+        };
+      } else {
+        return null;
+      }
     }
-
+  } catch (e) {
+    console.error(e);
+    return null;
   }
-}
-const uuid_videono_language = {}
+};
+const uuid_videono_language = {};
 const findInfoOfSubtitle = async (uuid) => {
-  let videoInfo = uuid_videono_language[uuid]
-  if(!videoInfo){
-    videoInfo = await fetchVideoInfo(uuid)
-    uuid_videono_language[uuid] = videoInfo
-    if(!videoInfo){
-      return null
+  let videoInfo = uuid_videono_language[uuid];
+  if (!videoInfo) {
+    videoInfo = await fetchVideoInfo(uuid);
+    uuid_videono_language[uuid] = videoInfo;
+    if (!videoInfo) {
+      return null;
     }
   }
-  return videoInfo
-}
+  return videoInfo;
+};
 
 acceptLanguage.languages(languages);
 
@@ -163,25 +169,27 @@ export async function middleware(req) {
     isIpAllowed(clientIp) ? "Googlebot" : ""
   );
 
-
-  if(pathname.includes("/result/detail/")){
-    let newPath = pathname.replace("/result/detail/", "/subtitles/");;
+  if (pathname.includes("/result/detail/")) {
+    let newPath = pathname.replace("/result/detail/", "/subtitles/");
     //the last part of newUrl is uuid of subtitle, extract the uuid from the newUrl
     const uuid = newPath.split("/").pop();
-    const videoInfo = await findInfoOfSubtitle(uuid)
-    if(!videoInfo){
-      notFound() ;
+    const videoInfo = await findInfoOfSubtitle(uuid);
+    if (!videoInfo) {
+      return NextResponse.rewrite(new URL(`/${lng}/error`, req.nextUrl.origin))
+//      notFound();
     }
-    const videono = videoInfo.video_no
-    const language = videoInfo.language
-    const newUrl = new URL(`${newPath}/${videono}/${language}`, req.nextUrl.origin);
+    const videono = videoInfo.video_no;
+    const language = videoInfo.language;
+    const newUrl = new URL(
+      `${newPath}/${videono}/${language}`,
+      req.nextUrl.origin
+    );
 
     console.log("redirect url", newUrl.toString());
-    return NextResponse.redirect(newUrl, {status:301});
+    return NextResponse.redirect(newUrl, { status: 301 });
   }
 
-
-  if (pathname.includes("/subtitles/") ) {
+  if (pathname.includes("/subtitles/")) {
     // if () {
     //   let newPath = ;
     //   const newUrl = new URL(newPath, req.nextUrl.origin);
@@ -199,7 +207,7 @@ export async function middleware(req) {
     }
     const newUrl = new URL(newPath, req.nextUrl.origin);
     //console.log("rewrite url", newUrl.toString());
-    return NextResponse.rewrite(newUrl)
+    return NextResponse.rewrite(newUrl);
   }
 
   return response;
