@@ -72,7 +72,7 @@ async function DetailCard({ subtitle, lng }) {
                 </td>
                 <td className="text-white px-6 py-4">{subtitle.video_name}</td>
               </tr>
-              <tr className="border-b border-gray-200 dark:border-gray-700">
+              {/* <tr className="border-b border-gray-200 dark:border-gray-700">
                 <td
                   scope="row"
                   className="px-6 py-4 font-medium  whitespace-nowrap  text-white bg-gray-800"
@@ -83,7 +83,7 @@ async function DetailCard({ subtitle, lng }) {
                 <td className="text-white px-6 py-4">
                   {subtitle.ai_generated}
                 </td>
-              </tr>
+              </tr> */}
               <tr className="border-b border-gray-200 dark:border-gray-700">
                 <td
                   scope="row"
