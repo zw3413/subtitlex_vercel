@@ -1,6 +1,18 @@
 User-agent: *
 Allow: /
 
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
+
 Sitemap:https://www.subtitlex.xyz/sitemap/sitemap_450001_500000_xyu0294r1.xml
 Sitemap:https://www.subtitlex.xyz/sitemap/sitemap_500001_550000_xdksjdatr1.xml
 Sitemap:https://www.subtitlex.xyz/sitemap/sitemap_550000_588933_xyuizatr1.xml
