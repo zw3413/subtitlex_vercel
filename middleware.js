@@ -47,7 +47,7 @@ acceptLanguage.languages(languages);
 export const config = {
   // matcher: '/:lng*'
   matcher: [
-    "/((?!api|robots.txt|_next/static|images|sitemap|_next/image|lensblur|google4f80de537c096c54.html|assets|favicon.ico|sw.js|site.webmanifest).*)",
+    "/((?!api|robots.txt|_next/static|static|images|sitemap|_next/image|lensblur|google4f80de537c096c54.html|assets|favicon.ico|sw.js|site.webmanifest).*)",
   ],
 };
 
