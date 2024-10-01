@@ -44,34 +44,36 @@ export default async function Home({ params: { lng } }) {
   const { t } = await UseTranslation(lng, "main");
 
   return (
-    <div className=" container mx-auto px-4  py-8 sm:px-6 lg:px-8">
-      <h2 className="text-2xl sm:text-3xl text-center font-bold text-color-jable mb-6 sm:mb-8">
+    <div className="container mx-auto px-4 py-12 sm:px-6 lg:px-8 max-w-6xl">
+      <h1 className="text-3xl sm:text-4xl text-center font-bold text-color-jable mb-8 sm:mb-12">
         {t("HEAD_1")}
-      </h2>
-      <div className=" container  mx-auto bg-gradient-to-r from-purple-600 to-color-jable p-6 sm:p-10 rounded-lg shadow-lg">
+      </h1>
+      <div className="bg-gradient-to-r from-purple-600 to-color-jable p-8 sm:p-12 rounded-xl shadow-2xl">
         <Image
           alt="subtitlex"
-          className="mx-auto w-32 h-32 sm:w-48 sm:h-48 mb-6"
+          className="mx-auto w-40 h-40 sm:w-56 sm:h-56 mb-8 transition-transform hover:scale-105"
           src="/images/subtitlex-512-white-transparent.png"
-          width={200}
-          height={200}
+          width={224}
+          height={224}
         />
         <SearchForm lng={lng} />
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-10">
           <InstallChromeExtensionButton lng={lng} />
         </div>
       </div>
 
-      <div className="my-4">
+      <div className="my-12">
         <RecentlyAdded lng={lng} />
       </div>
-      {/* <p className="text-base sm:text-lg max-w-3xl mx-auto text-purple-200 leading-relaxed mt-8 mb-10">
-        {t("DESCRIPTION_1")}
-      </p>
-    
-      <p className="text-base sm:text-lg max-w-3xl mx-auto text-gray-800 leading-relaxed">
-        {t("DESCRIPTION_2")}
-      </p> */}
+      
+      <div className="space-y-6 text-center max-w-3xl mx-auto">
+        <p className="text-lg sm:text-xl text-purple-200 leading-relaxed">
+          {t("DESCRIPTION_1")}
+        </p>
+        <p className="text-lg sm:text-xl text-gray-800 leading-relaxed">
+          {t("DESCRIPTION_2")}
+        </p>
+      </div>
     </div>
   );
 }
