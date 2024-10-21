@@ -2,6 +2,7 @@
 import { useTranslation } from "../../i18n/client";
 import { fetchTextFromURL } from "../../common";
 import { useLocalStorage } from "../../../customHook/useLocalStorage";
+import { useState } from "react";
 export default function ResultDetailDownloadButton({
   subtitleUuid,
   language,
@@ -9,10 +10,12 @@ export default function ResultDetailDownloadButton({
   format,
   lng,
 }) {
+  const [subText,setSubText] = useState('')
   const { t } = useTranslation(lng, "translation");
   const downloadSubtitle = async ({ mode }) => {
     const text = await fetchTextFromURL(subtitleUuid, mode);
-    subText = text;
+    setSubText(text)
+    // subText = text;
   };
 
   const handleClick = async () => {
