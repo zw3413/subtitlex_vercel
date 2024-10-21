@@ -16,6 +16,7 @@ export default function ResultDetailDownloadButton({
     const text = await fetchTextFromURL(subtitleUuid, mode);
     setSubText(text)
     // subText = text;
+    return text;
   };
 
   const handleClick = async () => {
@@ -29,8 +30,8 @@ export default function ResultDetailDownloadButton({
         if (!user?.user_secret) {
           console.error("no user_secret");
         }
-        await downloadSubtitle({ mode: "full" });
-        var blob = new Blob([subText], { type: "text/plain;charset=utf-8" });
+        var text = await downloadSubtitle({ mode: "full" });
+        var blob = new Blob([text], { type: "text/plain;charset=utf-8" });
         var url = URL.createObjectURL(blob);
 
         // 创建一个新的a标签
